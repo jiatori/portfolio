@@ -1,0 +1,667 @@
+@charset "utf-8";
+/* web font */
+@import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css");
+@font-face {
+    font-family: 'InkLipquid';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/InkLipquid.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/* reset */ 
+* {margin: 0;padding: 0;}
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, tbody, tfoot, thead, tr, th, td{margin:0;padding:0;}
+h1, h2, h3, h4, h5, h6 {font-weight: 200; font-size: inherit;}
+a {color: inherit; text-decoration: inherit;}
+img {vertical-align: middle;}
+a img {border: none;}
+li {list-style: none;}
+address, em, i {font-style: normal;}
+a:focus {outline: none}
+button:focus {outline: none}
+
+
+/* layout */
+body {font-family: 'Pretendard'; color: #000; font-size: 16px; font-weight: 300;}
+.wrap {width: 100%; overflow: hidden;}
+.click {font-weight: bold;}
+br.mo {display: none;}
+br.mo2 {display: none;}
+br.mo4 {display: none;} 
+
+
+/* 전체 font 관련 정리 */
+    /* 공통 tit, text, mark */
+    .tit {font-size: 92px; line-height: 0.8; color: #676766; font-family: 'Paytone one';}
+    .text {font-size: 16px; line-height: 1.4;  font-weight: 500; color: rgba(0,0,0,0.8); font-family: 'Pretendard';}
+    .mark {font-size: 14px; font-weight: 400;}
+    /* section.visual */
+    section.visual .marquee {font-size: 52px; font-weight: 400;}
+    section.visual .marquee2 {font-size: 52px; font-weight: 400;}
+    /* section.profile */
+    section.profile .inner .left .name {font-size: 28px; font-weight: 900;}
+    section.profile .inner .left .name span {font-size: 20px; font-weight: 700;}
+    /* section.motto */
+    section.motto .inner .subTit {font-family: 'InkLipquid'; font-size: 54px; font-weight: 400; opacity: 0.7;}
+    /* section.timeline */
+    .timeline .list li .tit {font-size: 32px;}
+    .timeline .list li .text {font-family: 'InkLipquid'; font-size: 18px;}
+    .timeline .list li .subText {font-size: 14px;}
+    /* section.skill */
+    section.skill .inner .toolsDetails .slide li .toolName {font-family: 'Paytone one'; font-size: 24px; line-height: 1; text-transform: uppercase;}
+    section.skill .inner .toolsDetails .slide li .percent {font-family: 'Paytone one'; font-size: 52px; line-height: 1;}
+    /* section.strength */
+    section.skill .strength .subTit {font-size: 24px;}
+    /* section.viewmorel */
+    section.viewMore .inner .textBox .subTit {font-size: 18px; font-weight: 400;}
+
+
+/* FOUC 현상 제거 => 어바웃은 오히려 하면 마퀴텍스트에 렉걸리는듯 */
+.no-js {opacity: 1;}
+
+
+/* right mark */
+.mark {width: 200px; position: fixed; z-index: 99; right: -50px; top: 50%; transform: translateY(-50%) rotate(-90deg); opacity: 0; transition: all 0.3s; color: #666666; text-align: center;}
+.mark span {display: inline-block; width: 9px; height: 9px; background: #FEDF79; border-radius: 50%; margin-right: 10px;}
+/* mark on */
+.mark.on {opacity: 1;}
+
+
+/* 공통 텍스트 스크롤 애니메이션 대상 */
+.textAni span {display: block; padding-bottom: 20px;}
+.textAni span b {font-weight: normal;}
+/* 공통 텍스트 스크롤 애니메이션 적용 */
+.textAni.motion span {overflow: hidden;}
+.textAni.motion span b {display: block; animation-name: textAni; animation-duration: 0.6s;}
+@keyframes textAni {
+    0% {opacity: 0;}
+    30% {opacity: 0; transform: translate3d(0,40px,0) skewY(8deg); transform-origin: top left;}
+}
+/* 공통) 요소 위로 올라오는 애니메이션 */
+@keyframes up {
+    0% {opacity: 0; transform: translateY(100px);}
+}
+section .motion {animation-name: up; animation-duration: 0.6s;}
+
+
+/* 스크롤 위치 확인용 */
+.scrollTopNum {font-size: 70px; position: fixed; left: 0; top: 0; z-index: 500;}
+
+
+/* section.visual */
+section.visual {width: 100%; height: 100vh; position: relative; border-bottom: 1px solid rgba(103, 103, 102, 0.7);}
+section.visual .img {width: 200px; height: 308px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(30deg) skew(-20deg); opacity: 0.2; overflow: hidden;}
+section.visual .img img {width: 100%; height: 100%; object-fit: cover;}
+section.visual .marquee {width: 100%; color: #fff; position: absolute; left:0; top: 50%; transform: translateY(-50%) rotate(-4deg); opacity: 0.5; mix-blend-mode: saturation;}
+section.visual .marquee p {animation: marquee 15s linear infinite; animation-delay: 0.2s; white-space: nowrap; will-change: transform;}
+    @keyframes marquee {
+        0% {transform: translateX(0);}
+        100% {transform: translateX(-100%);}
+    }
+
+section.visual .text {position: absolute; top: 54%; transform: translateY(-50%); right: 28%; opacity: 0;}
+section.visual .text span {font-weight: bold; color: #FEDF79;}
+section.visual .marquee2 {width: 100%; color: #fff; position: absolute; left:0; bottom: 20px; opacity: 0; z-index: -1; mix-blend-mode: difference; box-sizing: border-box;}
+section.visual .marquee2 p {animation: marquee 15s linear infinite; white-space: nowrap; will-change: transform;}
+
+
+/* .lineWrap */
+.lineWrap {position: relative; width: 100%; height: 2650px; background: #bcbcbe;}
+.lineWrap .line {height: 100%; position: absolute; top: 0; left: 50%; transform: translateX(-50%);}
+.lineWrap .line path {stroke: transparent; fill: none;}
+.lineWrap.on .line path {stroke: #676766; fill: none; stroke-width:1px; stroke-dasharray: 3411; stroke-dashoffset: 0; animation-name: dashLine; animation-duration: 2.5s; animation-timing-function: ease-out;}
+    /* svg Animation */
+    @keyframes dashLine {
+        0% {stroke-dashoffset: 3411;}
+        100% {stroke-dashoffset: 0;}
+    }
+
+
+/* section.profile */
+section.profile {width: 100%; height: 50%; position: absolute; top: 0; left: 0;}
+section.profile .inner {width: 1100px; position: absolute; bottom: 20%; left: 50%; transform: translateX(-50%);}
+section.profile .inner .tit {width: 90%; text-align: right; margin-bottom: 30px; text-shadow: 5px 5px 5px rgba(255,255,255,0.1);}
+section.profile .inner .bottom {width: 100%; display: flex; justify-content: space-between; color: #fff;}
+/* .bottom .left */
+section.profile .inner .left {width: 280px; text-align: right; padding-right: 30px; padding-top: 20px; box-sizing: border-box;}
+section.profile .inner .left li {line-height: 1.4;}
+section.profile .inner .left .name {margin-bottom: 30px; color: #000;}
+section.profile .inner .left .name span {display: block; }
+section.profile .inner .left .birth {margin-bottom: 30px; color: #000; font-weight: 700;}
+section.profile .inner .left .details {width: 100%;}
+section.profile .inner .left .details span {display: inline-block; width: 70px; font-weight: 700; text-align: left; float: left;}
+section.profile .inner .left .address {margin-bottom: 30px;}
+/* .bottom .middle img */
+section.profile .inner .middle {width: 320px; height: 500px; position: relative;}
+section.profile .inner .middle img {display: block; width: 270px; position: absolute; bottom: 49px; right: 22px;}
+section.profile .inner .middle img.hover {opacity: 0; transition: all 0.3s;}
+section.profile .inner .middle span {display: block; width: 100%; height: 450px; position: absolute; top: 0; left: 0; border: 1px solid #676766; border-radius: 3px; background: #bcbcbe;}
+    /* on scroll event */
+    section.profile .inner .middle.on img.hover {opacity: 1;}
+/* .bottom .right */
+section.profile .inner .right {width: 480px; padding-left: 30px; padding-top: 100px; box-sizing: border-box;}
+section.profile .inner .right li {line-height: 1.4; margin-bottom: 30px;}
+section.profile .inner .right p {padding-left: 30px;}
+section.profile .inner .right li:last-child p {margin-bottom: 5px;}
+section.profile .inner .right .subTit {font-weight: 700; padding-left: 0;}
+section.profile .inner .right img {width: 23px; padding-left: 2px;}
+section.profile .inner .right img:nth-child(1) {padding-left: 10px;}
+
+
+/* section.motto */
+section.motto {width: 100%; height: 50%; position: absolute; left: 0; bottom: 0;}
+section.motto .inner {width: auto; position: absolute; top: 21%; left: 23%;}
+section.motto .inner .tit {margin-bottom: 70px; text-shadow: 5px 5px 5px rgba(255,255,255,0.1);}
+section.motto .inner .subTit {margin-bottom: 40px; padding-left: 300px; }
+section.motto .inner .text {padding-left: 300px;}
+section.motto .inner .text span {display: inline-block; text-decoration: underline; margin-bottom: 30px;}
+
+
+/* section.timeline */
+.timelineWrap {margin: 0 auto; position: relative; overflow: hidden;}
+.timelineWrap .pin-spacer {padding-bottom: 0; background: #bcbcbe;}
+.height {height: auto; display: flex; justify-content: center; align-items: center;}
+.height .titBox {display: inline-block; position: absolute; top: 0; left: 50%; transform: translateX(-50%); z-index: 2;}
+.height .titBox .tit {margin-bottom: 10px;}
+.height .titBox .text {padding-left: 30px; box-sizing: border-box;}
+
+.timeline .list {display: flex; flex-wrap: nowrap; position: relative; padding: 16% 15% 16% 40%; box-sizing: border-box;}
+.timeline .list li {flex-shrink: 0 !important; width: 400px; height: 450px; border-radius: 3px; position: relative;}
+.timeline .list li.a {transform: rotate(-20deg);}
+.timeline .list li.b {transform: rotate(-10deg);}
+.timeline .list li.c {transform: rotate(10deg);}
+.timeline .list li .tit {font-family: 'pretendard'; position: absolute; top: 186px; left: -75px; transform: rotate(-90deg); font-weight: 100; width: 200px; text-align: right; color: #000; z-index: -1; opacity: 0.7;}
+.timeline .list li .text {width: 200px; opacity: 0.9; position: absolute; bottom: 45px; left: 50%; transform: translateX(-50%); text-align: center; font-weight: 600;}
+.timeline .list li:nth-child(1) .text, .timeline .list li:nth-child(2) .text {padding-bottom: 10px;}
+.timeline .list li .subText {position: absolute; top: -1vw; left: 3vw; color: #000; font-weight: 500; opacity: 0.5; text-align: center;}
+.timeline .list li:nth-child(8) .subText {color: #fff; font-weight: 300; left: -1vw; top: -2vw;}
+.timeline .list li:nth-child(10) .subText {color: #fff; font-weight: 300; right: -50px;}
+/* 배경이미지 */
+.timeline .list li .bg {width: 100%; position: absolute; top: 0; left: 0;filter: contrast(0.8) grayscale(0.7) brightness(1);}
+.timeline .list li .bg img {width: 100%;}
+.timeline .list li:nth-child(4) .bg {filter: contrast(0.8) grayscale(0.9) brightness(1);}
+.timeline .list li:nth-child(7) .bg {filter: contrast(0.8) grayscale(0.9) brightness(1);}
+.timeline .list li:nth-child(8) .bg {filter: contrast(1) grayscale(0.7) brightness(0.8);}
+
+
+
+
+/* section.skill */
+section.skill {width: 100%; height: auto; position: relative; overflow: hidden; padding-bottom: 250px;}
+section.skill svg {width: 1300px; position: absolute; top: 0; left: 50%; transform: translateX(-50%); z-index: -1;}
+    /* animation */
+    section.skill .line3 line {stroke: transparent;}
+    section.skill.on .line3 line {stroke: #fff; fill: none; stroke-width:0.25px; stroke-dasharray: 4300; stroke-dashoffset: 0; animation-name: dashLine3; animation-duration: 3s; animation-timing-function: ease-out;}
+        /* svg Animation */
+        @keyframes dashLine3 {
+            0% {stroke-dashoffset: 4300;}
+            100% {stroke-dashoffset: 0;}
+        }
+section.skill .inner {width: 1300px; padding-top: 300px; margin: 0 auto;}
+section.skill .inner > .tit {background: #000;}
+/* tools */
+section.skill .inner .tools {width: 100%; padding-top: 100px; padding-left: 35%; box-sizing: border-box; margin-bottom: 300px;}
+section.skill .inner .tools > .text {width: 100%; margin-bottom: 30px; position: relative; color: rgba(255,255,255,0.9); font-weight: 300;}
+    /* 왼쪽 하얀 dot 가상선택자 */
+    section.skill .inner .tools > .text::before {content: ''; width: 7px; height: 7px; background: #fff; border-radius: 50%; position: absolute; top: 50%; transform: translateY(-50%); left: -7.2%; opacity: 0.7;}
+section.skill .inner .toolsDetails {width: 100%; position: relative; z-index: 3;}
+section.skill .inner .toolsDetails img {width: 320px;}
+section.skill .inner .toolsDetails .slide {width: 300px; position: absolute; top: 200px; left: 330px;}
+section.skill .inner .toolsDetails .slide li .percent {color: #FEDF79; margin-bottom: 20px;}
+section.skill .inner .toolsDetails .slide li .text {color: rgba(255,255,255,0.7); font-weight: 300;}
+section.skill .inner .toolsDetails .slide li .text span {display: block; opacity: 0.7; padding-top: 5px;}
+/* dots */
+section.skill .slick-dots {width: 30px; height: 30px;}
+section.skill .slick-dots li {width: 30px; height: 30px;}
+section.skill .slick-dots li button {width: 100%; height: 100%; color: transparent; background: transparent; transform: rotate(-10deg); border: none; cursor: pointer;}
+/* dot 위치 조정 */
+section.skill .slick-dots li:nth-child(1) {position: absolute; top: 32px; left: -240px;}
+section.skill .slick-dots li:nth-child(2) {position: absolute; top: 25px; left: -188px;}
+section.skill .slick-dots li:nth-child(3) {position: absolute; top: 19px; left: -139px;}
+section.skill .slick-dots li:nth-child(4) {position: absolute; top: 85px; left: -230px;}
+section.skill .slick-dots li:nth-child(5) {position: absolute; top: 75px; left: -180px;}
+section.skill .slick-dots li:nth-child(6) {position: absolute; top: 68px; left: -132px;}
+section.skill .slick-dots li:nth-child(7) {position: absolute; top: 135px; left: -220px;}
+section.skill .slick-dots li:nth-child(8) {position: absolute; top: 125px; left: -173px;}
+section.skill .slick-dots li:nth-child(9) {position: absolute; top: 118px; left: -124px;}
+section.skill .slick-dots li:nth-child(10) {position: absolute; top: 182px; left: -213px;}
+section.skill .slick-dots li:nth-child(11) {position: absolute; top: 175px; left: -164px;}
+section.skill .slick-dots li:nth-child(12) {position: absolute; top: 168px; left: -115px;}
+
+/* strength */
+section.skill .strength {width: 100%; height: auto; padding-left: 35%; box-sizing: border-box;}
+section.skill .strength > .text {width: 100%; margin-bottom: 80px; position: relative;}
+    /* 왼쪽 하얀 dot 가상선택자 */
+    section.skill .strength > .text::before {content: ''; width: 7px; height: 7px; background: #fff; border-radius: 50%; position: absolute; top: 50%; transform: translateY(-50%); left: -7.2%; opacity: 0.7;}
+section.skill .strength .list li {width: 620px; min-width: 620px; background: #0D0D0D; border-radius: 17px; padding: 30px; box-sizing: border-box; margin-bottom: 270px; position: relative;}
+section.skill .strength .list li::before {content: ''; width: 7px; height: 7px; background: #fff; border-radius: 50%; position: absolute; top: 50%; transform: translateY(-50%); left: -9.8%; opacity: 0.7;}
+section.skill .strength .subTit {color: #FEDF79; margin-bottom: 30px;}
+section.skill .strength .text {line-height: 1.6; color: rgba(255,255,255,0.9); font-weight: 300;}
+
+
+/* section.viewMore */
+section.viewMore {width: 100%; margin-bottom: 300px;}
+section.viewMore .inner {width: 900px; height: 100%; margin: 0 auto;}
+section.viewMore .inner .tit {margin-bottom: 50px;}
+section.viewMore .inner .top {width: 100%; display: flex; justify-content: space-between;margin-bottom: 40px;}
+section.viewMore .inner .top li {width: 50%;}
+section.viewMore .inner .top li:first-child {margin-right: 30px;}
+section.viewMore .inner .top li a {display: block; width: 100%; border: 1px solid rgba(255,255,255,0.5); border-radius: 20px; padding: 40px; box-sizing: border-box; transition: all 0.3s;}
+section.viewMore .inner .img {height: 200px; display: flex; justify-content: center; margin-bottom: 30px;}
+section.viewMore .inner .img img {height: 100%; transition: all 0.3s;}
+section.viewMore .inner .textBox {width: 100%; text-align: center;}
+section.viewMore .inner .textBox .subTit {margin-bottom: 15px;}
+section.viewMore .inner .textBox .text {opacity: 0.7; color: #fff; font-weight: 300;}
+section.viewMore .inner .bottom {width: 100%;}
+section.viewMore .inner .bottom a {display: block; width: 100%; border: 1px solid rgba(255,255,255,0.5); border-radius: 20px; padding: 40px; box-sizing: border-box; transition: all 0.3s;}
+section.viewMore .inner .bottom .img {height: 150px; float: left; padding-left: 50px; padding-top: 10px;}
+        /* hover,focus */
+        section.viewMore .inner a:hover img, section.viewMore .inner a:focus img {transform: scale(1.1);}
+        section.viewMore .inner .top li a:hover, section.viewMore .inner .top li a:focus, section.viewMore .inner .bottom a:hover, section.viewMore .inner .bottom a:focus {border: 1px solid #FEDF79;}
+
+
+
+
+
+
+/* -----------------------------responsive Web----------------------------- */
+
+/* ~1920px */
+@media screen and (max-width:1920px) {
+section.visual .text {right: 23%;}
+}
+
+/* ~1580px */
+@media screen and (max-width:1580px) {
+    /* visual */
+    section.visual .text {right: 20%;}
+    /* timeline */
+    .timeline .list {padding: 20% 15% 16% 40%;}
+}
+
+
+/* ~1380px */
+@media screen and (max-width:1380px) {
+    /* 전체 font 관련 정리 */
+        /* 공통 tit, text, mark */
+        .tit {font-size: 72px;}
+        .text {font-size: 15px;}
+        /* 작은 text */
+        .mark, .timeline .list li .subText {font-size: 14px;}
+        /* 큰 text */
+        section.profile .inner .left .name, .timeline .list li .tit {font-size: 28px}
+        section.skill .inner .toolsDetails .slide li .toolName, section.skill .strength .subTit, section.skill .strength .subTit {font-size: 22px;} 
+        section.profile .inner .left .name span, section.viewMore .inner .textBox .subTit {font-size: 18px}
+        /* 서브타이틀급, 마퀴text */
+        section.visual .marquee, section.visual .marquee2, section.skill .inner .toolsDetails .slide li .percent, section.motto .inner .subTit {font-size: 42px;}
+    /* inner width */
+    section.profile .inner, section.motto .inner, section.skill .inner, section.viewMore .inner {width: 800px;}
+    /* visual */
+    section.visual .text {right: 15%;}
+    /* section.profile */
+    section.profile .inner .left {width: 29%;}
+    section.profile .inner .middle {width: 33%; height: 400px;}
+    section.profile .inner .middle span {height: 100%;}
+    section.profile .inner .middle img {width: 230px; bottom: 0; right: 12px;}
+    section.profile .inner .right {width: 39%; padding-top: 65px;}
+    section.profile .inner .right p {padding-left: 1vw;}
+    /* sectio.motto */
+    section.motto .inner .subTit, section.motto .inner .text {padding-left: 100px;}
+    /* section.timeline */
+    .timeline .list {padding: 24% 15% 16% 40%;}
+    .timeline .list li {width: 340px; height: 337px;}
+    .timeline .list li .text {bottom: -10px;}
+    .timeline .list li .tit {left: -81px;}
+    /* section.skill, strength */
+    section.skill .slick-list {left: -65px; top: -20px;}
+    section.skill .inner .toolsDetails img {width: 250px;}
+    section.skill .inner .tools > .text::before, section.skill .strength .list li::before, section.skill .strength > .text::before {left: -10.2%;}
+    section.skill .strength .list li {width: 590px; min-width: 590px;}
+        /* dot 위치 조정 */
+        section.skill .slick-dots li {width: 23px; height: 23px;}
+        section.skill .slick-dots li:nth-child(1) {top: -19px; left: -257px;}
+        section.skill .slick-dots li:nth-child(2) {top: -22px; left: -219px;}
+        section.skill .slick-dots li:nth-child(3) {top: -30px; left: -181px;}
+        section.skill .slick-dots li:nth-child(4) {top: 22px; left: -250px;}
+        section.skill .slick-dots li:nth-child(5) {top: 16px; left: -212px;}
+        section.skill .slick-dots li:nth-child(6) {top: 11px; left: -175px;}
+        section.skill .slick-dots li:nth-child(7) {top: 59px; left: -244px;}
+        section.skill .slick-dots li:nth-child(8) {top: 54px; left: -207px;}
+        section.skill .slick-dots li:nth-child(9) {top: 49px; left: -169px;}
+        section.skill .slick-dots li:nth-child(10) {top: 96px; left: -239px;}
+        section.skill .slick-dots li:nth-child(11) {top: 92px; left: -200px;}
+        section.skill .slick-dots li:nth-child(12) {top: 86px; left: -163px;}
+        section.skill .inner .tools, section.skill .strength  {padding-left: 25.6%;}
+    /* viewmore */
+    section.viewMore .inner .img {height: 150px;}
+    section.viewMore .inner .bottom .img {height: 130px}
+}
+
+
+/* ~1024 */
+@media screen and (max-width:1024px) {
+    /* visual */
+    section.visual .text {width: 400px; top: 57%; left: 10%; right: initial;}
+    /* section.profile */
+    section.profile .inner .middle {width: 26vw; height: 380px;}
+    section.profile .inner .middle img {width: 23vw;}
+}
+
+
+/* ~890 */
+@media screen and (max-width:890px) {
+    /* 전체 font 관련 정리 */
+        /* 공통 tit, text, mark */
+        .tit {font-size: 8vw;}
+        .text {font-size: 1.8vw;}
+        /* 작은 text */
+        .mark, .timeline .list li .subText {font-size: 1.5vw;}
+        .timeline .list li .text {font-size: 16px;}
+        /* 큰 text */
+        section.profile .inner .left .name, .timeline .list li .tit {font-size: 3vw}
+        section.skill .inner .toolsDetails .slide li .toolName, section.skill .strength .subTit, section.skill .strength .subTit {font-size: 3vw;} 
+        section.profile .inner .left .name span, section.viewMore .inner .textBox .subTit {font-size: 2.5vw;}
+        /* 서브타이틀급, 마퀴text */
+        section.visual .marquee, section.visual .marquee2, section.skill .inner .toolsDetails .slide li .percent, section.motto .inner .subTit {font-size: 5vw}
+    /* inner width */
+    section.profile .inner, section.motto .inner, section.skill .inner, section.viewMore .inner {width: 80vw;}
+    /* 공통 */
+    br.mo {display: block;}
+    /* visual */
+    section.visual .img {width: 23%; height: 31%;}
+    /* section.profile */
+    .lineWrap {height: 350vw;}
+    section.profile {height: 60%;}
+    section.motto {height: 40%;}
+    section.profile .inner {position: relative; bottom: initial; left: initial; transform: translateX(0); margin: 0 auto; margin-top: 60vw;}
+    section.motto .inner {position: relative; bottom: initial; left: initial; transform: translateX(0); margin: 0 auto;}
+    section.profile .inner .bottom {flex-wrap: wrap;}
+    section.profile .inner .left {width: 37%; margin-left: 9%; min-width: 208px;}
+    section.profile .inner .middle {width: 44%; margin-right: 9%;}
+    section.profile .inner .middle img {width: 28vw; right: 3vw;}
+    section.profile .inner .tit {text-align: center; margin-bottom: 8vw;}
+    section.profile .inner .right {width: 100%; display: flex; justify-content: space-between; padding: 15vw 0 0;}
+    section.profile .inner .right li {width: 33.3333%; border: 1px solid #676766; border-radius: 3px; padding: 3vw 2vw; margin: 1.5vw; box-sizing: border-box; background-color: #bcbcbe;}
+    section.profile .inner .right .subTit, section.profile .inner .right li p, section.profile .inner .right li:last-child p {margin-bottom: 2vw;}
+    section.profile .inner .right li:nth-child(1) {transform: translateY(-7vw);}
+    section.profile .inner .right li:nth-child(3) {transform: translateY(7vw);}
+    /* section.timeline */
+    .height .titBox {transform: translateX(-75%);}
+    .timeline .list {padding: 35% 15% 16% 40%;}
+    /* section.skill */
+    section.skill {padding-bottom: 30vw;}
+    section.skill svg {width: 163vw;}
+    section.skill .inner .tools > .text, section.skill .strength .list li {width: 90%; min-width: initial;}
+    section.skill .strength .list li {padding: 3.5vw;}
+    section.skill .strength > .text {width: 90%;}
+    section.skill .inner .tools > .text::before, section.skill .strength .list li::before, section.skill .strength > .text::before {left: -9.7%;}
+    section.skill .inner .tools, section.skill .strength {padding-left: 17%;}
+    /* section.viewmore */
+    section.viewMore {margin-bottom: 50vw;}
+    section.viewMore .inner .img {width: 19vw; margin: 0 auto;}
+    section.viewMore .inner .top li a {padding: 3vw;}
+    section.viewMore .inner .textBox .subTit {margin-top: 4vw;}
+    section.viewMore .inner .bottom {position: relative;}
+    section.viewMore .inner .bottom .img {position: absolute; padding: 0; top: 50%; transform: translateY(-50%); left: 7vw;}
+    section.viewMore .inner .bottom .textBox {width: 70%; margin-left: 30%;}
+    section.viewMore .inner .bottom .textBox .subTit {margin-top: 0;}
+}
+
+
+/* ~767 (gsap트리거 모바일에서 제거) */
+@media screen and (max-width:767px) {
+    /* visual */
+        /* 이미지 */
+            .visual.about .img {position: absolute; top: 50%; left: 50%; transform: scale(1) rotate(0deg) skewX(0) translate(-50%, -50%); opacity: 1; width: 100vw; height: 100vh;}
+        /* 텍스트박스 */
+            @keyframes visualMo2 {
+                0% {opacity: 0; transform: translateY(30px);}
+                80% {opacity: 0; transform: translateY(30px);}
+            }
+            section.visual .text {opacity: 1; transform: translateY(0px); animation-name: visualMo2; animation-duration: 0.8s;}
+        /* 마퀴텍스트 1 */
+            section.visual .marquee {display: none;}
+        /* 마퀴텍스트 2 */
+            section.visual .marquee2 {opacity: 1; z-index: 99;}
+    /* section.profile */
+    .lineWrap {background: #ddd;}
+    .lineWrap .line {transform: translateX(-48%);}
+    section.profile .inner .middle span {background: #ccc;}
+    section.profile .inner .middle img {filter: grayscale(1);}
+    section.profile .inner .right li {background: #ccc;}
+    /* section.timeline */
+    .timelineWrap {background:linear-gradient(to bottom, #ddd, #000); padding-top: 15vw;}
+    .height .titBox .tit {padding-top: 10px;}
+    .timeline .list {flex-wrap: wrap;}
+    .timeline .list {padding: 18% 10% 25%;}
+    .timeline .list li .tit {font-weight: 300; opacity: 0.3; color: #fff;}
+    .mark, .timeline .list li .subText {color: #fff; opacity: 0.5;}
+    .timeline .list li .subText {top: 32vw; left: initial; right: -20vw; transform: rotate(20deg);}
+    .timeline .list li:nth-child(8) .subText {left: -21vw; top: -4vw; transform: rotate(-10deg);}
+    .timeline .list li:nth-child(10) .subText {right: initial; top: initial; left: -12vw; bottom: 14vw; transform: rotate(-10deg);}
+        /* 사진 위치조정 */
+        .timeline .list li.c {transform: rotate(10deg) translateX(30vw);}
+        .timeline .list li:nth-child(6) {transform: rotate(10deg) translate(30vw, -10vw);}
+}
+
+
+/* ~690 */
+@media screen and (max-width:690px) {
+    /* 전체 font 관련 정리 */
+        /* 공통 tit, text, mark */
+        .tit {font-size: 8vw;}
+        .text {font-size: 2.2vw;}
+        /* 작은 text */
+        .mark, .timeline .list li .subText {font-size: 1.8vw;}
+        section.skill .strength .text, section.skill .inner .toolsDetails .slide li .text, section.viewMore .inner .textBox .text {font-size: 2.1vw;}
+        /* 큰 text */
+        section.profile .inner .left .name, .timeline .list li .tit {font-size: 4.2vw}
+        section.skill .inner .toolsDetails .slide li .toolName, section.skill .strength .subTit, section.skill .strength .subTit {font-size: 3.2vw;} 
+        section.profile .inner .left .name span, section.viewMore .inner .textBox .subTit {font-size: 2.7vw;}
+        section.visual .text {font-size: 2.4vw;}
+        /* 서브타이틀급, 마퀴text */
+        section.visual .marquee, section.visual .marquee2, section.skill .inner .toolsDetails .slide li .percent, section.motto .inner .subTit {font-size: 6vw}
+    /* 공통 */
+    .mark {right: -70px;}
+    /* section.visual */
+    section.visual .text {top: 50%;}
+    /* section.profile */
+    section.profile .inner {margin-top: 50vw;}
+    section.profile .inner .left {padding-right: 1vw; padding-top: 6vw; margin-left: 3vw; width: 40%; min-width: 187px;}
+    section.profile .inner .middle {margin-right: 3vw; width: 50%; height: 58vw;}
+    section.profile .inner .right {padding: 20vw 0 0;}
+    /* section.motto */
+    section.motto .inner .tit {margin-bottom: 5vw;}
+    section.motto .inner .subTit {margin-bottom: 3vw;}
+    /* section.skill */
+    section.skill svg {width: 190vw;}
+    section.skill .inner .tools, section.skill .strength {padding-left: 11%;}
+    section.skill .slick-list {left: -90px; top: -45px;}
+    /* section.viewMore */
+    section.viewMore .inner .top {flex-wrap: wrap; margin-bottom: 9vw;}
+    section.viewMore .inner .top li, section.viewMore .inner .bottom {width: 95%;}
+    section.viewMore .inner .top li:first-child {margin-right: 0; margin-bottom: 9vw;}
+    section.viewMore .inner .top li a, section.viewMore .inner .bottom a {padding: 4vw;}
+    section.viewMore .inner .bottom .img {position: relative; display: block; top: initial; left: initial; margin: 0 auto 6vw; transform: initial; float: none;}
+    section.viewMore .inner .bottom .textBox {width: 100%; margin-left: 0;}
+}
+
+
+/* ~580 */
+@media screen and (max-width:580px) {
+    /* 전체 font 관련 정리 */
+        /* 공통 tit, text, mark */
+        .tit {font-size: 8vw;}
+        .text, section.skill .strength .text, section.skill .inner .toolsDetails .slide li .text, section.viewMore .inner .textBox .text {font-size: 2.5vw;}
+        /* 작은 text */
+        .mark, .timeline .list li .subText {font-size: 2.2vw;}
+        /* 큰 text */
+        section.profile .inner .left .name, .timeline .list li .tit {font-size: 4.4vw}
+        section.skill .inner .toolsDetails .slide li .toolName, section.skill .strength .subTit, section.skill .strength .subTit {font-size: 3.3vw;} 
+        section.profile .inner .left .name span, section.viewMore .inner .textBox .subTit {font-size: 3.1vw;}
+        section.visual .text {font-size: 2.8vw;}
+        /* 서브타이틀급, 마퀴text */
+        section.visual .marquee, section.visual .marquee2, section.skill .inner .toolsDetails .slide li .percent, section.motto .inner .subTit {font-size: 7vw}
+    /* 공통 */
+    .mark {display: none;}
+    /* lineani */
+    .lineWrap {height: 450vw;}
+    .lineWrap .line {transform: translateX(-39%);}
+    .lineWrap .line path {stroke: #676766; fill: none; stroke-width:1px;}
+    section.skill svg {width: 210vw;}
+    section.skill .line3 line {stroke: #676766; fill: none; stroke-width:1px;}
+    /* section.profile */
+    section.profile .inner .tit {text-align: right;}
+    section.profile .inner .middle {width: 60%; height: 80vw;}
+    section.profile .inner .middle img {width: 45vw; right: 1vw;}
+    section.profile .inner .left {min-width: initial; width: 30%;}
+    section.profile .inner .left .details span {display: block; width: 100%; text-align: right;}
+    section.profile .inner .left .name {margin-bottom: 3vw; opacity: 0.9;}
+    section.profile .inner .left .birth {opacity: 0.9;}
+    section.profile .inner .right {padding: 35vw 0 0;}
+    section.profile .inner .right li {margin: 1vw; padding: 2vw 1vw;}
+    section.profile .inner .right li:nth-child(1) {transform: translateY(-15vw);}
+    section.profile .inner .right li:nth-child(3) {transform: translateY(15vw);}
+    /* section.timeline */
+    .height .titBox {width: 100%; transform: translateX(0); left: initial; text-align: center;}
+    .height .titBox .text {padding-left: 0;}
+    .timeline .list li {width: 280px; height: 285px;}
+    .timeline .list li .tit {left: -84px;}
+    .timeline .list li .text {bottom: -5px;}
+    .timeline .list li:nth-child(8) .subText {top: -6vw;}
+    .timeline .list li:nth-child(10) .subText {left: -5vw; bottom: -15vw;}
+    .height .titBox .text {min-width: 250px;}
+    /* section.skill */
+    section.skill {padding-bottom: 0;}
+    section.skill .inner > .tit {transform: translateX(-3vw);}
+    section.skill .inner .tools, section.skill .strength {padding-left: 7%;}
+    section.skill .inner .tools {margin-bottom: 50vw;}
+    section.skill .slick-list {left: -144px; top: -61px; z-index: 1;}
+    section.skill .inner .toolsDetails img {width: 220px; z-index: -1;}
+    section.skill .inner .tools > .text, section.skill .strength > .text, section.skill .strength .list li {width: 95%;}
+    section.skill .strength .list li {margin-bottom: 35vw;}
+    section.skill .strength .list li:last-child {margin-bottom: 60vw;}
+    section.skill .strength .list li .text br {display: none;}
+    section.skill .inner .tools > .text::before, section.skill .strength .list li::before, section.skill .strength > .text::before {left: -9.9%;}
+        /* 버튼 위치 수정 */
+        section.skill .slick-dots li:nth-child(1) {top: -41px; left: -268px;}
+        section.skill .slick-dots li:nth-child(2) {top: -47px; left: -234px;}
+        section.skill .slick-dots li:nth-child(3) {top: -51px; left: -200px;}
+        section.skill .slick-dots li:nth-child(4) {top: -7px; left: -262px;}
+        section.skill .slick-dots li:nth-child(5) {top: -12px; left: -229px;}
+        section.skill .slick-dots li:nth-child(6) {top: -17px; left: -195px;}
+        section.skill .slick-dots li:nth-child(7) {top: 27px; left: -257px;}
+        section.skill .slick-dots li:nth-child(8) {top: 22px; left: -223px;}
+        section.skill .slick-dots li:nth-child(9) {top: 17px; left: -189px;}
+        section.skill .slick-dots li:nth-child(10) {top: 60px; left: -251px;}
+        section.skill .slick-dots li:nth-child(11) {top: 56px; left: -217px;}
+        section.skill .slick-dots li:nth-child(12) {top: 52px; left: -184px;}
+    /* section.viewmore */
+    section.viewMore .inner .tit {transform: translateX(-3vw);}
+    section.viewMore .inner .bottom .img {height: 22vw;}
+}
+
+
+/* ~490 */
+@media screen and (max-width:490px) {
+    /* 전체 font 관련 정리 */
+        /* 공통 tit, text, mark */
+        .tit {font-size: 8vw;}
+        .text, section.skill .strength .text, section.skill .inner .toolsDetails .slide li .text, section.viewMore .inner .textBox .text, .timeline .list li .subText {font-size: 2.7vw;}
+        /* 큰 text */
+        section.profile .inner .left .name, .timeline .list li .tit {font-size: 4.6vw}
+        section.skill .inner .toolsDetails .slide li .toolName, section.skill .strength .subTit, section.skill .strength .subTit {font-size: 3.5vw;} 
+        section.profile .inner .left .name span, section.viewMore .inner .textBox .subTit {font-size: 3.3vw;}
+        section.visual .text {font-size: 3vw;}
+        /* 서브타이틀급, 마퀴text */
+        section.visual .marquee, section.visual .marquee2, section.skill .inner .toolsDetails .slide li .percent, section.motto .inner .subTit {font-size: 7.3vw}
+    /* 공통 */
+    br.mo2 {display: block;}
+    br.mo4 {display: block;} 
+    /* section.profile */
+    section.profile .inner .left {padding-top: 2vw;}
+    /* section.motto */
+    section.motto .inner .subTit, section.motto .inner .text {padding-left: 10vw;}
+    /* section.timeline */
+    .timeline .list li {width: 236px; height: 265px;}
+    .timeline .list li.c {transform: rotate(10deg) translateX(23vw);}
+    .timeline .list li:nth-child(6) {transform: rotate(10deg) translate(23vw, -10vw);}
+    .timeline .list li .tit {left: -86px;}
+    .timeline .list li .text {bottom: 17px;}
+    .timeline .list li .subText {top: 21vw; right: -29vw;}
+    .timeline .list li:nth-child(8) .subText {left: -28vw;}
+    .timeline .list li:nth-child(10) .subText {left: 3vw; bottom: -8vw; min-width: 250px;}
+    /* section.skill */
+    section.skill .inner .toolsDetails {transform: translateX(-4vw);}
+    section.skill .inner .tools > .text::before, section.skill .strength .list li::before, section.skill .strength > .text::before {left: -10.2%;}
+}
+
+
+/* ~390 */
+@media screen and (max-width:390px) {
+    /* 전체 font 관련 정리 */
+        /* 공통 tit, text, mark */
+        .tit {font-size: 8vw;}
+        .text, section.profile .inner .left .birth, section.skill .strength .text, section.skill .inner .toolsDetails .slide li .text, section.viewMore .inner .textBox .text, .timeline .list li .subText {font-size: 3vw;}
+        /* 큰 text */
+        section.profile .inner .left .name, .timeline .list li .tit {font-size: 5vw}
+        section.skill .inner .toolsDetails .slide li .toolName, section.skill .strength .subTit, section.skill .strength .subTit {font-size: 4vw;}
+        section.skill .strength .subTit {margin-bottom: 4vw;} 
+        section.profile .inner .left .name span, section.viewMore .inner .textBox .subTit {font-size: 3.8vw;}
+        section.visual .text {font-size: 3.4vw;}
+        /* 서브타이틀급, 마퀴text */
+        section.visual .marquee, section.visual .marquee2, section.skill .inner .toolsDetails .slide li .percent, section.motto .inner .subTit {font-size: 8vw;}
+    /* section.profile */
+    .lineWrap {height: 550vw;}
+    .lineWrap .line {transform: translateX(-42%);}
+    section.profile .inner .left {width: 39%; padding-top: 4vw;}
+    section.profile .inner .left .birth, section.profile .inner .left .address {margin-bottom: 5vw;}
+    section.profile .inner .middle {width: 49%; height: 89vw; overflow: hidden; border: 1px solid #676766; border-radius: 3px; min-height: 304px;}
+    section.profile .inner .middle img {width: 56vw; right: -50px;}
+    section.profile .inner .middle span {border: none;}
+    section.profile .inner .right {flex-wrap: wrap;}
+    section.profile .inner .right li {width: 97%; margin: 0 auto; padding: 2vw;}
+    section.profile .inner .right li br.mo, section.profile .inner .right li br.mo2 {display: none;}
+    /* section.timeline */
+    .textAni span {padding-bottom: 1vw;}
+    .timeline .list {padding: 40vw 0 20vw; width: 80%; margin: 0 auto;}
+    .timeline .list li {width: 218px; height: 230px; margin: 0 auto;}
+    .timeline .list li.c {transform: rotate(10deg) translateX(0vw);}
+    .timeline .list li .tit {left: -88px;}
+    .timeline .list li .text {bottom: 7px; line-height: 1.1; font-size: 14px;}
+    .timeline .list li .subText {display: none;}
+    /* section.skill */
+    section.skill svg {transform: translateX(-30%); height: 100%; width: initial;}
+    section.skill .inner {padding-top: 30vw; padding-bottom: 60vw;}
+    section.skill .inner > .tit {text-align: center;}
+    section.skill .inner .tools {padding-top: 10vw; margin-bottom: 0; padding-bottom: 30vw;}
+    section.skill .inner .tools > .text, section.skill .strength > .text, section.skill .strength .list li {width: 97%; text-align: center;}
+    section.skill .inner .tools, section.skill .strength {padding-left: 0;}
+    section.skill .inner .tools > .text::before, section.skill .strength .list li::before, section.skill .strength > .text::before {opacity: 0;}
+    section.skill .inner .toolsDetails {transform: translateX(0);}
+    section.skill .strength > .text {margin-bottom: 10vw;}
+    section.skill .strength .list li {margin-bottom: 20vw; background: #111;}
+    section.skill .strength .list li:last-child {margin-bottom: 0;}
+    section.skill .strength .list .text {opacity: 0.5; line-height: 1.8;}
+    section.skill .slick-list {left: -148px; top: -81px; z-index: 1;}
+    /* section.viewmore */
+    section.viewMore .inner .tit {text-align: center; margin-bottom: 5vw;}
+    section.viewMore .inner .img {height: 30vw;}
+    section.viewMore .inner .textBox .text {opacity: 0.5; line-height: 1.8;}
+    section.viewMore .inner .textBox .text br {display: none;}
+}
+
+
+/* ~349 */
+@media screen and (max-width:349px) {
+    section.skill .slick-list {left: -192px; top: -176px; background: rgba(0,0,0,0.2); padding:7px;}
+    section.skill .inner .toolsDetails .slide li .percent {margin-bottom: 3vw;}
+}
+
+
+/* ~300 */
+@media screen and (max-width:300px) {
+    section.skill .slick-list {left: -217px; top: -203px;}
+}

@@ -1,0 +1,172 @@
+@charset "utf-8";
+/* web font */
+@import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css");
+
+
+/* reset */
+* {margin: 0;padding: 0;}
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, tbody, tfoot, thead, tr, th, td{margin:0;padding:0;}
+h1, h2, h3, h4, h5, h6 {font-weight: 200; font-size: inherit;}
+a {color: inherit; text-decoration: inherit;}
+img {vertical-align: middle;}
+a img {border: none;}
+li {list-style: none;}
+address, em, i {font-style: normal;}
+a:focus {outline: none}
+button:focus {outline: none}
+
+
+/* layout */
+html {scroll-behavior: smooth;}
+body {font-family: 'Pretendard'; background: #000; color: rgba(255,255,255,1);}
+.wrap {width: 100%; overflow: hidden; overscroll-behavior: none;}
+footer .click {font-weight: bold;}
+
+
+/* 공통 애니메이션 */
+/* 텍스트 스크롤 애니메이션 대상 */
+.textAni span {display: block; padding-bottom: 20px;}
+.textAni span b {font-weight: normal;}
+    /* 위 대상에 텍스트 스크롤 애니메이션 적용 */
+    @keyframes textAni {
+        0% {opacity: 0;}
+        30% {opacity: 0; transform: translate3d(0,40px,0) skewY(8deg); transform-origin: top left;}
+    }
+    .textAni.motion span {overflow: hidden;}
+    .textAni.motion span b {display: block; animation-name: textAni; animation-duration: 0.6s;}
+/* 요소 위로 올라오는 애니메이션 */
+@keyframes up {
+    0% {opacity: 0; transform: translateY(100px);}
+}
+
+
+/* font */
+footer .text {font-size: 16px; line-height: 1.4; font-family: 'Pretendard'; font-weight: 300; color: rgba(255,255,255,0.8);}
+footer .inner .tit {font-size: 72px; line-height: 0.8; font-family: 'Paytone one'; opacity: 0.9;}
+footer .inner .tit:hover, footer .inner .tit:focus {font-size: 62px;}
+
+
+/* footer */
+footer {width: 100%; height: 80vh; position: relative;}
+footer .bg {width: 100%; height: 100%; opacity: 0.4; position: absolute; top: 0; left: 0;}
+footer .bg video {width: 100%; height: 100%; object-fit: cover;}
+footer .arrowTop {display: block; width: 60px; height: 60px; position: absolute; right: 100px; bottom: 180px; z-index: 1; opacity: 0.7;}
+footer .arrowTop img {width: 100%; height: 100%; position: absolute; top: 0; left: 0; transition: all 0.3s;}
+footer .arrowTop img:last-child {opacity: 0;}
+    /* hover */
+    footer .arrowTop:hover img:first-child, footer .arrowTop:focus img:first-child {opacity: 0;}
+    footer .arrowTop:hover img:last-child, footer .arrowTop:focus img:last-child {opacity: 1;}
+footer .inner {width: 1400px; height: 100%; position: absolute; left: 50%; transform: translateX(-50%); bottom: 0; text-align: center;}
+footer .inner .tit {display: inline-block; opacity: 0.77; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); transition: all 0.3s; cursor: pointer; color: #fff;}
+footer .inner > .text {position: absolute; top: 60%; left: 50%; transform: translateX(-50%);}
+footer .inner > .text span {text-decoration: underline;}
+footer .inner .bottom {width: 100%; display: flex; justify-content: space-between; position: absolute; left: 0; bottom: 60px;}
+footer .inner .bottom li {width: 280px; text-align: left; border-right: 1px solid rgba(255,255,255,0.1); box-sizing: border-box; position: relative;}
+footer .inner .bottom .logo img {width: 130px; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);}
+footer .inner .bottom .text {margin-bottom: 7px;}
+footer .inner .bottom .contact span {display: inline-block; width: 80px;}
+footer .inner .bottom .version {padding-top: 30px; border-right: none;}
+    /* hover */
+    footer .inner .tit:hover, footer .inner .tit:focus {color: #FEDF79;}
+
+
+/* -----------------------------responsive Web----------------------------- */
+/* ~1380px */
+@media screen and (max-width:1380px) {
+    /* font */
+    footer .inner .tit {font-size: 62px;}
+    footer .inner .tit:hover, footer .inner .tit:focus {font-size: 52px;}
+    footer .inner > .text {font-size: 16px;}
+    footer .inner .bottom .text {font-size: 15px;}
+    footer .inner .bottom .version .text {opacity: 0.4; font-size: 13px; font-weight: 100; text-align: center;}
+    /* layout */
+    footer {height: 70vh;}
+    footer .inner {width: 800px;}
+    footer .inner .bottom {flex-wrap: wrap; bottom: 30px;}
+    footer .inner .bottom li {width: 30%;}
+    footer .inner .bottom li:nth-child(2) {margin: 0 5%;}
+    footer .inner .bottom li:nth-child(3) {border: none;}
+    footer .inner .bottom .version {width: 100%; display: block; padding-top: 3vw;}
+    footer .arrowTop {right: 5%; bottom: 30px; opacity: 0.5;}
+}
+
+/* ~890px */
+@media screen and (max-width:890px) {
+    /* font */
+    footer .inner .tit {font-size: 7vw;}
+    footer .inner .tit:hover, footer .inner .tit:focus {font-size: 6vw;}
+    footer .inner > .text {font-size: 2vw;}
+    footer .inner .bottom .version .text, footer .inner .bottom .text {font-size: 1.5vw;}
+    /* layout */
+    footer {height: 60vw; min-height: 360px;}
+    footer .bg {opacity: 0.7; filter: brightness(1.1);}
+    footer .inner {width: 80vw;}
+    footer .inner .tit {margin-bottom: 3vw;}
+    footer .inner > .text {width: 100%; margin-bottom: 5vw;}
+    footer .inner .bottom {bottom: 5%;}
+    footer .inner .bottom .logo img {width: 12vw;}
+    footer .inner .bottom li:first-child {display: none;}
+    footer .inner .bottom li:nth-child(2) {width: 30%; margin: 0 3% 0 17%;}
+    footer .inner .bottom li:nth-child(3) {width: 45%;}
+    footer .inner .bottom .version {padding-top: 2.5vw;}
+    footer .arrowTop {bottom: 7%; right: 5%;}
+        /* hover */
+        footer .inner .tit:hover, footer .inner .tit:focus {color: #FEDF79;}
+}
+
+/* ~690px */
+@media screen and (max-width:690px) {
+    /* font */
+    footer .inner > .text {font-size: 2.2vw;}
+    footer .inner .tit {font-size: 7vw;}
+    footer .inner .tit:hover, footer .inner .tit:focus {font-size: 6vw;}
+    footer .inner .bottom .version .text, footer .inner .bottom .text {font-size: 1.8vw;}
+    /* layout */
+    footer .inner .bottom {bottom: 2%;} 
+    footer .inner .bottom li:nth-child(2) {display: none;}
+    footer .inner .bottom li:nth-child(3) {width: 40%; margin: 0 auto;}
+    footer .arrowTop {width: 7vw; height: 7vw; bottom: initial; top: 10vw;}
+}
+
+/* ~580px */
+@media screen and (max-width:580px) {
+    /* font */
+    footer .inner > .text {font-size: 2.5vw;}
+    footer .inner .tit {font-size: 7vw;}
+    footer .inner .tit:hover, footer .inner .tit:focus {font-size: 6.5vw;}
+    footer .inner .bottom .version .text {font-size: 2.2vw;}
+    footer .inner .bottom .text {font-size: 2.4vw;}
+    /* layout */
+    footer .inner > .text {top: 22%;}
+    footer .inner .bottom {bottom: 5%;}
+    footer .inner .bottom li:nth-child(3) {width: 50%;}
+    footer .arrowTop {bottom: 10%; top: initial;}
+}
+
+/* ~490px */
+@media screen and (max-width:490px) {
+    /* font */
+    footer .inner > .text {font-size: 2.7vw;}
+    footer .inner .tit, footer .inner .tit:hover, footer .inner .tit:focus {font-size: 7.3vw; color: #FEDF79;}
+    footer .inner .bottom .version .text {font-size: 2.2vw;}
+    footer .inner .bottom .text {font-size: 2.9vw;}
+    /* layout */
+    footer .arrowTop {width: 9vw; height: 9vw;}
+    footer .inner .bottom li:nth-child(3) {width: 60%; margin: 0 auto;}
+}
+
+/* ~390px */
+@media screen and (max-width:390px) {
+    /* font */
+    footer .inner > .text {font-size: 3vw;}
+    footer .inner .tit, footer .inner .tit:hover, footer .inner .tit:focus {font-size: 6.8vw;}
+    footer .inner .bottom .version .text {font-size: 2.2vw;}
+    footer .inner .bottom .text {font-size: 3.5vw;}
+    /* layout */
+    footer .inner .bottom {bottom: 20px;}
+    footer .inner .bottom li:nth-child(3) {width: 68%; margin: 0 0 0 18vw;}
+    footer .inner .bottom .contact span {width: 25%;}
+    footer .inner .bottom .version {padding-top: 5vw;}
+    footer .arrowTop {bottom: 30px;}
+}

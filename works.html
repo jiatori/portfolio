@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StellaSpace_Works</title>
+
+    <!-- link -->
+    <link rel="stylesheet" href="css/works.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+
+    <!-- script -->
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/scrolla.jquery.min.js"></script>
+    <script src="js/script_main.js"></script>
+    <script src='js/swiper-bundle.min.js'></script>
+
+    <!-- 상단 스크롤 프로그래스바(진행바) -->
+    <script type="text/javascript" src="https://rawcdn.githack.com/mburakerman/prognroll/0feda211643153bce2c69de32ea1b39cdc64ffbe/src/prognroll.js"></script>
+
+    <!-- visual 숫자 카운트 -->
+    <script src="js/jquery.easy_number_animate.min.js"></script>
+
+    <!-- product launching _ swiper script => body에 스크립트 불러와야 함. header에 불러 올 경우 defer 적기 -->
+    <script defer src="js/swiper_slide.js"></script>
+    <script defer src="js/counter.js"></script>
+
+    <!-- publishing 스크롤 기울기 효과 => 모두 body에 스크립트 불러오기. img_scroll_animation.js는 이것처럼 js파일을 별도로 만들어서 body에 붙여넣어도 되고, html body부분에 script로 작성해도 됨 => header에 불러 올 경우 defer 적기-->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/ScrollTrigger.min.js"></script>
+    <script defer src="js/img_scroll_animation.js"></script>
+
+    <!-- 이미지 호버효과-->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.147.0/three.min.js"></script>
+    <script defer src="js/hover-effect.js"></script>
+    <script defer src="js/hover-effect-script.js"></script>    
+</head>
+
+<body>
+    <div class="wrap">
+
+        <!-- header -->
+        <header class="no-js">
+            <h1 class="logo">
+                <a href="index.html">
+                    <img src="img/logo_s.png" alt="로고">
+                </a>
+            </h1>
+            <a href="#" class="menuOpen">
+                <img src="img/menu_open2.png" alt="메뉴오픈 아이콘">
+            </a>
+            <nav class="gnb">
+                <a href="#" class="close">
+                    <img src="img/menu_close.png" alt="메뉴닫기 아이콘">
+                </a>
+                <video src="img/gnb_bg.mp4" muted autoplay loop playsinline></video>
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+                    <li><a href="works.html">WORK</a></li>
+                    <li><a href="portfolio.html">PORTFOLIO</a></li>
+                    <li><a href="https://jiatori.tistory.com/" target='_blank'>BLOG</a></li>
+                </ul>
+            </nav>
+        </header>
+
+
+        <!-- right mark -->
+        <p class="mark"><span></span>Works</p>
+
+
+        <!-- section -->
+        <section class="visual no-js" id="main">
+            <div class="inner">
+                <h2 class="tit textAni animate" data-animate="motion"><span><b>WORKS</b></span></h1>
+                <p class="text">
+                    만들었던 모든 결과물을 보여드립니다. <br>
+                    퍼블리싱, NCS, 제품기획으로 구성되어 있습니다. 
+                </p>
+                <ul class="count">
+                    <li><span class="number1">12</span>Publishing</li>
+                    <li><span class="number2">10</span>NCS Project</li>
+                    <li><span class="number3">7</span>Product Lanching</li>
+                </ul>
+            </div>
+        </section>
+
+
+        <section class="publishing">
+            <div class="inner">
+                <h2 class="tit textAni animate" data-animate="motion"><span><b>Publishing</b></span></h2>
+                <p class="text animate" data-animate="motion">
+                    <span class="pc">클론코딩 10개, 웹사이트 리뉴얼 1개, 포트폴리오 1개로 구성되어있습니다.</span><br>
+                    각각의 결과물을 <span class="click">클릭</span>하시면 자세히 보실 수 있습니다.
+                </p>
+                <ul class="list">
+                    <li class="listBox left a"><a href="works_ystudio.html">
+                        <p class="img"></p>
+                        <div class="textBox">
+                            <ul class="tag">
+                                <li>Clone Coding</li> <br>
+                                <li>PC</li>
+                                <li>Tablet</li>
+                                <li>Mobile</li>
+                            </ul>
+                            <p class="company">Y Studio <span class="date">2022.09</span></p>
+                        </div>
+                    </a></li>
+                    <li class="listBox right b"><a href="works_hanhwa.html">
+                        <p class="img"></p>
+                        <div class="textBox">
+                            <ul class="tag">
+                                <li>Clone Coding</li> <br>
+                                <li>PC</li>
+                                <li>Tablet</li>
+                                <li>Mobile</li>
+                            </ul>
+                            <p class="company">Hanwha Chemical <span class="date">2022.09</span></p>
+                        </div>
+                    </a></li>
+                    <li class="listBox left c"><a href="works_dopda.html">
+                        <p class="img"></p>
+                        <div class="textBox">
+                            <ul class="tag">
+                                <li>Clone Coding</li> <br>
+                                <li>PC</li>
+                                <li>Tablet</li>
+                                <li>Mobile</li>
+                            </ul>
+                            <p class="company">The DOPDA <span class="date">2022.09</span></p>
+                        </div>
+                    </a></li>
+                    <li class="renewal listBox left d"><a href="works_booyoung.html">
+                        <p class="img"></p>
+                        <div class="textBox">
+                            <ul class="tag">
+                                <li>Site Renewal</li> <br>
+                                <li>PC</li>
+                            </ul>
+                            <p class="company">Booyoung Hotel&Resort <span class="date">2022.09</span></p>
+                        </div>
+                    </a></li>
+                    <li class="listBox right e"><a href="works_kakao.html">
+                        <p class="img"></p>
+                        <div class="textBox">
+                            <ul class="tag">
+                                <li>Clone Coding</li> <br>
+                                <li>PC</li>
+                                <li>Tablet</li>
+                                <li>Mobile</li>
+                            </ul>
+                            <p class="company">Kakao Enterprise <span class="date">2022.10</span></p>
+                        </div>
+                    </a></li>
+                    <li class="listBox left f"><a href="works_phomain.html">
+                        <p class="img"></p>
+                        <div class="textBox">
+                            <ul class="tag">
+                                <li>Clone Coding</li> <br>
+                                <li>PC</li>
+                            </ul>
+                            <p class="company">PhoMein <span class="date">2022.10</span></p>
+                        </div>
+                    </a></li>
+                    <li class="listBox right g"><a href="works_musign.html">
+                        <p class="img"></p>
+                        <div class="textBox">
+                            <ul class="tag">
+                                <li>Clone Coding</li> <br>
+                                <li>PC</li>
+                                <li>Tablet</li>
+                                <li>Mobile</li>
+                            </ul>
+                            <p class="company">Musign <span class="date">2022.10</span></p>
+                        </div>
+                    </a></li>
+                    <li class="listBox right h"><a href="works_hyundai.html">
+                        <p class="img"></p>
+                        <div class="textBox">
+                            <ul class="tag">
+                                <li>Clone Coding</li> <br>
+                                <li>PC</li>
+                                <li>Tablet</li>
+                                <li>Mobile</li>
+                            </ul>
+                            <p class="company">Hyndai NFT <span class="date">2022.10</span></p>
+                        </div>
+                    </a></li>
+                    <li class="listBox left i"><a href="works_canon.html">
+                        <p class="img"></p>
+                        <div class="textBox">
+                            <ul class="tag">
+                                <li>Clone Coding</li> <br>
+                                <li>PC</li>
+                                <li>Tablet</li>
+                                <li>Mobile</li>
+                            </ul>
+                            <p class="company">Canon Rchive <span class="date">2022.10</span></p>
+                        </div>
+                    </a></li>
+                    <li class="listBox right j"><a href="works_daebang.html">
+                        <p class="img"></p>
+                        <div class="textBox">
+                            <ul class="tag">
+                                <li>Clone Coding</li> <br>
+                                <li>PC</li>
+                            </ul>
+                            <p class="company">Daebang <span class="date">2022.11</span></p>
+                        </div>
+                    </a></li>
+                    <li class="listBox left k"><a href="works_crew.html">
+                        <p class="img"></p>
+                        <div class="textBox">
+                            <ul class="tag">
+                                <li>Clone Coding</li> <br>
+                                <li>PC</li>
+                                <li>Tablet</li>
+                                <li>Mobile</li>
+                            </ul>
+                            <p class="company">Crew A La Mode <span class="date">2022.11</span></p>
+                        </div>
+                    </a></li>
+                    <li class="portfolio listBox right l"><a href="portfolio.html">
+                        <p class="img"></p>
+                        <div class="textBox">
+                            <ul class="tag">
+                                <li>Portfolio</li> <br>
+                                <li>PC</li>
+                                <li>Tablet</li>
+                                <li>Mobile</li>
+                            </ul>
+                            <p class="company">The 1st Portfolio StellaSpace <span class="date">2022.12</span></p>
+                        </div>
+                    </a></li>
+                </ul>
+            </div>
+        </section>
+
+
+        <section class="ncs">
+            <div class="inner">
+                <h2 class="tit textAni animate" data-animate="motion"><span><b>NCS Project</b></span></h2>
+                <ul class="top animate" data-animate="motion">
+                    <li>
+                        <p class="subTit">UI/UX엔지니어링</p>
+                        <p class="text">
+                            사용자의 이용 행태와 트렌드 및 기술 환경을 분석하고 <br>
+                            새로운 사용자 경험(UX) 모델을 제시하여 이를 현실화 시킬 수 있는 <br> 
+                            UI/UX 계획, 실사용자 리서치, 사용자 인터페이스(UI) 기획, <br>
+                            UI 아키텍처 설계, UI 디자인, GUI 상세디자인, UI 구현, UI 제작, <br> 
+                            UI 테스트를 거쳐 가이드를 제작하는 일
+                        </p>
+                    </li>
+                    <li>
+                        <p class="subTit">응용SW엔지니어링</p>
+                        <p class="text">
+                            컴퓨터 프로그래밍 언어로 각 업무에 맞는 소프트웨어의 <br>
+                            기능에 관한 설계, 구현 및 테스트를 수행하고, 사용자에게 배포하며, <br>
+                            버전관리를 통해 소프트웨어의 성능을 향상시키고, <br>
+                            서비스를 개선하는 일
+                        </p>
+                    </li>
+                </ul>
+                <ul class="bottom animate" data-animate="motion">
+                    <li>
+                        <ul class="table">
+                            <li><span>웹 UI 구현 및 테스트</span></li>
+                            <li>UI 구현</li>
+                            <li>2022.11.28</li>
+                            <li>UI 설계 산출물과 GUI 디자인 가이드를 바탕으로 UI 설계와 UI 구현 표준 검토 능력</li>
+                            <li>
+                                <nav class="viewMore">
+                                    <a href="pdf/01.pdf" class="arrow" target='_blank'>
+                                        <img src="img/arrow_s.png" alt="더보기버튼">
+                                    </a>
+                                </nav>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul class="table">
+                            <li><span>웹 UI 구현 및 테스트</span></li>
+                            <li>UI 테스트</li>
+                            <li>2022.11.28</li>
+                            <li>구현된 UI를 검증하기 위한 사용성 테스트 계획, 수행, 분석, 결과보고 수행 능력</li>
+                            <li>
+                                <nav class="viewMore">
+                                    <a href="pdf/02.pdf" class="arrow" target='_blank'>
+                                        <img src="img/arrow_s.png" alt="더보기버튼">
+                                    </a>
+                                </nav>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul class="table">
+                            <li><span>웹프로그래밍 기초</span></li>
+                            <li>개발자 환경 구축</li>
+                            <li>2022.12.12</li>
+                            <li>응용소프트웨어 개발을 위하여 운영체제의 기초기술을 적용하여 응용소프트웨어 <br>개발에 필요한 개발자 환경을 구축하는 능력</li>
+                            <li>
+                                <nav class="viewMore">
+                                    <a href="pdf/03.pdf" class="arrow" target='_blank'>
+                                        <img src="img/arrow_s.png" alt="더보기버튼">
+                                    </a>
+                                </nav>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul class="table">
+                            <li><span>웹프로그래밍 기초</span></li>
+                            <li>프로그래밍 언어 활용</li>
+                            <li>2022.12.12</li>
+                            <li>응용소프트웨어 개발에 사용되는 프로그래밍 언어의 기본문법을 활용하여 <br>기본 응용소프트웨어를 구현하는 능력</li>
+                            <li>
+                                <nav class="viewMore">
+                                    <a href="pdf/04.pdf" class="arrow" target='_blank'>
+                                        <img src="img/arrow_s.png" alt="더보기버튼">
+                                    </a>
+                                </nav>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul class="table">
+                            <li><span>웹UI/UX기획,설계</span></li>
+                            <li>UI/UX요구분석</li>
+                            <li>2023.01.02</li>
+                            <li>사용자 리서치 자료를 토대로 사용자의 요구사항을 파악하고 기획된 아이디어를 <br>신속하게 만들어 시각화하여 테스트 하는 능력</li>
+                            <li>
+                                <nav class="viewMore">
+                                    <a href="pdf/05.pdf" class="arrow" target='_blank'>
+                                        <img src="img/arrow_s.png" alt="더보기버튼">
+                                    </a>
+                                </nav>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul class="table">
+                            <li><span>웹UI/UX기획,설계</span></li>
+                            <li>UI/UX콘셉트 기획</li>
+                            <li>2023.01.02</li>
+                            <li>UI/UX 분석 결과를 바탕으로 UI/UX 콘셉을 도출하고 기능 및 콘텐츠를 정의하는 능력</li>
+                            <li>
+                                <nav class="viewMore">
+                                    <a href="pdf/06.pdf" class="arrow" target='_blank'>
+                                        <img src="img/arrow_s.png" alt="더보기버튼">
+                                    </a>
+                                </nav>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul class="table">
+                            <li><span>웹UI/UX기획,설계</span></li>
+                            <li>UI/UX아키텍처 설계</li>
+                            <li>2023.01.02</li>
+                            <li>기획된 컨셉을 바탕으로 디자인과 구현을 위한 콘텐츠, 정보, 와이어 프레임, <br>테스크 플로우를 설계하는 능력</li>
+                            <li>
+                                <nav class="viewMore">
+                                    <a href="pdf/07.pdf" class="arrow" target='_blank'>
+                                        <img src="img/arrow_s.png" alt="더보기버튼">
+                                    </a>
+                                </nav>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul class="table">
+                            <li><span>프론트엔드</span></li>
+                            <li>React.js</li>
+                            <li>2023.01.10</li>
+                            <li>react.js로 제작한 To do List앱 컨포넌트를 리디자인하여 <br>자신의 포트폴리오 페이지에 셋팅 구현</li>
+                            <li>
+                                <nav class="viewMore">
+                                    <a href="https://jiatori.github.io/react-todo-app/" class="arrow" target='_blank'>
+                                        <img src="img/arrow_s.png" alt="더보기버튼">
+                                    </a>
+                                </nav>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul class="table">
+                            <li><span>웹테스트 및 배포</span></li>
+                            <li>애플리케이션 테스트 수행</li>
+                            <li>2023.01.19</li>
+                            <li>요구사항대로 응용소프트웨어가 구현되었는지를 검증하기 위하여 분석된 테스트 <br>케이스에 따라 테스트를 수행하고 결함을 조치하는 능력</li>
+                            <li>
+                                <nav class="viewMore">
+                                    <a onclick="alert('준비중입니다.');" href="#" class="arrow no" target='_blank'>
+                                        <img src="img/arrow_s.png" alt="더보기버튼">
+                                    </a>
+                                </nav>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul class="table">
+                            <li><span>웹테스트 및 배포</span></li>
+                            <li>애플리케이션 배포</li>
+                            <li>2023.01.19</li>
+                            <li>애플리케이션 배포 환경을 구성하고, 구현이 완료된 애플리케이션의 소스 검증 및 <br>빌드를 수행하여 운영 환경에 배포하는 능력</li>
+                            <li>
+                                <nav class="viewMore">
+                                    <a href="index.html" class="arrow" target='_blank'>
+                                        <img src="img/arrow_s.png" alt="더보기버튼">
+                                    </a>
+                                </nav>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+
+        <section class="product">
+            <div class="inner">
+                <div class="section_slider">
+                    <div class="topBox">
+                        <h2 class="tit textAni animate" data-animate="motion"><span><b>Product <br class="mo">Launching</b></span></h2>
+                        <p class="text animate" data-animate="motion">
+                            제품기획자로 일하며 직접 런칭했던 <br class="mo">7가지 제품들을 소개 해 드립니다. <br>
+                            <span class="pc">마우스를 올려서 자세한 내용을 확인해보세요.</span> 
+                        </p>
+                    </div>
+    
+                    <!-- 아래서부터 플러그인 부분 -->
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+    
+                            <!-- slider1 -->
+                            <div class="swiper-slide a">
+                                <p class="topText">
+                                    <span>해태제과식품</span>
+                                    <span>대표스낵모음</span>
+                                    <span>2019.05</span>
+                                </p>
+                                <div class="img" data-swiper-parallax-y="65%"><img src="img/work_product1.png" alt="해태 대표스낵모음 제품사진"></div>
+                                <div class="textBox">
+                                    <p><span>회사명</span>해태제과식품</p>
+                                    <p><span>SKU</span>1</p>
+                                    <p><span>런칭일</span>2019.04</p>
+                                    <p><span>기여도</span>100%</p>
+                                    <p><span class="block">Concept</span>봄나들이, <br>한 박스만 있으면 준비 끝!</p>
+                                    <p><span class="block">Effect</span>초도발주 2,000박스, <br>중간 브랜드 매출 증가</p>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide b">
+                                <p class="topText">
+                                    <span>해태제과식품</span>
+                                    <span>친절한콘</span>
+                                    <span>2019.05</span>
+                                </p>
+                                <div class="img" data-swiper-parallax-y="65%"><img src="img/work_product2.png" alt="해태 친절한콘 제품사진"></div>
+                                <div class="textBox">
+                                    <p><span>회사명</span>해태제과식품</p>
+                                    <p><span>SKU</span>2</p>
+                                    <p><span>런칭일</span>2019.05</p>
+                                    <p><span>기여도</span>100%</p>
+                                    <p><span class="block">Concept</span>1000원 한 장의 행복! <br>친절한 가격의 가심비 스낵</p>
+                                    <p><span class="block">Effect</span>월 평균 1억 6천 만원 <br>유휴 설비 활용으로 비용절감</p>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide c">
+                                <p class="topText">
+                                    <span>해태제과식품</span>
+                                    <span>신당동떡볶이 MINI 마라맛</span>
+                                    <span>2019.07</span>
+                                </p>
+                                <div class="img" data-swiper-parallax-y="65%"><img src="img/work_product3.png" alt="해태 신당동마라맛 제품사진"></div>
+                                <div class="textBox">
+                                    <p><span>회사명</span>해태제과식품</p>
+                                    <p><span>SKU</span>2</p>
+                                    <p><span>런칭일</span>2019.07</p>
+                                    <p><span>기여도</span>100%</p>
+                                    <p><span class="block">Concept</span>한 손에 쏙! 한 입에 쏙! <br>맛있다고 놀라지 '마라!'</p>
+                                    <p><span class="block">Effect</span>브랜드 매출 2배 상승 <br>중국 대만 등 해외 수출</p>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide d">
+                                <p class="topText">
+                                    <span>해커스교육그룹</span>
+                                    <span>중고등 영단어 학습 웹 서비스</span>
+                                    <span>2020.07</span>
+                                </p>
+                                <div class="img" data-swiper-parallax-y="65%"><img src="img/work_product4.png" alt="해커스 웹서비스 목업사진"></div>
+                                <div class="textBox">
+                                    <p><span>회사명</span>해커스교육그룹</p>
+                                    <p><span>SKU</span>1</p>
+                                    <p><span>런칭일</span>2020.07</p>
+                                    <p><span>기여도</span>100%</p>
+                                    <p><span class="block">Concept</span>이용자간 상호 감시를 통한 <br>50%자율학습 서비스</p>
+                                    <p><span class="block">Effect</span>(과제로 진행) <br>웹 UI/UX 이해</p>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide e">
+                                <p class="topText">
+                                    <span>해커스교육그룹</span>
+                                    <span>공무원 국어/영어 교재</span>
+                                    <span>2020.10</span>
+                                </p>
+                                <div class="img" data-swiper-parallax-y="65%"><img src="img/work_product5.png" alt="해커스 국어/영어 교재 사진"></div>
+                                <div class="textBox">
+                                    <p><span>회사명</span>해커스교육그룹</p>
+                                    <p><span>SKU</span>2</p>
+                                    <p><span>런칭일</span>2020.10</p>
+                                    <p><span>기여도</span>90%</p>
+                                    <p><span class="block">Concept</span>매일매일 부담없이 <br>적은 양으로 꾸준한 학습</p>
+                                    <p><span class="block">Effect</span>온/오프라인 서점 출판 <br>인터넷 강의 개설</p>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide f">
+                                <p class="topText">
+                                    <span>EFIL</span>
+                                    <span>프로도기 노스멜 스프레이</span>
+                                    <span>2022.05</span>
+                                </p>
+                                <div class="img" data-swiper-parallax-y="65%"><img src="img/work_product6.png" alt="스프레이 제품사진"></div>
+                                <div class="textBox">
+                                    <p><span>회사명</span>EFIL (에필)</p>
+                                    <p><span>SKU</span>2</p>
+                                    <p><span>런칭일</span>2022.05</p>
+                                    <p><span>기여도</span>100%</p>
+                                    <p><span class="block">Concept</span>반려동물 탈취제의 <br>올바른 기준</p>
+                                    <p><span class="block">Effect</span>신규 카테고리 개척, <br>OEM 협상을 통한 원가 절감</p>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide g">
+                                <p class="topText">
+                                    <span>EFIL</span>
+                                    <span>프로도기 포켓즈 펫타올</span>
+                                    <span>2022.08</span>
+                                </p>
+                                <div class="img" data-swiper-parallax-y="65%"><img src="img/work_product7.png" alt="펫타올 제품사진"></div>
+                                <div class="textBox">
+                                    <p><span>회사명</span>EFIL (에필)</p>
+                                    <p><span>SKU</span>2</p>
+                                    <p><span>런칭일</span>2022.08</p>
+                                    <p><span>기여도</span>95%</p>
+                                    <p><span class="block">Concept</span>부드럽고 간편한 포켓으로 <br>스트레스 없는 건조시간</p>
+                                    <p><span class="block">Effect</span>신규 카테고리 개척, <br>해외 OEM 협상 및 수입 경험</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- footer -->
+        <footer>
+            <div class="bg"><video src="img/footer_bg.mp4" muted autoplay loop playsinline></video></div>
+            <a href="#main" class="arrowTop">
+                <img src="img/arrowtop.png" alt="위로가기버튼">
+                <img src="img/arrowtop2.png" alt="위로가기버튼hover버전">
+            </a>
+            <div class="inner">
+                <h2 class="tit textAni animate" data-animate="motion" onclick="clip(); return false;"><span><b>shjy27@gmail.com</b></span> </h2>
+                <p class="text">언제든지 연락주시면 최대 <span>1일 이내로</span> 답변 드리겠습니다.</p>
+                <ul class="bottom">
+                    <li class="logo"><a href="index.html"><img src="img/footer_logo.png" alt="로고"></a></li>
+                    <li class="profile">
+                        <p class="text">송지연 Stella Song</p>
+                        <p class="text">Web Publisher</p>
+                        <p class="text">Seoul, Republic of Korea</p>
+                    </li>
+                    <li class="contact">
+                        <p class="text"><span>Phone</span>+82 10-6622-5428</p>
+                        <p class="text"><span>E-Mail</span>shjy27@gmail.com</p>
+                        <p class="text"><span>Blog</span>jiatori.tistory.com</p>
+                    </li>
+                    <li class="version"><p class="text">PORTPOLIO DEC.2022</p></li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+
+
+<!-- FOUC 현상 제거 -->
+<script>
+    $(function(){
+        $('header').removeClass('no-js');
+        $('.visual').removeClass('no-js');
+    });
+</script>
+
+</body>
+</html>

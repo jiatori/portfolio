@@ -1,0 +1,834 @@
+@charset "utf-8";
+/* web font */
+@import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css");
+
+
+/* reset */
+* {margin: 0;padding: 0;}
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, tbody, tfoot, thead, tr, th, td{margin:0;padding:0;}
+h1, h2, h3, h4, h5, h6 {font-weight: 200; font-size: inherit;}
+a {color: inherit; text-decoration: inherit;}
+img {vertical-align: middle;}
+a img {border: none;}
+li {list-style: none;}
+address, em, i {font-style: normal;}
+a:focus {outline: none}
+button:focus {outline: none}
+
+
+/* layout */
+body {background: #000;}
+.wrap {width: 100%; overflow: hidden;}
+.tit {margin-bottom: 40px;}
+.mindmap .mo {display: none;}
+.reference .mo {display: none;}
+.sketch .mo {display: none;}
+.fullPage .mo {display: none;}
+.architecture .tree.mo {display: none;}
+.architecture .mo {display: none;}
+.sketch .list.slide {display: none;}
+.wireFrame .list.slide {display: none;}
+
+
+/* font */
+    /* 공통 */
+    body {font-family: 'Pretendard'; line-height: 1.4; font-size: 16px; font-weight: 300; color: #fff;}
+    .tit {font-family: 'Paytone one'; font-size: 72px; line-height: 0.8; text-align: center; color: #fff;}
+    .text, li {font-family: 'Pretendard'; color: rgba(255,255,255,0.8);}
+    .click {font-weight: bold;}
+    .font14 {font-size: 14px;}
+    .font18 {font-size: 18px;}
+    .btn {font-size: 14px; font-weight: 400; font-family: 'Pretendard';}
+    /* visual */
+    .visual .inner .tit {font-size: 135px;}
+    .visual .inner .bottom .right li button a {font-size: 16px; font-weight: 300; font-family: 'pretendard';}
+    .visual .bottomTit .tit{font-size: 120px;}
+    /* concept */
+    .concept .circleBox li {font-size: 24px;}
+    .concept .circleBox li.space {font-size: 52px; font-family: 'Paytone one';}
+    /* style */
+    .style .subTit {font-size: 52px; font-weight: 600;}
+    .style .top .font li .view {font-size: 32px;}
+    .style .middle .name li:nth-child(1) span {font-size: 16px; font-weight: 600;}
+    /* architecture */
+    .architecture .treeTit {font-size: 52px; font-weight: 600;}
+    /* coding */
+    .coding .bottom .subTit {font-size: 52px; font-weight: 600;}
+    .coding .bottom .workDetails .subTit {font-size: 32px;}
+    .coding .bottom .menu .subTit {font-size: 32px;}
+    /* responsive */
+    .responsive .button button a {font-size: 16px; font-weight: 300;}
+    /* fullPage */
+    .fullPage .slick-dots li button::before {font-size: 14px; font-family: 'Pretendard'; font-weight: 500;}
+
+
+/* FOUC 현상 제거 */
+.no-js {opacity: 0;}
+
+
+/* right mark */
+.mark {width: 200px; position: fixed; z-index: 99; right: -50px; top: 50%; transform: translateY(-50%) rotate(-90deg); font-weight: 400; opacity: 0; transition: all 0.3s; color: #666666; text-align: center;}
+.mark span {display: inline-block; width: 9px; height: 9px; background: #FEDF79; border-radius: 50%; margin-right: 10px;}
+/* mark on */
+.mark.on {opacity: 1;}
+
+
+/* 공통) 텍스트 스크롤 애니메이션 대상 */
+.textAni span {display: block; padding-bottom: 20px;}
+.textAni span b {font-weight: normal;}
+/* 공통) 텍스트 스크롤 애니메이션 적용 */
+.textAni.motion span {overflow: hidden;}
+.textAni.motion span b {display: block; animation-name: textAni; animation-duration: 0.6s;}
+@keyframes textAni {
+    0% {opacity: 0;}
+    30% {opacity: 0; transform: translate3d(0,40px,0) skewY(8deg); transform-origin: top left;}
+}
+/* 공통) 요소 위로 올라오는 애니메이션 */
+@keyframes up {
+    0% {opacity: 0; transform: translateY(100px);}
+}
+section .up.motion {animation-name: up; animation-duration: 0.6s;}
+
+
+/* 이전 페이지, 다음 페이지 이동버튼 */
+.btn {position: fixed; z-index: 99; top: 30%; cursor: pointer; color: #fff; background: none; border: none; transition: all 0.3s;}
+.btn.left {left: 0; padding-left: 98px;}
+/* left 라인_가상선택자 */
+.btn.left::before {content: ""; display: inline-block; position: absolute; top: 50%; left: 0; transform: translateY(-50%); width: 80px; height: 1px; background: #fff; margin-top: 0.5px; opacity: 0.7; transition: all 0.3s ease;}
+.btn.left::after {content: ""; display: inline-block; position: absolute; top: 50%; right: 58px; transform: translateY(-50%) rotate(180deg); width: 0; height: 1px; background: #fff; margin-top: 0.5px; opacity: 0; transition: width 0.4s ease; transition-delay: 0.3s;}
+/* right 라인_가상선택자 */
+.btn.right {right: 0; padding-right: 98px;}
+.btn.right::before {content: ""; display: inline-block; position: absolute; top: 50%; right: 0; transform: translateY(-50%); width: 80px; height: 1px; background: #fff; margin-top: 0.5px; opacity: 0.7; transition: all 0.3s ease;}
+.btn.right::after {content: ""; display: inline-block; position: absolute; top: 50%; left:58px; transform: translateY(-50%); width: 0; height: 1px; background: #fff; margin-top: 0.5px; opacity:0; transition: width 0.4s ease; transition-delay: 0.3s;}
+    /* hover */
+    .btn:hover, .btn:focus {transform: skew(-10deg); color: #FEDF79;}
+    .btn.left:hover::before, .btn.right:hover::before, .btn.left:focus::before, .btn.right:focus::before {width: 0;}
+    .btn.left:hover::after, .btn.right:hover::after, .btn.left:focus::after, .btn.right:focus::after {width: 80px; opacity: 0.7;}
+
+
+/* section 공통사항 */
+section .inner {width: 1300px; margin: 0 auto;}
+section .line {display: block; width: 1px; height: 100%; background: #fff; opacity: 0.2; position: absolute; top: 0; left: 50%; transform: translateX(-50%); z-index: -3;}
+
+/* section.visual */
+.visual {width: 100%;}
+.visual .bg {width: 100%; height: 780px; background: linear-gradient(to bottom, rgba(0,0,0,0) 10%, rgba(0,0,0,1) 100%), url(../img/portfilo_visual.jpg) no-repeat center/cover; filter: brightness(0.8);}
+    /* animation */
+    @keyframes img {
+        0% {transform: scale(1.2); opacity: 0;}
+    }
+    .visual .bg.motion {animation-name: img; animation-duration: 1s;}
+.visual .inner {background: rgba(34,34,34,0.2); padding: 120px 10%; box-sizing: border-box; transform: translateY(-450px); border-radius: 30px; border: 1px solid rgba(255,255,255,0.5);}
+.visual .inner .tit {margin-bottom: 80px; opacity: 0.7;}
+.visual .inner li span {display: inline-block; width: 80px; font-weight: 400;}
+.visual .inner .top {margin-bottom: 70px;}
+.visual .inner .bottom {display: flex; justify-content: space-between;}
+.visual .inner .bottom li span {display: block; margin-bottom: 15px;}
+.visual .inner .bottom .right li:first-child {margin-bottom: 40px; box-sizing: border-box;}
+.visual .inner .bottom .right li button {margin-right: 15px; transition: all 0.3s; background: none; border: none;}
+.visual .inner .bottom .right li button:last-child {margin-right: 0;}
+.visual .inner .bottom .right li button a {display: block; width: 100%; height: 100%; padding: 12px 25px; box-sizing: border-box; border: 1px solid rgba(255,255,255,1); border-radius: 10px; color: #fff; cursor: pointer;}
+    /* hover, focus */
+    .visual .inner .bottom .right li button:hover a, .visual .inner .bottom .right li button:focus a {color: #FEDF79; border: 1px solid #FEDF79;}
+.visual .bottomTit {padding-bottom: 450px; position: relative;}
+.visual .bottomTit .tit{display: block; color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,0.2);  position: relative; background: #000; padding-bottom: 30px; box-sizing: border-box;}
+    /* motion */
+    @keyframes opacity {
+        0% {color: rgba(255,255,255,0.2);;}
+    }
+    .visual .bottomTit.motion .tit {animation-name: opacity; animation-duration: 1s;}
+
+
+/* section.brain */
+.brain {width: 100%; position: relative; padding-bottom: 300px;}
+.brain .tit {background: #000; margin-bottom: 0;}
+.brain .imgBox {width: 100%; position: relative; padding: 0 10%; box-sizing: border-box;}
+.brain .imgBox li {display: inline-block;}
+.brain .imgBox li .img {margin-bottom: 20px; overflow: hidden;}
+.brain .imgBox li .img img {width: 100%; height: 100%; object-fit: cover;}
+.brain .imgBox li:nth-child(1) .img {width: 550px; height: 360px;}
+.brain .imgBox li:nth-child(2) {padding-left: 100px; box-sizing: border-box; transform: translateY(200px);}
+.brain .imgBox li:nth-child(2) .img {width: 370px; height: 440px;}
+.brain .imgBox li:nth-child(3) {padding-top: 100px; padding-left: 180px;}
+.brain .imgBox li:nth-child(3) .img {width: 430px; height: 260px;}
+.brain .imgBox li:nth-child(3) .img img {width: 350%;}
+
+
+/* section.mindmap */
+.mindmap {width: 100%; position: relative; padding-bottom: 300px;}
+.mindmap .tit {background: #000;}
+.mindmap .imgBox {width: 100%; position: relative; padding: 0 10%; box-sizing: border-box;}
+.mindmap .imgBox li {display: inline-block;}
+.mindmap .imgBox li .img {margin-bottom: 20px; overflow: hidden;}
+.mindmap .imgBox li .img img {width: 100%; height: 100%; object-fit: cover;}
+.mindmap .imgBox li:nth-child(1) .img {width: 707px; height: 505px; background: #fff; filter: brightness(0.8);}
+.mindmap .imgBox li:nth-child(2) {position: absolute; top: 400px; left: 900px;}
+.mindmap .imgBox li:nth-child(2) .img {width: 247px; height: 330px;}
+.mindmap .imgBox li:nth-child(3) {padding-top: 50px; padding-left: 300px;}
+.mindmap .imgBox li:nth-child(3) .img {width: 406px; height: 229px; filter: grayscale(0.8);}
+
+
+/* section.concept */
+.concept {width: 100%; position: relative; background: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 70%, rgba(0,0,0,1) 100%), url(../img/portfilo_visual2.jpg) center/cover no-repeat; z-index: -2; padding-bottom: 150px;}
+.concept .tit {background: #000;}
+.concept .text {text-align: center;}
+.concept .circleBox {width: 100%; height: 600px; display: flex; justify-content: space-between; padding: 150px 8% 200px; box-sizing: border-box;}
+.concept .circleBox li {width: 197px; height: 197px; line-height: 197px; border: 1px solid #fff; border-radius: 50%; text-align: center; opacity: 0.7;}
+.concept .circleBox li.space {overflow: hidden; position: relative; color: #FEDF79; border: 1px solid #FEDF79; opacity: 1;}
+.concept .circleBox li.space img {width: 400%; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); opacity: 1; z-index: -1;}
+    /* scroll animation */
+    @keyframes spaceImg {
+        0% {transform: translate(-50%, -50%) scale(0.5);}
+    }
+    .concept .circleBox.motion li.space img {animation-name: spaceImg; animation-duration: 5s;}
+
+    @keyframes circleLeft {
+        0% {transform: translateX(-150px); opacity: 0;}
+        80% {transform: translateX(20px);}
+    }
+    .concept .circleBox.motion li:nth-child(1) {animation-name: circleLeft; animation-duration: 1s;}
+    .concept .circleBox.motion li:nth-child(2) {animation-name: circleLeft; animation-duration: 0.9s;}
+
+    @keyframes circleRight {
+        0% {transform: translateX(150px); opacity: 0;}
+        80% {transform: translateX(-20px);}
+    }
+    .concept .circleBox.motion li:nth-child(4) {animation-name: circleRight; animation-duration: 1s;}
+    .concept .circleBox.motion li:nth-child(5) {animation-name: circleRight; animation-duration: 0.9s;}
+
+
+/* section.reference */
+.reference {width: 100%; padding-bottom: 250px; position: relative;}
+.reference .text {text-align: center; margin-bottom: 80px;}
+/* slide */
+.reference .slide {width: 100%;}
+.reference .slide .text {margin-bottom: 20px; text-align: left;}
+.reference .slide .text span {display: inline-block; margin-right: 10px; border: 1px solid rgba(255,255,255,0.8); border-radius: 20px; padding: 3px 10px;}
+.reference .slide .img {width: 80%; margin: 0 auto 10px; position: relative;}
+.reference .slide .img img {display: block; width: 100%;}
+.reference .slide .num {text-align: right; padding-right: 20px; box-sizing: border-box; font-weight: 200; color: rgba(255,255,255,0.8);}
+.reference .slide .num span {font-weight: 400; color: rgba(255,255,255,1); padding-right: 3px;}
+/* hover,focus */
+.reference .slide .img::after {content: ''; width: 100%; height: 100%; position: absolute; top: 0; left: 0; background: rgba(0,0,0,0.8); transition: all 0.3s; opacity: 0;}
+.reference .slide li:hover .img::after {opacity: 1;}
+
+
+/* section.sketch */
+.sketch {width: 100%; padding-bottom: 180px; position: relative;}
+.sketch::before {content: ''; width: 100%; height: 400px; position: absolute; bottom: 0; left: 0; background: #E5E5E4; z-index: -1;}
+.sketch .tit {background: #000;}
+.sketch .text {text-align: center; margin-bottom: 80px; background: #000;}
+.sketch .list {display: flex; justify-content: space-between;}
+.sketch .list li .text {margin-bottom: 10px; display: inline-block; border: 1px solid rgba(255,255,255,0.8); border-radius: 20px; padding: 3px 10px;}
+.sketch .list li img {display: block; width: 208px; background: #fff; border: 1px solid rgba(0,0,0,0.7); box-sizing: border-box; filter: brightness(1.3);}
+
+
+/* section.style */
+.style {background: #E5E5E4; color: rgba(0,0,0,0.8); padding-bottom: 300px; padding-top: 100px;}
+.style .inner {background: #fff; padding: 120px 110px 120px 130px; box-sizing: border-box;}
+.style .tit {margin-bottom: 120px; color: rgba(0,0,0,0.8);}
+.style .subTit {margin-bottom: 50px; color: rgba(0,0,0,0.8);}
+.style .text {font-weight: 500; color: rgba(0,0,0,0.8);}
+.style li {font-weight: 500; color: rgba(0,0,0,0.8);}
+
+/* top_color */
+.style .top {width: 100%; display: flex; justify-content: space-between; margin-bottom: 200px;}
+.style .top .color {width: 50%; padding-left: 5%; box-sizing: border-box;}
+.style .top .color ul {padding-left: 30px; box-sizing: border-box;}
+.style .top .color li {margin-bottom: 20px;}
+.style .top .color li span {display: inline-block; width: 167px; height: 83px; background: #FEDF79; border-radius: 15px; text-align: center; line-height: 83px; margin-right: 20px;}
+.style .top .color li:nth-child(2) span {background: #000; color: #fff; font-weight: 300;}
+.style .top .color li:nth-child(3) span {background: #fff; border: 1px solid rgba(0,0,0,0.5);}
+.style .top .color li .translateY {display: inline-block; transform: translateY(13px);}
+/* top_font */
+.style .top .font {width: 50%; padding-left: 5%; box-sizing: border-box;}
+.style .top .font ul {padding-left: 30px; box-sizing: border-box;}
+.style .top .font li {margin-bottom: 50px;}
+.style .top .font li:last-child {margin-bottom: 0;}
+.style .top .font li .fontName {margin-bottom: 20px; font-weight: 900; position: relative; text-decoration: underline;}
+.style .top .font li .fontName span {position: absolute; right: 80px; bottom: 0; font-weight: 500;}
+.style .top .font li:nth-child(1) .fontName {font-family: 'Paytone one';}
+.style .top .font li:nth-child(1) .fontName span {font-family: 'Pretendard';}
+.style .top .font li .text {margin-bottom: 20px;}
+.style .top .font li .view {opacity: 0.5;}
+.style .top .font li:nth-child(1) .view {font-family: 'Paytone one';}
+.style .top .font li:nth-child(2) .view.thin {font-weight: 200;}
+.style .top .font li:nth-child(2) .view.medium {font-weight: 500;}
+.style .top .font li:nth-child(2) .view.bold {font-weight: 800;}
+
+/* middle_name */
+.style .middle {width: 100%; display: flex; justify-content: space-between; margin-bottom: 200px;}
+.style .middle .name {width: 50%; padding-left: 5%; box-sizing: border-box;}
+.style .middle .name ul {padding-left: 30px; box-sizing: border-box;}
+.style .middle .name li {margin-bottom: 50px;}
+.style .middle .name li span {display: block;}
+.style .middle .name li:nth-child(1) {font-weight: 800;}
+.style .middle .name li:nth-child(1) span {text-decoration: underline;}
+.style .middle .name li:nth-child(2) span, .style .middle .name li:nth-child(3) span {font-weight: 800; margin-bottom: 10px;}
+/* middle_logo */
+.style .middle .logo {width: 50%; padding-left: 5%; box-sizing: border-box;}
+.style .middle .logo .text {padding-left: 30px; box-sizing: border-box; margin-bottom: 50px;}
+.style .middle .logo ul {padding-left: 30px; box-sizing: border-box;}
+.style .middle .logo li {margin-bottom: 50px;}
+.style .middle .logo li .img {width: 200px;}
+.style .middle .logo li:nth-child(2) .img {width: 300px;}
+.style .middle .logo li .img img {width: 100%;}
+.style .middle .logo li .size {margin-bottom: 20px; font-weight: 900; position: relative;}
+.style .middle .logo li .size span {position: absolute; right: 80px; bottom: 0; font-weight: 500;}
+
+/* bottom */
+.style .bottom {width: 100%; padding-bottom: 200px;}
+.style .bottom ul {padding-left: 30px; box-sizing: border-box;}
+.style .bottom li {position: relative;}
+.style .bottom li:nth-child(1) .img {width: 574px; height: 311px; border-radius: 20px; overflow: hidden; display: inline-block;}
+.style .bottom li:nth-child(1) .text {position: absolute; top: 30px; right: 180px;}
+.style .bottom li .img img {width: 100%; height: 100%;}
+.style .bottom li:nth-child(2) .img {width: 210px; height: 270px; display: inline-block; position: absolute; right: 50px; top: -80px;}
+.style .bottom li:nth-child(2) .text {position: absolute; top: 80px; right: 280px; text-align: right;}
+
+
+/* section.architecture */
+.architecture {width: 100%; background: #E5E5E4; color: rgba(0,0,0,0.8); padding-bottom: 300px;}
+.architecture .tit {color: rgba(0,0,0,0.8);}
+.architecture .text {font-weight: 500; text-align: center; margin-bottom: 100px; color: rgba(0,0,0,0.8);} 
+.architecture .treeTit {text-align: center; padding-bottom: 50px; position: relative;}
+.architecture span {font-weight: 500;}
+.architecture .tree {display: flex; justify-content: space-between; padding-top: 50px; position: relative;}
+.architecture .tree li {width: 20%; padding: 0 20px;box-sizing: border-box; position: relative; color: rgba(0,0,0,0.8);}
+.architecture .tree .subTit {font-weight: 600; text-align: center; background: #fff; border-radius: 15px; padding: 10px 0; z-index: 1;}
+.architecture .tree .details {width: 90%; margin: 0 auto; transform: translateY(-10px); z-index: -2; background: rgba(255,255,255,0.3); padding: 30px 15px 30px; box-sizing: border-box;}
+.architecture .tree .details span {display: block; margin-bottom: 5px; font-weight: 500;}
+.architecture .tree .details .font14 {padding-left: 10px;}
+/* line 만들기 */
+.architecture .treeTit::before {content: ''; width: 1px; height: 50px; background: rgba(0,0,0,0.5); position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);}
+.architecture .tree::after {content: ''; width: 1042px; height: 1px; background: rgba(0,0,0,0.3); position: absolute; top: 0; left: 50%; transform: translateX(-50%);}
+.architecture .tree li::before {content: ''; width: 1px; height: 50px; background: rgba(0,0,0,0.5); position: absolute; top: -50px; left: 50%; transform: translateX(-50%);}
+
+
+/* section.wireFrame */
+.wireFrame {width: 100%; position: relative; padding-bottom: 250px;}
+.wireFrame .bg1 {position: absolute; width: 100%; height: 100%; top: 0; left: 0; background: #E5E5E4; z-index: -3;}
+.wireFrame .bg2 {position: absolute; width: 100%; height: 400px; bottom: 0; left: 0; background: #000; z-index: -2;}
+.wireFrame .line {z-index: -1; top: initial; bottom: 0; height: 400px;}
+.wireFrame .inner {z-index: 200;}
+.wireFrame .tit {color: rgba(0,0,0,0.8);}
+.wireFrame .text {text-align: center; margin-bottom: 80px; color: rgba(0,0,0,0.8); font-weight: 500;}
+.wireFrame .list {display: flex; justify-content: space-between;}
+.wireFrame .list li .text {font-weight: 600; margin-bottom: 10px; display: inline-block; border: 1px solid rgba(0,0,0,0.7); border-radius: 20px; padding: 3px 10px;}
+.wireFrame .list li img {display: block; width: 208px; background: #fff;}
+
+
+/* section.coding */
+.coding {width: 100%; position: relative; padding-bottom: 300px;}
+.coding .tit {margin-bottom: 80px; background: #000;}
+.coding .top {position: relative; margin-bottom: 500px;}
+.coding .top .img1 {width: 750px; height: 400px; display: inline-block; overflow: hidden;}
+.coding .top .img2 {width: 350px; height: 290px; display: inline-block; transform: translateY(130px) translateX(50px); overflow: hidden;}
+.coding .top .img img {width: 100%; height: 100%; filter: brightness(0.7);}
+.coding .top .text {width: auto; display: inline-block; position: absolute; top: 100px; right: 175px;}
+/* bottom */
+.coding .bottom {width: 100%;}
+.coding .bottom li {display: flex; margin-bottom: 250px;}
+.coding .bottom li:last-child {margin-bottom: 0; margin-top: -70px;}
+.coding .bottom .img {width: 840px; height: 460px; background: #fff; border: 5px solid #222; border-radius: 20px; display: inline-block; overflow: hidden;}
+.coding .bottom .img img {width: 100%; height: 100%;}
+    /* 이미지 사이즈 */
+    .coding .bottom .about .img {width: 628px; height: 344px; margin-right: 80px;}
+    .coding .bottom .work .img{width: 628px; height: 344px;}
+    .coding .bottom .workDetails .img {width: 448px; height: 245px;}
+    .coding .bottom .menu .img {width: 347px; height: 190px;}
+.coding .bottom .textBox {display: inline-block; box-sizing: border-box;}
+.coding .bottom .subTit {color: rgba(255,255,255,0.8); background: #000; margin-bottom: 30px;}
+.coding .bottom .text {background: #000; opacity: 0.7; font-weight: 200;}
+/* 위치조정 */
+.coding .bottom .index .textBox {padding-left: 30px; padding-top: 60px;}
+.coding .bottom .about {justify-content: right;}
+.coding .bottom .about .textBox {padding-right: 30px; padding-top: 40px; text-align: right;}
+.coding .bottom .work {justify-content: center; margin-bottom: 0px;}
+.coding .bottom .work .textBox {padding-left: 30px; padding-top: 40px;}
+.coding .bottom .workDetails {justify-content: right;}
+
+.coding .bottom .workDetails .textBox {padding-right: 30px; text-align: right; transform: translateY(120px);}
+.coding .bottom .menu {justify-content: center;}
+.coding .bottom .menu .textBox {padding-left: 30px; padding-top: 10px;}
+
+
+/* section.responsive */
+.responsive {width: 100%; position: relative; padding-bottom: 300px;}
+.responsive .tit {background: #000;}
+.responsive .text {text-align: center; margin-bottom: 50px; background: #000;}
+.responsive .button {text-align: center; margin-bottom: 50px;}
+.responsive .button button {margin-right: 15px; transition: all 0.3s; background: none; border: none;}
+.responsive .button button:last-child {margin-right: 0;}
+.responsive .button button a {display: block; width: 100%; height: 100%; padding: 12px 25px; box-sizing: border-box; border: 1px solid rgba(255,255,255,1); border-radius: 10px; color: rgba(255,255,255,0.8); cursor: pointer; background: #000;}
+    /* hover, focus */
+    .responsive .button button:hover a, .responsive .button button:focus a {color: #FEDF79; border: 1px solid #FEDF79;}
+.responsive .img {width: 500px; margin: 0 auto;}
+.responsive .img img {width: 100%;}
+
+
+/* section.ppt */
+.ppt {width: 100%; position: relative; padding-bottom: 200px;}
+.ppt .tit {background: #000;}
+.ppt .text {text-align: center; margin-bottom: 50px; background: #000;}
+.ppt .img1 {width: 650px; height: 400px; background: #fff; display: inline-block; margin-left: 80px; box-sizing: border-box;}
+.ppt .img2 {width: 500px; height: 280px; background: #fff; display: inline-block; transform: translateY(170px) translateX(30px);}
+
+
+/* section.fullPage */
+.fullPage {width: 100%; background: #E5E5E4; padding-top: 200px; padding-bottom: 300px;}
+.fullPage .tit {color: #000; text-align: left; opacity: 0.7; margin-bottom: 20px;}
+.fullPage .text {color: #000; text-align: left; opacity: 0.7; margin-bottom: 50px; font-weight: 600;}
+.fullPage .slide {width: 90%; margin: 0 auto; position: relative;}
+.fullPage .slide .img {width: 100%; border: 7px solid #222; border-radius: 20px; overflow: hidden; box-sizing: border-box;}
+.fullPage .slide .img img {width: 100%;}
+/* dot 버튼만들기 */
+.fullPage .slick-dots {position: absolute; top: -60px; right: 10px;}
+.fullPage .slick-dots li {display: inline-block; margin-right: 10px;}
+.fullPage .slick-dots li button {display: block; color: transparent; position: relative; width: 100px; height: 40px; border: 1px solid rgba(0,0,0,0.5); border-radius: 10px; cursor: pointer;}
+.fullPage .slick-dots li button::before {content: 'INDEX →'; width: 100%; line-height: 40px; position: absolute; left: 0; bottom: 0; color: rgba(0,0,0,0.8); transition: all 0.3s;}
+.fullPage .slick-dots li:nth-child(2) button::before {content: 'ABOUT →';}
+.fullPage .slick-dots li:nth-child(3) button::before {content: 'WORK →';}
+.fullPage .slick-dots li:nth-child(4) button::before {content: 'WORKsub →';}
+    /* active */
+    .fullPage li.slick-active button {background: rgba(0,0,0,0.8); border: none;}
+    .fullPage li.slick-active button::before {color: #fff;}
+
+
+
+
+
+
+/* -----------------------------responsive Web----------------------------- */
+
+/* ~1380px */
+@media screen and (max-width:1380px) {
+    /* font-size */
+        /* 공통 */
+        body, .visual .inner .bottom .right li button a, .style .middle .name li:nth-child(1) span, .responsive .button button a {font-size: 15px;}
+        .mark, .btn, .font14, .fullPage .slick-dots li button::before  {font-size: 14px;}
+        .architecture .tree .details span {font-size: 13.78px;}
+        .architecture .tree .details .font14 {font-size: 1vw;}
+        /* 타이틀 */ 
+        .visual .inner .tit {font-size: 110px;}
+        .visual .bottomTit .tit {font-size: 92px;}
+        .tit {font-size: 62px;}
+        /* 서브타이틀 */
+        .style .subTit, .architecture .treeTit, .coding .bottom .subTit {font-size: 42px;}
+        /* 큰텍스트 */
+        .font18, .concept .circleBox li {font-size: 18px;}
+        .style .top .font li .view, .coding .bottom .workDetails .subTit, .coding .bottom .menu .subTit, .concept .circleBox li.space {font-size: 28px;}
+    /* inner width */
+    section .inner {width: 80vw}
+    /* section padding-bottom */
+    .brain, .mindmap, .reference, .sketch, .style, .style .bottom, .architecture, .wireFrame, .coding, .responsive, .ppt, .fullPage {padding-bottom: 18vw;}
+    /* 공통 */
+    .tit, .brain .tit, .coding .tit {margin-bottom: 5vw;}
+    /* 이동버튼 */
+    .btn.left::before {width: 50px;}
+    .btn.left {padding-left: 55px;}
+    .btn.left::after {right: 42px;}
+    .btn.right::before {width: 50px;}
+    .btn.right {padding-right: 55px;}
+    .btn.right::after {left: 42px;}
+    /* visual */
+    .visual .bottomTit {margin-top: -7vw; padding-bottom: 20vw;}
+    .visual .inner {padding: 10vw 8vw;}
+    .visual .inner .bottom .left {width: 42%;}
+    .visual .inner .bottom .left li br {display: none;}
+    .visual .inner .bottom .right {width: 48%;}
+    .visual .inner .bottom .right li button {margin-right: 7px;}
+    .visual .inner .bottom .right li button a {padding: 1vw 2vw;}
+    /* brainstorming */
+    .brain .imgBox {display: flex; flex-wrap: wrap;}
+    .brain .imgBox li {display: block; margin-bottom: 5vw;}
+    .brain .imgBox li:nth-child(1) {width: 100%;}
+    .brain .imgBox li:nth-child(2) {width: 50%; transform: initial; padding: 0;}
+    .brain .imgBox li:nth-child(3) {width: 50%; padding: 0;}
+    .brain .imgBox li .img {margin: 0 auto 2vw;}
+    .brain .imgBox li:nth-child(1) .img {width: 440px; height: 288px;}
+    .brain .imgBox li:nth-child(2) .img {width: 296px; height: 352px;}
+    .brain .imgBox li:nth-child(3) .img {width: 344px; height: 208px;}
+    .brain .imgBox li .text {text-align: center;}
+    .brain .imgBox li:nth-child(1) .text {background: #000;}
+    /* mindmap */
+    .mindmap .imgBox {display: flex; flex-wrap: wrap;}
+    .mindmap .imgBox li {display: block; margin-bottom: 5vw;}
+    .mindmap .imgBox li:nth-child(1) {width: 100%;}
+    .mindmap .imgBox li:nth-child(2) {width: 40%; position: relative; top: initial; left: initial;}
+    .mindmap .imgBox li:nth-child(3) {width: 60%; padding: 0;}
+    .mindmap .imgBox li .img {margin: 0 auto 2vw;}
+    .mindmap .imgBox li:nth-child(1) .img {width: 566px; height: 404px;}
+    .mindmap .imgBox li .text {text-align: center; background: #000;}
+    .mindmap .imgBox li:nth-child(2) .text {display: none;}
+    .mindmap .imgBox li:nth-child(3) .text {display: block; text-align: left;  padding-left: 13%; box-sizing: border-box;}
+    /* concept */
+    .concept .text {margin-bottom: 8vw; background: #000;}
+    .concept .circleBox {width: 90%; height: 30vw; padding: 0; margin: 0 auto;}
+    .concept .circleBox li {width: 12vw; height: 12vw; line-height: 12vw;}
+    /* reference */
+    .reference .text {margin-bottom: 5vw; background: #000;}
+    .reference .slide .text span {margin-right: 5px; padding: 1px 7px;}
+    /* sketch & Wireframe */
+    .sketch .text, .wireFrame .text {margin-bottom: 5vw;}
+    .sketch .list li, .wireFrame .list li {width: 20%; margin: 0 1%;}
+    .sketch .list li .text, .wireFrame .list li .text {padding: 1px 7px; margin-bottom: 5px;}
+    .sketch .list li img, .wireFrame .list li img {width: 100%;}
+    /* style */
+    .style {padding-top: 0;}
+    .style .inner{padding: 7vw 4vw 0;}
+    .style .tit, .style .top, .style .middle {margin-bottom: 10vw;}
+    .style .subTit {margin-bottom: 3vw;}
+    .style .top .color ul, .style .top .font ul, .style .middle .name ul, .style .middle .logo .text, .style .middle .logo ul, .style .bottom ul {padding-left: 2vw;}
+    .style .top .color li, .style .top .font li .fontName, .style .top .font li .text, .style .middle .name li:nth-child(2) span, .style .middle .name li:nth-child(3) span, .style .middle .logo li .size {margin-bottom: 1vw;}
+    .style .top .color li span {width: 140px; height: 70px; line-height: 70px; margin-right: 1vw;}
+    .style .top .font li, .style .middle .name li, .style .middle .logo .text, .style .middle .logo li {margin-bottom: 4vw;}
+    .style .top .font li .fontName span, .style .middle .logo li .size span {right: 25px;}
+    .style .middle .logo li .img {width: 120px;}
+    .style .middle .logo li:nth-child(2) .img {width: 200px;}
+    .style .bottom li {display: flex;}
+    .style .bottom li:nth-child(2) {justify-content: end; margin-top: -3vw;}
+    .style .bottom li:nth-child(1) .img {width: 400px; height: 250px;}
+    .style .bottom li:nth-child(2) .img {width: 160px; height: 215px; position: relative; top: initial; right: initial;}
+    .style .bottom li:nth-child(1) .text {position: relative; top: initial; right: initial; padding: 2vw 0 0 2vw; box-sizing: border-box;}
+    .style .bottom li:nth-child(2) .text {position: relative; top: initial; right: initial; padding: 9vw 2vw 0 0; box-sizing: border-box;}
+    /* Architecture */
+    .architecture .text {margin-bottom: 5vw;}
+    .architecture .tree::after {width: 64vw;}
+    .architecture .tree li {padding: 6px;}
+    .architecture .tree .subTit {border-radius: 7px;}
+    /* coding */
+    .coding .top, .coding .bottom li {margin-bottom: 20vw;}
+    .coding .top .img1 {display: block; width: 45vw; height: 25vw; margin: 10vw auto 3vw;}
+    .coding .top .img2 {display: none;}
+    .coding .top .text {position: relative; top: initial; right: initial; width: 100%; text-align: center; background: #000;}
+    .coding .bottom .img, .coding .bottom .about .img, .coding .bottom .work .img {width: 54%; height: 25vw;}
+    .coding .bottom .workDetails .img, .coding .bottom .menu .img {width: 40%; height: 17vw;}
+    .coding .bottom .index .textBox, .coding .bottom .work .textBox {width: 46%; padding: 2vw 0 0 2vw; box-sizing: border-box;}
+    .coding .bottom .about .textBox {width: 46%; padding: 2vw 2vw 0 0; box-sizing: border-box;}
+    .coding .bottom .workDetails .textBox {width: 60%; transform: initial; padding-top: 7vw; padding-right: 2vw; box-sizing: border-box;}
+    .coding .bottom .menu .textBox {width: 60%; padding: 2vw; box-sizing: border-box;}
+    .coding .bottom .subTit {margin-bottom: 2vw;}
+    /* responsive */
+    .responsive .text, .responsive .button {margin-bottom: 3vw;}
+    .responsive .button button {margin-right: 7px;}
+    .responsive .button button a {padding: 1vw 2vw;}
+    .responsive .img {width: 30vw;}
+    /* ppt */
+    .ppt .text {margin-bottom: 3vw;}
+    .ppt .img1 {width: 45vw; height: 25vw; display: block; margin: 0 auto;}
+    .ppt .img2 {display: none;}
+    /* fullpage */
+    .fullPage .text {margin-bottom: 100px;}
+}
+
+
+/* ~1024px */
+@media screen and (max-width:1024px) {
+    /* font-size */
+    .fullPage .slick-dots li button::before {font-size: 1.5vw;}
+    /* section padding-bottom */
+    .brain, .mindmap, .reference, .sketch, .style, .style .bottom, .architecture, .wireFrame, .coding, .responsive, .ppt, .fullPage {padding-bottom: 25vw;}
+    /* visual */
+    .visual .inner .bottom .right {width: 48%;}
+    .visual .inner .bottom .right li button a {padding: 1.5vw;}
+    /* concept */
+    .concept .circleBox {width: 85%;}
+    /* style */
+    .style .top .color, .style .top .font, .style .middle .name, .style .middle .logo {padding-left: 0;}
+    .style .top .color li span {width: 90px; height: 60px; line-height: 60px;}
+    .style .top .color li .translateY {transform: translateY(10px);}
+    .style .top .font li .fontName span, .style .middle .logo li .size span {right: 10px; opacity: 0.7;}
+    .style .bottom li:nth-child(1) .img {width: 350px; height: 230px;}
+    .style .top .color li, .style .top .font li .fontName, .style .top .font li .text, .style .middle .name li:nth-child(2) span, .style .middle .name li:nth-child(3) span, .style .middle .logo li .size {margin-bottom: 2vw;}
+    /* coding */
+    .coding .top, .coding .bottom li {margin-bottom: 30vw;}
+    .coding .bottom .workDetails .textBox {padding-top: 5vw;}
+    .coding .bottom .index .text br, .coding .bottom .about .text br, .coding .bottom .work .text br {display: none;}
+    /* fullpage */
+    .fullPage .slick-dots {right: 0; top: -50px;}
+    .fullPage .slick-dots li {margin-right: 1vw;}
+    .fullPage .slick-dots li button {height: 35px;}
+    .fullPage .slick-dots li button::before {line-height: 35px;}
+}
+
+
+/* ~890 */
+@media screen and (max-width:890px) {
+    /* font-size */
+        /* 공통 */
+        body, .visual .inner .bottom .right li button a, .style .middle .name li:nth-child(1) span, .responsive .button button a {font-size: 1.8vw;}
+        .mark, .btn, .font14, .fullPage .slick-dots li button::before, .fullPage .slick-dots li button::before  {font-size: 1.5vw;}
+        .architecture .tree .details span {font-size: 13.78px;}
+        .architecture .tree .details .font14 {font-size: 1vw;}
+        /* 타이틀 */ 
+        .visual .inner .tit {font-size: 10vw;}
+        .visual .bottomTit .tit {font-size: 8vw;}
+        .tit {font-size: 6vw;}
+        /* 서브타이틀 */
+        .style .subTit, .architecture .treeTit, .coding .bottom .subTit {font-size: 5vw;}
+        /* 큰텍스트 */
+        .font18, .concept .circleBox li {font-size: 2vw;}
+        .style .top .font li .view, .coding .bottom .workDetails .subTit, .coding .bottom .menu .subTit, .concept .circleBox li.space {font-size: 2.5vw;} 
+    /* visual */
+    .visual .bg {height: 50vh;}
+    .visual .inner {transform: translateY(-20vh);}
+    .visual .inner .bottom .right {width: 50%;}
+    .visual .bottomTit {margin-top: 10vw; padding-bottom: 30vw;}
+    /* brainstorming */
+    .brain .imgBox li:nth-child(1) .img {width: 50vw; height: 25vw;}
+    .brain .imgBox li:nth-child(2) .img, .brain .imgBox li:nth-child(3) .img {width: 80%; height: 30vw;}
+    .brain .imgBox li:nth-child(1) .text {width: 45vw; margin: 0 auto;}
+    .brain .imgBox li:nth-child(1) .text br {display: none;}
+    .brain .imgBox li:nth-child(2) .text, .brain .imgBox li:nth-child(3) .text {width: 82%; margin: 0 auto;}
+    .brain .imgBox li:nth-child(2) .text br, .brain .imgBox li:nth-child(3) .text br {display: none;}
+    /* mindmap */
+    .mindmap .imgBox li:nth-child(2) {display: none;}
+    .mindmap .imgBox li:nth-child(3) {width: 100%;}
+    .mindmap .imgBox li:nth-child(1) .img, .mindmap .imgBox li:nth-child(3) .img {width: 50vw; height: auto;}
+    .mindmap .imgBox li:nth-child(1) .text, .mindmap .imgBox li:nth-child(3) .text {width: 45vw; margin: 0 auto; padding: 0; text-align: center;}
+    /* concept */
+    .concept .circleBox {height: 25vw;}
+    /* sketch & wireFrame */
+    .sketch .list, .wireFrame .list {display: none;}
+    .sketch .list.slide, .wireFrame .list.slide {display: block;}
+    /* style */
+    .style .top .color, .style .top .font, .style .middle .name, .style .middle .logo {padding: 2vw; box-sizing: border-box;}
+    .style .top .color ul, .style .top .font ul, .style .middle .name ul, .style .middle .logo .text, .style .middle .logo ul, .style .bottom ul {padding-left: 0;}
+    .style .bottom li:nth-child(1) .img {width: 35vw; height: 20vw;}
+    .style .bottom li:nth-child(2) .img {width: 18vw; height: 22vw;}
+    .style .top .color, .style .middle .name {border-right: 1px dashed rgba(0,0,0,0.3);}
+    /* architecture */
+    .architecture .tree .details {width: 95%; padding: 3vw 1vw;}
+    /* coding */
+    /* 
+    .coding .bottom .img, .coding .bottom .about .img, .coding .bottom .work .img {width: 60%;}
+    .coding .bottom .index .textBox, .coding .bottom .work .textBox {width: 40%;}
+    .coding .bottom .work {margin-bottom: 5vw;} */
+    .coding .top, .coding .bottom li {flex-wrap: wrap; margin-bottom: 20vw;}
+    .coding .bottom .index .textBox, .coding .bottom .about .textBox, .coding .bottom .work .textBox, .coding .bottom .workDetails .textBox, .coding .bottom .menu .textBox {width: 80%; margin: 0 auto 3vw; text-align: center;}
+    .coding .bottom .index .textBox .text, .coding .bottom .about .textBox .text, .coding .bottom .work .textBox .text, .coding .bottom .workDetails .textBox .text, .coding .bottom .menu .textBox .text {background: #111; margin: 0 10%; padding: 2vw; box-sizing: border-box; border-radius: 10px; opacity: 1;}
+    .coding .bottom .img, .coding .bottom .about .img, .coding .bottom .work .img {margin: 0 auto;}
+    .coding .bottom .index, .coding .bottom .work, .coding .bottom .menu {flex-direction: column-reverse;}
+    .coding .bottom li:last-child {margin-top: -30px;}
+    .coding .bottom .menu .textBox {padding: 0;}
+    /* responsive */
+    .responsive .img {width: 40vw;}
+    /* fullpage */
+    .fullPage {padding-top: 15vw;}
+    .fullPage .slick-dots li button {width: 90px; height: 30px;}
+    .fullPage .slick-dots li button::before {line-height: 30px;}
+}
+
+
+/* ~690 */
+@media screen and (max-width:690px) {
+    /* font-size */
+        /* 공통 */
+        body, .visual .inner .bottom .right li button a, .style .middle .name li:nth-child(1) span, .responsive .button button a, .architecture .tree .details span {font-size: 2.2vw;}
+        .mark, .btn, .font14, .fullPage .slick-dots li button::before, .fullPage .slick-dots li button::before, .architecture .tree .details .font14  {font-size: 1.8vw;}
+        /* 타이틀 */ 
+        .visual .inner .tit {font-size: 10vw;}
+        .visual .bottomTit .tit {font-size: 8vw;}
+        .tit {font-size: 6vw;}
+        /* 서브타이틀 */
+        .style .subTit, .architecture .treeTit, .coding .bottom .subTit {font-size: 5vw;}
+        /* 큰텍스트 */
+        .font18, .concept .circleBox li {font-size: 2.7vw;}
+        .style .top .font li .view, .coding .bottom .workDetails .subTit, .coding .bottom .menu .subTit, .concept .circleBox li.space {font-size: 3.2vw;}
+    /* 공통 */
+    .mark {right: -70px;}
+    /* visual */
+    .visual .bg {height: 40vh;}
+    .visual .inner {padding: 10vw 8vw;}
+    .visual .inner .tit, .visual .inner .top, .visual .inner .bottom .right li:first-child {margin-bottom: 10vw;}
+    .visual .inner .bottom {flex-wrap: wrap;}
+    .visual .inner .bottom .left {width: 100%; margin-bottom: 10vw;}
+    .visual .inner .bottom .left li br {display: block;}
+    .visual .inner .bottom .right {width: 100%;}
+    /* brainstorming */
+    .brain .imgBox li:nth-child(1) .img {width: 60vw; height: 30vw;}
+    .brain .imgBox li:nth-child(1) .text {width: 80%;}
+    /* mindmap */
+    .mindmap .imgBox li:nth-child(1) .img, .mindmap .imgBox li:nth-child(3) .img {width: 60vw;}
+    /* concept */
+    .concept .circleBox {height: 30vw;}
+    /* reference */
+    .reference .mo {display: block;}
+    /* sketch */
+    .sketch .mo {display: block;}
+    /* style */
+    .style .inner {padding: 7vw 2vw 0;}
+    .style .top .color li span {width: 75px; height: 50px; line-height: 50px; border-radius: 7px;}
+    .style .top .font li .fontName span, .style .middle .logo li .size span {display: block; width: 100%; position: relative; right: initial; bottom: initial;}
+    .style .top .font li .text br, .style .middle .logo .text br, .style .middle .name li br, .style .bottom li:nth-child(1) .text br, .style .bottom li:nth-child(2) .text br {display: none;}
+    .style .top .font li, .style .middle .name li, .style .middle .logo .text, .style .middle .logo li {margin-bottom: 6vw;}
+    .style .bottom li:nth-child(1) .img {width: 50%; height: auto; border-radius: 10px;}
+    .style .bottom li:nth-child(1) .text {width: 40%;}
+    .style .bottom li:nth-child(2) .img {width: 30%; height: auto;}
+    .style .bottom li:nth-child(2) .text {width: 50%; padding: 10vw 2vw 0 0;}
+    /* architecture */
+    .architecture .treeTit {padding-bottom: 3vw;}
+    .architecture .tree {display: none;}
+    .architecture .tree.mo {display: block; padding-top: 0; position: relative; display: flex; flex-wrap: wrap; justify-content: space-between;}
+    .architecture .treeTit::before, .architecture .tree::after {display: none;}
+    .architecture .tree.mo details {width: 60%; margin: 0 auto 3vw;}
+    .architecture .tree.mo summary {cursor: pointer;}
+    .architecture .tree .details {padding: 5vw 10vw 3vw;}
+    /* coding */
+    .coding .top .text {width: 80%; margin: 0 auto; display: block;}
+    .coding .top .text br, .coding .bottom .workDetails .textBox .text br, .coding .bottom .menu .textBox .text br {display: none;}
+    /* responsive */
+    .responsive .button button a {border-radius: 7px;}
+    /* fullpage */
+    .fullPage .slick-dots li button {width: 80px; border-radius: 7px;}
+}
+
+
+/* ~580 */
+@media screen and (max-width:580px) {
+    /* font-size */
+        /* 공통 */
+        body {line-height: 1.6;}
+        body, .visual .inner .bottom .right li button a, .style .middle .name li:nth-child(1) span, .responsive .button button a, .architecture .tree .details span {font-size: 2.5vw;}
+        .mark, .btn, .font14, .fullPage .slick-dots li button::before, .fullPage .slick-dots li button::before, .architecture .tree .details .font14  {font-size: 2.2vw;}
+        /* 타이틀 */ 
+        .visual .inner .tit {font-size: 10vw;}
+        .visual .bottomTit .tit {font-size: 8vw;}
+        .tit {font-size: 6vw;}
+        /* 서브타이틀 */
+        .style .subTit, .architecture .treeTit, .coding .bottom .subTit {font-size: 5vw;}
+        /* 큰텍스트 */
+        .font18, .concept .circleBox li {font-size: 3.1vw;}
+        .style .top .font li .view, .coding .bottom .workDetails .subTit, .coding .bottom .menu .subTit, .concept .circleBox li.space {font-size: 3.3vw;}
+    /* 공통 */
+    .mark {display: none;}
+    /* visual */
+    .visual .inner {border-radius: 15px;}
+    .visual .inner li span {width: 60px;}
+    .visual .inner .bottom .left li {width: 95%;}
+    .visual .inner .bottom .left li br {display: none;}
+    .visual .inner .bottom .right li button a {padding: 2.5vw 4vw; border-radius: 7px;}
+    /* brainstorming */
+    .brain .imgBox li:nth-child(1) .text {width: 85%;}
+    /* style */
+    .style .inner {padding: 10vw 2vw 0;}
+    .style .top, .style .middle {flex-wrap: wrap; margin-bottom: 0;}
+    .style .top .color, .style .top .font, .style .middle .name, .style .middle .logo {width: 80%; border: none; border-bottom: 1px dashed rgba(0,0,0,0.3); margin: 0 auto; padding-top: 5vw; padding-bottom: 5vw;}
+    .style .top .color ul, .style .top .font ul, .style .middle .name ul, .style .middle .logo .text, .style .middle .logo ul, .style .bottom ul {width: 80%; margin: 0 auto 6vw;}
+    .style .bottom {width: 80%; margin: 0 auto; padding-top: 5vw; padding-bottom: 5vw;}
+    .style .bottom li {flex-wrap: wrap;}
+    .style .bottom li:nth-child(1) .img {width: 85%; margin: 0 auto 1vw;}
+    .style .bottom li:nth-child(1) .text {width: 90%; margin: 0 auto 6vw; text-align: center; padding: 0;}
+    .style .bottom li:nth-child(2) {margin-top: 0;}
+    .style .bottom li:nth-child(2) .img {width: 35%;}
+    .style .bottom li:nth-child(2) .text {width: 65%;}
+    /* architecture */
+    .architecture .text .mo {display: block;}
+    /* coding */
+    .coding {padding-bottom: 35vw;}
+    .coding .top .img1 {width: 60vw; height: auto;}
+    .coding .bottom .img, .coding .bottom .about .img, .coding .bottom .work .img {width: 60vw; height: auto;}
+    .coding .bottom .workDetails .img, .coding .bottom .menu .img {width: 50vw; height: auto;}
+    .coding .bottom .img, .coding .bottom .about .img, .coding .bottom .work .img {border-radius: 10px; border: 3px solid #222;}
+    .coding .top .text, .coding .bottom .index .textBox, .coding .bottom .about .textBox, .coding .bottom .work .textBox, .coding .bottom .workDetails .textBox, .coding .bottom .menu .textBox {width: 85%;}
+    .coding .bottom .index .textBox .text, .coding .bottom .about .textBox .text, .coding .bottom .work .textBox .text, .coding .bottom .workDetails .textBox .text, .coding .bottom .menu .textBox .text {margin: 0;}
+    .coding .bottom li:last-child {margin-top: 0;}
+    /* responsive */
+    .responsive .button {margin-bottom: 7vw;}
+    /* ppt */
+    .ppt .img1 {width: 60vw; height: 30vw;}
+    /* fullpage */
+    .fullPage .text .mo {display: block;}
+    .fullPage .slide .img {border-radius: 15px; border: 5px solid #222;}
+}
+
+
+/* ~490 */
+@media screen and (max-width:490px) {
+    /* font-size */
+        /* 공통 */
+        body, .visual .inner .bottom .right li button a, .style .middle .name li:nth-child(1) span, .responsive .button button a, .architecture .tree .details span {font-size: 2.7vw;}
+        .mark, .btn, .font14, .fullPage .slick-dots li button::before, .fullPage .slick-dots li button::before, .architecture .tree .details .font14 {font-size: 2.4vw;}
+        /* 타이틀 */ 
+        .visual .inner .tit {font-size: 10vw;}
+        .visual .bottomTit .tit {font-size: 8vw;}
+        .tit {font-size: 6vw;}
+        /* 서브타이틀 */
+        .style .subTit, .architecture .treeTit, .coding .bottom .subTit {font-size: 5vw;}
+        /* 큰텍스트 */
+        .font18, .concept .circleBox li {font-size: 3.3vw;}
+        .style .top .font li .view, .coding .bottom .workDetails .subTit, .coding .bottom .menu .subTit, .concept .circleBox li.space {font-size: 3.5vw;}
+    /* mindmap */
+    .mindmap .imgBox li:nth-child(1) .text, .mindmap .imgBox li:nth-child(3) .text {width: 80%;}
+    .mindmap .imgBox li:nth-child(1) .text br, .mindmap .imgBox li:nth-child(3) .text br {display: none;}
+    /* style */
+    .style .top .color ul, .style .top .font ul, .style .middle .name ul, .style .middle .logo .text, .style .middle .logo ul, .style .bottom ul {width: 85%;}
+    /* fullpage */
+    .fullPage .slick-dots {flex-wrap: wrap; width: 180px; top: -77px; right: 0;}
+    .fullPage .slick-dots li {width: 45%; margin-bottom: 1vw;}
+}
+
+
+/* ~390 */
+@media screen and (max-width:390px) {
+    /* font-size */
+        /* 공통 */
+        body, .visual .inner .bottom .right li button a, .style .middle .name li:nth-child(1) span, .responsive .button button a, .architecture .tree .details span, .concept .circleBox li {font-size: 3vw;}
+        .mark, .btn, .font14, .fullPage .slick-dots li button::before, .fullPage .slick-dots li button::before, .architecture .tree .details .font14 {font-size: 2.7vw;}
+        /* 타이틀 */ 
+        .visual .inner .tit {font-size: 10vw;}
+        .visual .bottomTit .tit {font-size: 8vw;}
+        .tit {font-size: 6vw;}
+        /* 서브타이틀 */
+        .style .subTit, .architecture .treeTit, .coding .bottom .subTit {font-size: 5vw;}
+        /* 큰텍스트 */
+        .font18 {font-size: 3.8vw;}
+        .style .top .font li .view, .coding .bottom .workDetails .subTit, .coding .bottom .menu .subTit, .concept .circleBox li.space {font-size: 4vw;}
+    /* section padding-bottom */
+    .brain, .mindmap, .reference, .sketch, .style, .style .bottom, .architecture, .wireFrame, .coding, .responsive, .ppt, .fullPage {padding-bottom: 35vw;}
+    /* visual */
+    .visual .bg {height: 50vh;}
+    .visual .inner li span {width: 45px;}
+    .visual .inner .bottom .right li button {margin-right: 1.5vw;}
+    .visual .inner .bottom .right li button a {padding: 2vw 2.5vw;}
+    .visual .bottomTit {margin-top: 0; padding-bottom: 35vw;}
+    /* brainstorming */
+    .brain .imgBox li:nth-child(2) .text, .brain .imgBox li:nth-child(3) .text {width: 76%;}
+    /* concept */
+    .concept {padding-bottom: 15vw;}
+    .concept .circleBox {width: 92%;}
+    .concept .circleBox li {width: 13vw; height: 13vw;}
+    /* reference */
+    .reference .slide .text {text-align: center;}
+    .reference .slide .text span {display: block; width: 29%; margin: 0 auto 1vw; text-align: center; padding: 1px 5px;}
+    /* style */
+    .style .top .color {padding-top: 0;}
+    .style .top .color li span {width: 50px;}
+    .style .top .color ul, .style .top .font ul, .style .middle .name ul, .style .middle .logo .text, .style .middle .logo ul, .style .bottom ul {width: 95%;}
+    .style .middle .logo li .img {width: 25vw;}
+    .style .middle .logo li:nth-child(2) .img {width: 45vw;}
+    .style .bottom li:nth-child(1) .img {margin: 0 0 1vw;}
+    .style .bottom li:nth-child(1) .text {margin: 0 0 6vw; text-align: left;}
+    /* architecture */
+    .architecture .tree .subTit {padding: 2vw 0;}
+    .architecture .tree .details {padding: 8vw 7vw 3vw;}
+    /* responsive */
+    .responsive .img {width: 50vw;}
+    /* coding */
+    .coding {padding-bottom: 30vw;}
+    .coding .top .text, .coding .bottom .index .textBox, .coding .bottom .about .textBox, .coding .bottom .work .textBox, .coding .bottom .workDetails .textBox, .coding .bottom .menu .textBox {width: 88%;}
+    .coding .bottom .index, .coding .bottom .work, .coding .bottom .menu {flex-wrap: wrap-reverse; flex-direction: initial;}
+    /* fullpage */
+    .fullPage .slick-dots {right: -30px;}
+    .fullPage .slick-dots li {margin-bottom: 1.5vw; width: 40%;}
+    .fullPage .slick-dots li button {width: 70px; border-radius: 7px;}
+}
+
+
+/* ~306 */
+@media screen and (max-width:306px) {
+    /* visual */
+    .visual .inner li span {width: 35px;}
+}

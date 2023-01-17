@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StellaSpace</title>
+
+    <!-- link -->
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/slick.css">
+    <link rel='stylesheet' href='css/swiper-bundle.min.css'>
+
+    <!-- script -->
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/scrolla.jquery.min.js"></script>
+
+    <!-- 공통 script -->
+    <script src="js/script_main.js"></script>
+
+    <!-- 부드러운스크롤 -->
+    <script src="http://fatlinesofcode.github.io/jquery.smoothwheel/src/jquery.smoothwheel.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("body").smoothWheel()
+        });
+    </script>
+
+    <!-- section.visual => Z축 애니메이션 (위에 적어줘야 작동됨. 이유는 공부필요!!!) -->
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/prefixfree.min.js"></script>
+    <script src="js/visual_z_animation.js"></script>
+
+    <!-- gsap 스크롤트리거 -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/ScrollTrigger.min.js"></script>
+
+    <!-- section.about => slick slide -->
+    <script src="js/slick.min.js"></script>
+
+    <!-- section.work => swiper -->
+    <script src='js/swiper-bundle.min.js'></script>
+    <script defer src="js/swiper_slide.js"></script>
+
+    <!-- 상단 스크롤 프로그래스바(진행바) -->
+    <script type="text/javascript" src="https://rawcdn.githack.com/mburakerman/prognroll/0feda211643153bce2c69de32ea1b39cdc64ffbe/src/prognroll.js"></script>
+
+    <!-- 이미지 호버효과 -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.147.0/three.min.js"></script>
+    <script defer src="js/hover-effect.js"></script>
+    <script defer src="js/hover-effect-script.js"></script>
+</head>
+
+<body>
+    <div class="wrap">
+
+        <!-- header -->
+        <header>
+            <h1 class="logo">
+                <a href="index.html">
+                    <img src="img/logo_s.png" alt="로고">
+                </a>
+            </h1>
+            <a href="#" class="menuOpen">
+                <img src="img/menu_open2.png" alt="메뉴오픈 아이콘">
+            </a>
+            <nav class="gnb">
+                <a href="#" class="close">
+                    <img src="img/menu_close.png" alt="메뉴닫기 아이콘">
+                </a>
+                <video src="img/gnb_bg.mp4" muted autoplay loop playsinline></video>
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+                    <li><a href="works.html">WORK</a></li>
+                    <li><a href="portfolio.html">PORTFOLIO</a></li>
+                    <li><a href="https://jiatori.tistory.com/" target='_blank'>BLOG</a></li>
+                </ul>
+            </nav>
+        </header>
+
+
+        <!-- section -->
+        <section class="visual" id="main">
+
+            <!-- 스크롤 위치 확인용 -->
+            <!-- <h1 class="scrollTopNum">0</h1> -->
+
+            <section class="box">
+                <article class="img on">
+                    <img src="img/visual_logo_4x.png" alt="로고" class="no-js">
+                </article>
+                <article class="video">
+                    <video src="img/introvideo_gray.mp4" autoplay muted loop playsinline></video>
+                    <div class="marquee"><p>― Ama et fac quod vis  ― Ama et fac quod vis ― Ama et fac quod vis  ― Ama et fac quod vis ― Ama et fac quod vis  ― Ama et fac quod vis ― Ama et fac quod vis  ― Ama et fac quod vis ― Ama et fac quod vis ― Ama et fac quod vis ― Ama et fac quod vis ― Ama et fac quod vis ― Ama et fac quod vis ― Ama et fac quod vis ― Ama et fac quod vis ― Ama et fac quod vis ― Ama et fac quod vis  ― Ama et fac quod vis ― Ama et fac quod vis  ― Ama et fac quod vis ― Ama et fac quod vis  ― Ama et fac quod vis ― Ama et fac quod vis  ― Ama et fac quod vis ― Ama et fac quod vis  ― Ama et fac quod vis ― Ama et fac quod vis  ― Ama et fac quod vis ― Ama et fac quod vis  ― Ama et fac quod vis ― Ama et fac quod vis  ― Ama et fac quod vis ― Ama et fac quod vis ― Ama et fac quod vis ― Ama et fac quod vis ― Ama et fac quod vis ― Ama et fac quod vis ― Ama et fac quod vis ― Ama et fac quod vis ― Ama et fac quod vis ― Ama et fac quod vis  ― Ama et fac quod vis ― Ama et fac quod vis  ― Ama et fac quod vis ― Ama et fac quod vis  ― Ama et fac quod vis ― Ama et fac quod vis  ― Ama et fac quod vis </p></div>
+                </article>
+            </section>
+            <div class="leftText no-js">
+                <p class="text textAni animate" data-animate="motion">
+                    <span><b>Web Publisher<br></b></span>
+                    <span><b>Markup Developer</b></span>
+                    <span><b>Brand Manager</b></span>
+                    <span><b>Portfolio</b></span>
+                </p>
+            </div>
+        </section>
+
+
+        <div class="spaceBg">
+            <section class="intro2">
+                <p class="text animate" data-animate="motion">
+                    안녕하세요! <br>
+                    <br>
+                    가장 좋아하는 일을 하는 <br class="mo">신입 웹퍼블리셔 송지연입니다. <br> <br class="mo">
+                    제 첫 번째 포트폴리오 <br class="mo"><span>StellaSpace</span>에 와주셔서 감사합니다. <br>
+                </p>
+            </section>
+
+
+            <section class="about">
+                <div class="inner animate" data-animate="motion">
+                    <p class="text">다섯 개의 <span class="click">액자를 클릭</span>해서 <br class="mo">저에 대해 알아보세요 : )</p>
+                    <ul class="slide">
+                        <li class="slide1">
+                            <p class="img"></p>
+                            <div class="textBox">
+                                <h2 class="tit textAni animate" data-animate="motion">
+                                    <span><b>I'm Stella</b></span>
+                                </h2>
+                                <ul class="subTextBox">
+                                    <li>
+                                        <h3 class="subTit">PROFILE</h3>
+                                        <p class="text">
+                                            송지연 Stella <br>
+                                            1994.02.16 <br>
+                                            서울 대한민국 <br>
+                                            +82 10.6622.5428 <br>
+                                            shjy27@gmail.com
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <h3 class="subTit">INTEREST</h3>
+                                        <p class="text">
+                                            자전거 펠트공예 인테리어
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="slide2">
+                            <p class="img"></p>
+                            <div class="textBox">
+                                <h2 class="tit">My Goal</h2>
+                                <ul class="subTextBox">
+                                    <li>
+                                        <h3 class="subTit">"Ama et fac quod vis"</h3>
+                                        <p class="text">
+                                            사랑하라 그리고 <br class="mo">하고싶은 일을 하라 <br>
+                                            <br>
+                                            좌우명을 이루기 위해 <br>
+                                            Web Publisher가 되었습니다. <br>
+                                            <br>
+                                            Work 와 Life의 구분이 <br class="mo">필요 없을 만큼 <br>
+                                            자발적으로 모든 시간을 <br class="mo">투자하고 싶은 <br>
+                                            재미있는 일을 찾았습니다. <br>
+                                            <br>
+                                            좋아하는 일을 잘하는 <br class="mo">사람을 찾으시나요? <br>
+                                            그렇다면, 제 이야기를 <br class="mo">더 읽어주세요.
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="slide3">
+                            <p class="img"></p>
+                            <div class="textBox">
+                                <h2 class="tit">Experience</h2>
+                                <ul class="subTextBox">
+                                    <li>
+                                        <h3 class="subTit">Education</h3>
+                                        <p class="text">
+                                            광운대학교 경영학과 <br>
+                                            웹 UI/UX디자인 <br class="mo">& 프론트앤드 교육
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <h3 class="subTit">Work</h3>
+                                        <p class="text">
+                                            해태제과 마케팅부 스낵팀 BM <br>
+                                            해커스 기획팀 기획프로 <br>
+                                            EFIL 커머스사업팀 BM <br>
+                                            <br>
+                                            제품 기획 경험을 바탕으로, <br>
+                                            브랜드 기획자가 Web을 통해 <br>
+                                            전달하려는 의도를 <br class="mo">빠르게 이해합니다.
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="slide4">
+                            <p class="img"></p>
+                            <div class="textBox">
+                                <h2 class="tit">Use Tools</h2>
+                                <ul class="subTextBox">
+                                    <li>
+                                        <h3 class="subTit">Publishing</h3>
+                                        <p class="text">
+                                            <img src="img/app_html.png" alt="html아이콘">
+                                            <img src="img/app_css.png" alt="css아이콘">
+                                            <img src="img/app_js.png" alt="js아이콘">
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <h3 class="subTit">Design</h3>
+                                        <p class="text">
+                                            <img src="img/app_ai.png" alt="ai아이콘">
+                                            <img src="img/app_ps.png" alt="ps아이콘">
+                                            <img src="img/app_xd.png" alt="xd아이콘">
+                                            <img src="img/app_fig.png" alt="figma아이콘">
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <h3 class="subTit">Document</h3>
+                                        <p class="text">
+                                            <img src="img/app_wd.png" alt="word아이콘">
+                                            <img src="img/app_ppt.png" alt="ppt아이콘">
+                                            <img src="img/app_ex.png" alt="excel아이콘">
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <h3 class="subTit">Co-Work</h3>
+                                        <p class="text">
+                                            <img src="img/app_sla.png" alt="slack아이콘">
+                                            <img src="img/app_no.png" alt="notion아이콘">
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="slide5">
+                            <p class="img"></p>
+                            <div class="textBox">
+                                <h2 class="tit">Strength</h2>
+                                <ul class="subTextBox">
+                                    <li>
+                                        <h3 class="subTit">Markup</h3>
+                                        <p class="text">
+                                            깔끔하고 견고한 코드
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <h3 class="subTit">Co-Work</h3>
+                                        <p class="text">
+                                            협업 경험과 유연한 소통
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <h3 class="subTit">Design/Front-end</h3>
+                                        <p class="text">
+                                            1인분 이상을 해내려는 의지
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <h3 class="subTit">User</h3>
+                                        <p class="text">
+                                            편리한 여정과 유저 이탈 최소화
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <nav class="viewMore">
+                    <a href="about.html" class="arrow">
+                        <img src="img/arrow.png" alt="더보기버튼">
+                        <p class="hoverText a"><span> ― View  All ― About ― View  All ― About ― View  All ― About ― View  All ― About ― View  All ― About ― View  All ― About ― View  All ― About ― View  All ― About ― View  All ― About </span></p>
+                        <p class="hoverText b"><span> ― View  All ― About ― View  All ― About ― View  All ― About ― View  All ― About ― View  All ― About ― View  All ― About ― View  All ― About ― View  All ― About ― View  All ― About </span></p>
+                    </a>
+                </nav>
+                <nav class="viewMoreMo"><a href="about.html">View All →</a></nav>
+            </section>
+        </div>
+
+
+        <section class="works">
+            <div class="section_slider">
+
+                <div class="topBox">
+                    <h2 class="tit textAni animate" data-animate="motion"><span><b>Recent Works</b></span></h2>
+                    <p class="text animate" data-animate="motion">
+                        최근 작업물을 소개 해 드립니다.<br>
+                        <span class="click">화살표를 클릭</span>해서 더 많은 작업물을 살펴보세요.
+                    </p>
+                </div>
+
+                <!-- 아래서부터 플러그인 부분 -->
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+
+                        <!-- slider1 -->
+                        <div class="swiper-slide a">
+                            <a href="works_canon.html">
+                                <div class="img" data-swiper-parallax-y="70%"></div>
+                            </a>
+                            <div class="textBox" data-swiper-parallax-x="-60%">
+                                <ul>
+                                    <li>Clone Coding</li>
+                                    <li>PC</li>
+                                    <li>Tablet</li>
+                                    <li>Mobile</li>
+                                </ul>
+                                <h3 class="subTit">CANON <br>Rchive</h3>
+                            </div>
+                        </div>
+
+                        <!-- slider2 -->
+                        <div class="swiper-slide b">
+                            <a href="works_hyundai.html">
+                                <div class="img" data-swiper-parallax-y="70%"></div>
+                            </a>
+                            <div class="textBox" data-swiper-parallax-x="-60%">
+                                <ul>
+                                    <li>Clone Coding</li>
+                                    <li>PC</li>
+                                    <li>Tablet</li>
+                                    <li>Mobile</li>
+                                </ul>
+                                <h3 class="subTit">Hyundai <br>NFT</h3>
+                            </div>
+                        </div>
+
+                        <!-- slider3 -->
+                        <div class="swiper-slide c">
+                            <a href="works_kakao.html">
+                                <div class="img" data-swiper-parallax-y="70%"></div>
+                            </a>
+                            <div class="textBox" data-swiper-parallax-x="-60%">
+                                <ul>
+                                    <li>Clone Coding</li>
+                                    <li>PC</li>
+                                    <li>Tablet</li>
+                                    <li>Mobile</li>
+                                </ul>
+                                <h3 class="subTit">Kakao <br>Enterprise</h3>
+                            </div>
+                        </div>
+
+                        <!-- slider4 -->
+                        <div class="swiper-slide d">
+                            <a href="portfolio.html">
+                                <div class="img" data-swiper-parallax-y="70%"></div>
+                            </a>
+                            <div class="textBox" data-swiper-parallax-x="-60%">
+                                <ul>
+                                    <li>Portfolio</li>
+                                    <li>PC</li>
+                                    <li>Tablet</li>
+                                    <li>Mobile</li>
+                                </ul>
+                                <h3 class="subTit">Stella <br>Space</h3>
+                            </div>
+                        </div>
+
+                        <!-- slider5 -->
+                        <div class="swiper-slide e">
+                            <a href="works_crew.html">
+                                <div class="img" data-swiper-parallax-y="70%"></div>
+                            </a>
+                            <div class="textBox" data-swiper-parallax-x="-60%">
+                                <ul>
+                                    <li>Clone Coding</li>
+                                    <li>PC</li>
+                                    <li>Tablet</li>
+                                    <li>Mobile</li>
+                                </ul>
+                                <h3 class="subTit">Crew A La <br>Mode</h3>
+                            </div>
+                        </div>
+
+                        <!-- slider6 -->
+                        <div class="swiper-slide f">
+                            <a href="works_musign.html">
+                                <div class="img" data-swiper-parallax-y="70%"></div>
+                            </a>
+                            <div class="textBox" data-swiper-parallax-x="-60%">
+                                <ul>
+                                    <li>Clone Coding</li>
+                                    <li>PC</li>
+                                    <li>Tablet</li>
+                                    <li>Mobile</li>
+                                </ul>
+                                <h3 class="subTit">Musign</h3>
+                            </div>
+                        </div>
+
+                        <!-- slider7 -->
+                        <div class="swiper-slide g">
+                            <a href="works_daebang.html">
+                                <div class="img" data-swiper-parallax-y="70%"></div>
+                            </a>
+                            <div class="textBox" data-swiper-parallax-x="-60%">
+                                <ul>
+                                    <li>Clone Coding</li>
+                                    <li>PC</li>
+                                </ul>
+                                <h3 class="subTit">DaeBang</h3>
+                            </div>
+                        </div>
+
+                        <!-- slider8 -->
+                        <div class="swiper-slide h">
+                            <a href="works_phomain.html">
+                                <div class="img" data-swiper-parallax-y="70%"></div>
+                            </a>
+                            <div class="textBox" data-swiper-parallax-x="-60%">
+                                <ul>
+                                    <li>Clone Coding</li>
+                                    <li>PC</li>
+                                </ul>
+                                <h3 class="subTit">Phomain</h3>
+                            </div>
+                        </div>
+
+                        <!-- slider9 -->
+                        <div class="swiper-slide i">
+                            <a href="works_booyoung.html">
+                                <div class="img" data-swiper-parallax-y="70%"></div>
+                            </a>
+                            <div class="textBox" data-swiper-parallax-x="-60%">
+                                <ul>
+                                    <li>Site Renewal</li>
+                                    <li>PC</li>
+                                </ul>
+                                <h3 class="subTit">Booyoung <br>Hotel</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <nav class="viewMoreMo"><a href="works.html">View All →</a></nav>
+                </div>
+            </div>
+            <nav class="viewMore">
+                <a href="works.html" class="arrow">
+                    <img src="img/arrow.png" alt="더보기버튼">
+                    <p class="hoverText a"><span> ― View  All ― Works ― View  All ― Works ― View  All ― Works ― View  All ― Works ― View  All ― Works ― View  All ― Works ― View  All ― Works ― View  All ― Works ― View  All ― Works </span></p>
+                    <p class="hoverText b"><span> ― View  All ― Works ― View  All ― Works ― View  All ― Works ― View  All ― Works ― View  All ― Works ― View  All ― Works ― View  All ― Works ― View  All ― Works ― View  All ― Works </span></p>
+                </a>
+            </nav>
+        </section>
+
+
+        <section class="blog">
+            <div class="inner">
+                <h2 class="tit textAni animate" data-animate="motion">
+                    <span class="small"><b>My 2nd Space,</b></span>
+                    <span><b>Blog</b></span> 
+                </h2>
+                <ul class="animate" data-animate="motion">
+                    <li class="imgBox">
+                        <img src="img/index_blog_3.png" alt="블로그 목업사진">
+                    </li>
+                    <li class="textBox">
+                        <p class="text">
+                            <span>웹퍼블리셔 준비과정을 담은 <br class="mo">블로그를 운영합니다.</span> <br>
+                            <br>
+                            매일의 공부 과정과 감상이 담긴 일기장이며 <br>
+                            흩어져있던 메모를 정리한 사전이기도 합니다. <br>
+                            <br>
+                            훗날 누군가에게 도움이 되길 바라는 마음으로 <br>
+                            공부를 게을리할 수 없게 만드는 <br class="mo">자기통제가 되기도 합니다.
+                        </p>
+                    </li>
+                </ul>
+            </div>
+            <nav class="viewMore">
+                <a href="https://jiatori.tistory.com/" class="arrow" target='_blank'>
+                    <img src="img/arrow.png" alt="더보가버튼">
+                    <p class="hoverText a"><span> ― View  All ― Blog ― View  All ― Blog ― View  All ― Blog ― View  All ― Blog ― View  All ― Blog ― View  All ― Blog ― View  All ― Blog ― View  All ― Blog ― View  All ― Blog </span></p>
+                    <p class="hoverText b"><span> ― View  All ― Blog ― View  All ― Blog ― View  All ― Blog ― View  All ― Blog ― View  All ― Blog ― View  All ― Blog ― View  All ― Blog ― View  All ― Blog ― View  All ― Blog </span></p>
+                </a>
+            </nav>
+            <nav class="viewMoreMo"><a href="https://jiatori.tistory.com/">View All →</a></nav>
+        </section>
+
+        
+        <!-- footer -->
+        <footer>
+            <div class="bg"><video src="img/footer_bg.mp4" muted autoplay loop playsinline></video></div>
+            <a href="#main" class="arrowTop">
+                <img src="img/arrowtop.png" alt="위로가기버튼">
+                <img src="img/arrowtop2.png" alt="위로가기버튼hover버전">
+            </a>
+            <div class="inner">
+                <h2 class="tit textAni animate" data-animate="motion" onclick="clip(); return false;"><span><b>shjy27@gmail.com</b></span> </h2>
+                <p class="text">언제든지 연락주시면 최대 <span>1일 이내로</span> 답변 드리겠습니다.</p>
+                <ul class="bottom">
+                    <li class="logo"><a href="index.html"><img src="img/footer_logo.png" alt="로고"></a></li>
+                    <li class="profile">
+                        <p class="text">송지연 Stella Song</p>
+                        <p class="text">Web Publisher</p>
+                        <p class="text">Seoul, Republic of Korea</p>
+                    </li>
+                    <li class="contact">
+                        <p class="text"><span>Phone</span>+82 10-6622-5428</p>
+                        <p class="text"><span>E-Mail</span>shjy27@gmail.com</p>
+                        <p class="text"><span>Blog</span>jiatori.tistory.com</p>
+                    </li>
+                    <li class="version"><p class="text">PORTPOLIO DEC.2022</p></li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+
+
+<script>
+    $(function(){
+        $('.visual .leftText').removeClass('no-js');
+        $('.visual .box .img img').removeClass('no-js');
+    });
+</script>
+
+</body>
+</html>

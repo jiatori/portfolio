@@ -1,0 +1,555 @@
+@charset "utf-8";
+/* web font */
+@import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css");
+
+
+/* reset */
+* {margin: 0;padding: 0;}
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, tbody, tfoot, thead, tr, th, td{margin:0;padding:0;}
+h1, h2, h3, h4, h5, h6 {font-weight: 200; font-size: inherit;}
+a {color: inherit; text-decoration: inherit;}
+img {vertical-align: middle;}
+a img {border: none;}
+li {list-style: none;}
+address, em, i {font-style: normal;}
+a:focus {outline: none}
+button:focus {outline: none}
+
+
+/* layout */
+body {font-family: 'Pretendard'; background: #000; color: rgba(255,255,255,1);}
+.wrap {width: 100%; overflow: hidden;}
+br.mo {display: none;}
+
+
+/* font */
+/* 공통 */
+    .tit {font-family: 'Paytone one';  font-size: 62px; line-height: 0.8; color: #fff;}
+    .text {font-family: 'Pretendard'; line-height: 1.4; font-size: 16px; font-weight: 300; color: rgba(255,255,255,0.8);}
+    .click {font-weight: bold;}
+    .mark {font-size: 14px; font-weight: 400;}
+    .textAni span b {font-weight: normal;}
+/* visual */
+    .visual .tit {font-size: 92px;}
+    .visual .text {font-size: 22px;}
+    .visual .count li {font-size: 32px; font-weight: 400;}
+    .visual .count li span {font-size: 120px; font-weight: 600;}
+/* publishing */
+    .publishing .list .textBox .tag {font-size: 14px; font-weight: 400;}
+    .publishing .list .textBox .company {font-size: 18px; font-weight: 500;}
+    .publishing .list .textBox .company span {font-size: 14px; font-weight: 100;}
+    .publishing .list .textBox .tag li:first-child {font-weight: 500;}
+/* ncs */
+    .ncs .top li .subTit {font-size: 18px; font-weight: 400;}
+    .ncs .top li .text {font-size: 14px; line-height: 1.6;}
+    .ncs .bottom > li .table li {font-size: 14px;}
+    .ncs .bottom > li .table li:nth-child(1) {font-weight: 500;}
+    .ncs .bottom > li .table li:nth-child(2) {font-size: 16px; font-weight: 400;}
+    .ncs .bottom > li .table li:nth-child(3) {font-weight: 300;}
+    .ncs .bottom > li .table li:nth-child(4) {font-weight: 300;}
+        /* hover용 가상선택자 */
+        .ncs .bottom .viewMore .arrow::after {font-size: 14px; font-weight: 300; color: #FEDF79;}
+    .section_slider .swiper-slide .topText {font-size: 18px; color: #fff; font-weight: 400;}
+    .section_slider .swiper-slide .topText span:first-child {font-size: 14px; font-weight: 300;}
+    .section_slider .swiper-slide .topText span:last-child {font-size: 14px; font-weight: 100;}
+    .section_slider .swiper-slide .textBox p {font-size: 15px; font-weight: 200; color: rgba(255,255,255,0.7);}
+    .section_slider .swiper-slide .textBox p span {font-weight: 400;}
+
+
+/* FOUC 현상 제거 */
+.no-js {opacity: 0;}
+
+
+/* right mark */
+.mark {width: 200px; position: fixed; z-index: 99; right: -50px; top: 50%; transform: translateY(-50%) rotate(-90deg); opacity: 0; transition: all 0.3s; color: #666666; text-align: center;}
+.mark span {display: inline-block; width: 9px; height: 9px; background: #FEDF79; border-radius: 50%; margin-right: 10px;}
+/* mark on */
+.mark.on {opacity: 1;}
+
+
+/* 공통사항 */
+.inner {width: 1300px; margin: 0 auto;}
+.tit {margin-bottom: 20px;}
+/* 공통) 텍스트 스크롤 애니메이션 대상 */
+.textAni span {display: block; padding-bottom: 20px;}
+/* 공통) 텍스트 스크롤 애니메이션 적용 */
+.textAni.motion span {overflow: hidden;}
+.textAni.motion span b {display: block; animation-name: textAni; animation-duration: 0.6s;}
+@keyframes textAni {
+    0% {opacity: 0;}
+    30% {opacity: 0; transform: translate3d(0,40px,0) skewY(8deg); transform-origin: top left;}
+}
+@keyframes textAni2 {
+    0% {opacity: 0; transform: translateY(50px);}
+}
+.visual .tit.textAni.motion span b {animation-name: textAni2; animation-duration: 0.6s;}
+/* 공통) 요소 위로 올라오는 애니메이션 */
+@keyframes up {
+    0% {opacity: 0; transform: translateY(100px);}
+}
+
+
+/* section.visual */
+.visual {width: 100%; margin-bottom: 400px;}
+/* 높이값은 웬만하면 지정하지 말자. 100vh 지정했을 경우, 화면 % 축소하면 상하 여백이 너무 많아짐. */
+.visual .tit {width: 100%; border-bottom: 1px solid rgba(255,255,255,0.7); padding: 250px 0 80px; text-align: center;}
+.visual .text {width: 100%; text-align: left; margin-bottom: 100px;}
+.visual .count {width: 100%; display: flex; justify-content: space-between; padding: 0 50px; box-sizing: border-box;}
+.visual .count li {width: 32%; text-align: center; opacity: 0.7;}
+.visual .count li span {display: inline-block;}
+
+
+/* section.publishing */
+.publishing {width: 100%; margin-bottom: 250px;}
+.publishing .text {margin-bottom: 100px;}
+/* motion */
+.publishing .text.motion {animation-name: up; animation-duration: 0.6s;}
+.publishing .list {width: 95%; position: relative;}
+/* list에 li가 position absolute 되면서 높이값 상실함. 따라서 부모인 list에 높이값을 지정해주어야 하는데, %, vw, vh 처럼 유동적인 값을 입력하면 화면 %을 키우고 줄임에 따라 여백이 너무 많아지거나 사라짐. 반응형을 위해서는 픽셀로 지정하는것이 제일 깔끔한 것 같다. 다른 방안은 아직 찾지 못함. */
+.publishing .list .listBox {display: block; max-width: 650px; opacity: 0.3;}
+.publishing .list .listBox > a {display: block; width: 100%; height: 100%;}
+/* .listBox 위치 조정 */
+.publishing .list .listBox:nth-child(1) {margin-left: 10%;}
+.publishing .list .listBox:nth-child(2) {margin-left: 70%; margin-top: -20%;}
+.publishing .list .listBox:nth-child(3) {margin-left: 40%; margin-top: -10%;}
+.publishing .list .listBox:nth-child(4) {margin-left: 10%; margin-top: -20%;}
+.publishing .list .listBox:nth-child(5) {margin-left: 40%; margin-top: -20%;}
+.publishing .list .listBox:nth-child(6) {margin-left: 10%; margin-top: -10%;}
+.publishing .list .listBox:nth-child(7) {margin-left: 40%; margin-top: -25%;}
+.publishing .list .listBox:nth-child(8) {margin-left: 70%; margin-top: -25%;}
+.publishing .list .listBox:nth-child(9) {margin-left: 18%; margin-top: -10%;}
+.publishing .list .listBox:nth-child(10) {margin-left: 70%; margin-top: -25%;}
+.publishing .list .listBox:nth-child(11) {margin-left: 30%; margin-top: -2%;}
+.publishing .list .listBox:nth-child(12) {margin-left: 65%; margin-top: -40%;}
+/* .listBox 움직임 조정 */
+.publishing .list .listBox.left {transform: translate(5%, 30%) rotate(1deg);}
+.publishing .list .listBox.right {transform: translate(-5%, 30%) rotate(-1deg);}
+/* .textBox */
+.publishing .list .textBox .tag {margin-bottom: 10px;}
+.publishing .list .textBox .tag br {display: none;}
+.publishing .list .textBox .tag li {display: inline-block; width: auto; border: 1px solid #fff; padding: 3px 10px; border-radius: 20px; box-sizing: border-box;}
+.publishing .list .textBox .tag li:first-child {background: #fff; color: #000;}
+.publishing .list .renewal .textBox .tag li:first-child {background: #A7BC80; border: none;}
+.publishing .list .portfolio .textBox .tag li:first-child {background: #FEDF79; border: none;}
+.publishing .list .textBox .company {padding-left: 5px;}
+.publishing .list .textBox .company span {display: inline-block; margin-left: 10px; opacity: 0.7;}
+/* img */
+.publishing .list .img {width: 100px; object-fit: cover; margin-bottom: 15px; overflow: hidden; opacity: 0.8; box-shadow: 6px 6px 20px rgba(255,255,255,0.03); border-radius: 3px;}
+.publishing .list img {display: block; width: 100%; height: 100%; object-fit : cover; filter: grayscale(0.8); transition: all 0.3s;}
+    /* hover, focus */
+    .publishing .list .listBox:hover .img img, .publishing .list .listBox:focus .img img {filter: grayscale(0); transform: scale(1.2);}
+/* 이미지 크기 조정 */
+.publishing .list .listBox:nth-child(1) .img {width: 634px; height: 450px;}
+.publishing .list .listBox:nth-child(2) .img {width: 302px; height: 381px;}
+.publishing .list .listBox:nth-child(3) .img {width: 304px; height: 424px;}
+.publishing .list .listBox:nth-child(4) .img {width: 307px; height: 427px;}
+.publishing .list .listBox:nth-child(5) .img {width: 640px; height: 540px;}
+.publishing .list .listBox:nth-child(6) .img {width: 302px; height: 419px;}
+.publishing .list .listBox:nth-child(7) .img {width: 292px; height: 368px;}
+.publishing .list .listBox:nth-child(8) .img {width: 437px; height: 562px;}
+.publishing .list .listBox:nth-child(9) .img {width: 580px; height: 600px;}
+.publishing .list .listBox:nth-child(10) .img {width: 305px; height: 385px;}
+.publishing .list .listBox:nth-child(11) .img {width: 365px; height: 515px;}
+.publishing .list .listBox:nth-child(12) .img {width: 500px; height: 620px;}
+
+
+
+/* section.ncs */
+.ncs {width: 100%; margin-bottom: 400px;}
+.ncs .tit {margin-bottom: 80px;}
+/* top ncs설명 */
+.ncs .top {width: 76%; display: flex; justify-content: space-between; margin: 0 auto 100px;}
+.ncs .top li {max-width: 570px; padding: 30px 50px; border: 1px solid rgba(255,255,255,0.7); border-radius: 20px; text-align: center; box-sizing: border-box;}
+.ncs .top li:first-child {margin-right: 15px;}
+.ncs .top li .subTit {width: auto; display: inline-block; margin-bottom: 30px; border-bottom: 1px solid rgba(255,255,255,0.7);}
+.ncs .top li .text {opacity: 0.7;}
+/* bottom ncs표 */
+.ncs .bottom {width: 100%;}
+.ncs .bottom > li {width: 100%;}
+.ncs .bottom > li .table {width: 100%; height: 110px; display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.2); box-sizing: border-box;}
+.ncs .bottom > li:first-child .table {border-top: 1px solid rgba(255,255,255,0.2);}
+.ncs .bottom > li .table li {display: flex; justify-content: center; align-items: center; border-right: 1px dotted rgba(255,255,255,0.08); border-left: 1px dotted rgba(255,255,255,0.08); margin-right: 5px;}
+.ncs .bottom > li .table li:nth-child(1) {width: 17%; border-left: none;}
+.ncs .bottom > li .table li:nth-child(1) span {background: rgba(255,255,255,0.7); color: #000; padding: 4px 15px; box-sizing: border-box; border-radius: 20px;}
+.ncs .bottom > li .table li:nth-child(2) {width: 17%;}
+.ncs .bottom > li .table li:nth-child(3) {width: 10%; opacity: 0.7;}
+.ncs .bottom > li .table li:nth-child(4) {width: 46%; justify-content: left; padding-left: 30px; box-sizing: border-box; border-right: none; opacity: 0.7;}
+.ncs .bottom > li .table li:nth-child(5) {width: 10%; border: none;}
+.ncs .bottom .viewMore {display: block; width: 50px; height: 50px;}
+.ncs .bottom .viewMore .arrow {display: block; width: 100%; height: 100%; border: 1px solid rgba(255,255,255,0.7); border-radius: 50%; position: relative; transition: all 0.3s;}
+.ncs .bottom .viewMore .arrow.no {opacity: 0.3;}
+.ncs .bottom .viewMore .arrow img {width: 20px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); transition: all 0.3s;}
+    /* hover, focus */
+    .ncs .bottom .viewMore .arrow:hover, .ncs .bottom .viewMore .arrow:focus {border: 1px solid #FEDF79;}
+    .ncs .bottom .viewMore .arrow:hover img, .ncs .bottom .viewMore .arrow:focus img {opacity: 0;}
+        /* hover용 가상선택자 */
+        .ncs .bottom .viewMore .arrow::after {content: 'View'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); opacity: 0; transition: all 0.3s;}
+        .ncs .bottom .viewMore .arrow:hover::after, .ncs .bottom .viewMore .arrow:focus::after {opacity: 1;}
+/* scroll animation */
+.ncs .top.motion, .ncs .bottom.motion {animation-name: up; animation-duration: 0.6s;}
+
+/* section.product */
+.product {width: 100%; margin-bottom: 300px;}
+.section_slider {width: 100%; height: 100%;}
+/* topbox */
+.section_slider .topBox {width: 100%; margin-bottom: 120px;}
+/* motion */
+.section_slider .topBox .text.motion {animation-name: up; animation-duration: 0.6s;}
+/* slide */
+.section_slider .swiper-container {width: 870px; transform: translateX(25%);}
+.section_slider .swiper-slide {width: 100%;}
+/* toptext */
+.section_slider .swiper-slide .topText {text-align: center; margin-bottom: 30px; opacity: 0; transition: all 1s;}
+.section_slider .swiper-slide .topText span {margin-right: 10px;}
+.section_slider .swiper-slide .topText span:first-child {display: inline-block; width: auto; border: 1px solid #fff; padding: 3px 10px; border-radius: 20px; box-sizing: border-box;}
+.section_slider .swiper-slide .topText span:last-child {opacity: 0.7;}
+/* img */
+.section_slider .swiper-slide .img {width: 330px; height: 290px; margin: 0 auto; filter: grayscale(1); opacity: 0.1; transition: all 0.5s; }
+.section_slider .swiper-slide .img img {width: 100%; transform: rotate(-15deg); transition: all 1s;}
+    /* img 크기 조정 */
+    .section_slider .swiper-slide.b .img {width: 250px; height: 360px;}
+    .section_slider .swiper-slide.c .img {width: 180px; height: 386px;}
+    .section_slider .swiper-slide.d .img {width: 330px; height: 299px;}
+    .section_slider .swiper-slide.e .img {width: 330px; height: 260px;}
+    .section_slider .swiper-slide.f .img {width: 260px; height: 302px;}
+    .section_slider .swiper-slide.g .img {width: 260px; height: 214px;}
+/* textBox */
+.section_slider .swiper-slide .textBox {position: absolute; top: 60px; right: 0; opacity: 0; transition: all 0.3s;}
+.section_slider .swiper-slide .textBox p span {display: inline-block; width: 60px; color: rgba(255,255,255,1);}
+.section_slider .swiper-slide .textBox p span.block {display: block; margin-bottom: 5px; margin-top: 30px;}
+/* swiper-slide-active, hover, focus */
+.section_slider .swiper-slide.swiper-slide-active {cursor: pointer;}
+.section_slider .swiper-slide.swiper-slide-active .img {filter: grayscale(0); opacity: 0.7; transition: all 0.3s; overflow: hidden;}
+.section_slider .swiper-slide.swiper-slide-active .img img {transform: rotate(0);}
+.section_slider .swiper-slide.swiper-slide-active .topText {opacity: 1;}
+.section_slider .swiper-slide.swiper-slide-active:hover .textBox, .section_slider .swiper-slide.swiper-slide-active:focus .textBox {opacity: 1;}
+
+
+
+
+
+
+/* -----------------------------responsive Web----------------------------- */
+
+/* ~1380px */
+@media screen and (max-width:1380px) {
+    /* 전체 font 관련 정리 */
+        /* 공통 */
+        .tit {font-size: 62px;}
+        .text {font-size: 15px;}
+        .mark {font-size: 14px;}
+        /* 작은텍스트 */
+        .publishing .list .textBox .tag, .publishing .list .textBox .company span, .ncs .top li .text, .ncs .bottom > li .table li, .ncs .bottom .viewMore .arrow::after, .section_slider .swiper-slide .topText span:first-child, .section_slider .swiper-slide .topText span:last-child, .section_slider .swiper-slide .textBox p {font-size: 14px;}
+        /* 중간텍스트 */
+        .ncs .bottom > li .table li:nth-child(2) {font-size: 15px;}
+        .publishing .text.motion, .section_slider .topBox .text.motion {font-size: 16px;}
+        .publishing .list .textBox .company, .ncs .top li .subTit, .section_slider .swiper-slide .topText {font-size: 18px;}
+        /* 큰텍스트 */
+        .visual .tit {font-size: 72px;}
+        .visual .text {font-size: 18px;}
+        .visual .count li {font-size: 28px;}
+        .visual .count li span {font-size: 92px;}
+    /* inner width */
+    .inner {width: 800px;}
+    /* 공통 */
+    .publishing, .ncs {margin-bottom: 25vw;}
+    /* visual */
+    .visual {margin-bottom: 20vw;}
+    .visual .tit {padding:  15vw 0 3vw;}
+    .visual .text {margin-bottom: 8vw;}
+    .visual .count {padding: 0;}
+    .visual .count li span {display: block;}
+    /* publishing */
+    .publishing .text {margin-bottom: 8vw;}
+    .publishing .list .textBox .tag li {margin-top: 3px;}
+        /* 사이즈조정 */
+        .publishing .list .listBox:nth-child(1) .img {width: 444px; height: 315px;}
+        .publishing .list .listBox:nth-child(2) .img {width: 211px; height: 267px;}
+        .publishing .list .listBox:nth-child(3) .img {width: 213px; height: 297px;}
+        .publishing .list .listBox:nth-child(4) .img {width: 215px; height: 299px}
+        .publishing .list .listBox:nth-child(5) .img {width: 448px; height: 378px;}
+        .publishing .list .listBox:nth-child(6) .img {width: 211px; height: 293px;}
+        .publishing .list .listBox:nth-child(7) .img {width: 204px; height: 258px;}
+        .publishing .list .listBox:nth-child(8) .img {width: 306px; height: 393px;}
+        .publishing .list .listBox:nth-child(9) .img {width: 406px; height: 420px;}
+        .publishing .list .listBox:nth-child(10) .img {width: 214px; height: 270px;}
+        .publishing .list .listBox:nth-child(11) .img {width: 256px; height: 361px;}
+        .publishing .list .listBox:nth-child(12) .img {width: 350px; height: 434px;}
+        /* 위치조정 */
+        .publishing .list .listBox:nth-child(4) {margin-left: 6%;}
+        .publishing .list .listBox:nth-child(5) {margin-left: 45%;}
+        .publishing .list .listBox:nth-child(6) {margin-left: -2%;}
+        .publishing .list .listBox:nth-child(7) {margin-left: 32%;}
+        .publishing .list .listBox:nth-child(8) {margin-left: 70%;}
+        .publishing .list .listBox:nth-child(9) {margin-left: 11%;}
+        .publishing .list .listBox:nth-child(11) {margin-left: 15%;}
+        .publishing .list .listBox:nth-child(12) {margin-left: 56%;}
+    /* ncs */
+    .ncs .tit {margin-bottom: 5vw;}
+    .ncs .top {width: 100%; margin: 0 auto 8vw;}
+    .ncs .top li:first-child {margin-right: 2vw;}
+    .ncs .top li {padding: 2vw; width: 50%;}
+    .ncs .top li br {display: none;}
+    .ncs .bottom > li .table li {border-left: none; border-right: none;}
+    .ncs .bottom > li .table li:nth-child(1) {width: 18%;}
+    .ncs .bottom > li .table li:nth-child(2) {width: 21%;}
+    .ncs .bottom > li .table li:nth-child(4) {width: 30%; opacity: 0.5;}
+    .ncs .bottom > li .table li:nth-child(4) br {display: none;}
+    /* product */
+    .section_slider .swiper-container {width: 600px; margin: 0 auto; transform: translateX(0);}
+    .section_slider .swiper-slide.a .textBox {right: -5vw;}
+    .section_slider .swiper-slide {transition: all 0.3s;}
+    .section_slider .swiper-slide .img {width: 300px; height: auto; opacity: 0.2; transition: all 0.3s;}
+    .section_slider .swiper-slide.b .img {width: 220px; height: auto;}
+    .section_slider .swiper-slide.c .img {width: 160px; height: auto;}
+    .section_slider .swiper-slide.d .img {width: 260px; height: auto;}
+    .section_slider .swiper-slide.e .img {width: 310px; height: auto;}
+    .section_slider .swiper-slide.f .img {width: 250px; height: auto;}
+    .section_slider .swiper-slide.g .img {width: 300px; height: auto;}
+    .section_slider .swiper-slide.swiper-slide-active:hover .img, .section_slider .swiper-slide.swiper-slide-active:focus .img {opacity: 0.3;}
+}
+
+
+/* ~1024 */
+@media screen and (max-width:1024px) {
+    /* visual */
+    .visual .tit {padding: 20vw 0 3vw;}
+    /* product */
+    .section_slider .swiper-container {width: 480px;}
+}
+
+
+/* ~890 */
+@media screen and (max-width:890px) {
+    /* font-size */
+        /* 공통 */
+        .tit {font-size: 8vw;}
+        .text {font-size: 1.8vw;}
+        .mark {font-size: 1.5vw}
+        /* 작은텍스트 */
+        .publishing .list .textBox .company span, .ncs .top li .text, .ncs .bottom .viewMore .arrow::after, .section_slider .swiper-slide .topText span:first-child, .section_slider .swiper-slide .topText span:last-child, .section_slider .swiper-slide .textBox p, .ncs .bottom > li .table li:nth-child(2) {font-size: 1.8vw;}
+        .publishing .list .textBox .tag, .ncs .bottom > li .table li {font-size: 1.5vw;}
+        /* 중간텍스트 */
+        .publishing .list .textBox .company, .ncs .top li .subTit, .section_slider .swiper-slide .topText {font-size: 2vw;}
+        /* 큰텍스트 */
+        .visual .tit {font-size: 10vw;}
+        .visual .text {font-size: 2.2vw;}
+        .visual .count li {font-size: 2.5vw;}
+        .visual .count li span {font-size: 8vw;}
+    /* inner width */
+    .inner {width: 80vw;}
+    /* 공통 */
+    .visual, .publishing, .ncs {margin-bottom: 30vw;}
+    /* publishing */
+    .publishing .list .textBox .tag br {display: block;}
+    .publishing .list .textBox .tag li:first-child {margin-bottom: 6px;}
+    .publishing .list  .textBox .company .date {display: block; margin-left: 0; margin-top: 5px;}
+        /* 사이즈 조정 */
+        .publishing .list .listBox:nth-child(1) .img {width: 355px; height: 252px;}
+        .publishing .list .listBox:nth-child(2) .img {width: 169px; height: 214px;}
+        .publishing .list .listBox:nth-child(3) .img {width: 170px; height: 238px;}
+        .publishing .list .listBox:nth-child(4) .img {width: 172px; height: 239px}
+        .publishing .list .listBox:nth-child(5) .img {width: 358px; height: 302px;}
+        .publishing .list .listBox:nth-child(6) .img {width: 169px; height: 234px;}
+        .publishing .list .listBox:nth-child(7) .img {width: 163px; height: 206px;}
+        .publishing .list .listBox:nth-child(8) .img {width: 245px; height: 314px;}
+        .publishing .list .listBox:nth-child(9) .img {width: 325px; height: 336px;}
+        .publishing .list .listBox:nth-child(10) .img {width: 171px; height: 216px;}
+        .publishing .list .listBox:nth-child(11) .img {width: 205px; height: 289px;}
+        .publishing .list .listBox:nth-child(12) .img {width: 280px; height: 347px;}
+        /* 위치 조정 */
+        .publishing .list .listBox:nth-child(3) {margin-top: -28%;}
+        .publishing .list .listBox:nth-child(5) {margin-left: 41%; margin-top: -26%;}
+        .publishing .list .listBox:nth-child(6) {margin-left: 7%; margin-top: -25%;}
+        .publishing .list .listBox:nth-child(7) {margin-left: 42%;}
+        .publishing .list .listBox:nth-child(9) {margin-top: -28%;}
+        .publishing .list .listBox:nth-child(11) {margin-top: -19%;}
+    /* ncs */
+    .ncs .bottom > li .table li:nth-child(1) {width: 20%;}
+    .ncs .bottom > li .table li:nth-child(2) {width: 24%;}
+    .ncs .bottom > li .table li:nth-child(4) {padding-left: 10px;}
+    .section_slider .swiper-container {width: 50vw;}
+    .section_slider .swiper-slide .img {width: 30vw}
+    .section_slider .swiper-slide.b .img {width: 20vw;}
+    .section_slider .swiper-slide.c .img {width: 15vw;}
+    .section_slider .swiper-slide.d .img {width: 30vw;}
+    .section_slider .swiper-slide.e .img {width: 30vw;}
+    .section_slider .swiper-slide.f .img {width: 25vw;}
+    .section_slider .swiper-slide.g .img {width: 30vw;}
+    /* product */
+    .product .tit br.mo {display: block;}
+}
+
+
+/* ~767 (publishing 스크롤 트리거 모바일에서 제거) */
+@media screen and (max-width:767px) {
+    /* font-size */
+    .ncs .bottom > li .table li {font-size: 1.8vw;}
+    /* publishing */
+    .publishing .list {width: 100%; display: flex; flex-wrap: wrap; justify-content: space-between;}
+    .publishing .list .listBox {margin-bottom: 5vw; opacity: 0.7; width: 45%;}
+    .publishing .list .listBox.left {transform: none;}
+    .publishing .list .listBox.right {transform: none;}
+    .publishing .list .textBox {width: 100%; margin: 0 auto;}
+    .publishing .list .textBox .tag br {display: none;}
+    .publishing .list  .textBox .company .date {display: inline-block; margin-left: 5px;}
+    .publishing .list .img {opacity: 1;}
+        /* 사이즈 조정 */
+        .publishing .list .listBox:nth-child(1) .img, .publishing .list .listBox:nth-child(2) .img, .publishing .list .listBox:nth-child(3) .img, .publishing .list .listBox:nth-child(4) .img, .publishing .list .listBox:nth-child(5) .img, .publishing .list .listBox:nth-child(6) .img, .publishing .list .listBox:nth-child(7) .img, .publishing .list .listBox:nth-child(8) .img, .publishing .list .listBox:nth-child(9) .img, .publishing .list .listBox:nth-child(10) .img, .publishing .list .listBox:nth-child(11) .img, .publishing .list .listBox:nth-child(12) .img {width: 100%; height: 25vw; margin: 0 auto 3vw;}
+        /* 위치 조정 */
+        .publishing .list .listBox:nth-child(1), .publishing .list .listBox:nth-child(2), .publishing .list .listBox:nth-child(3), .publishing .list .listBox:nth-child(4), .publishing .list .listBox:nth-child(5), .publishing .list .listBox:nth-child(6), .publishing .list .listBox:nth-child(7), .publishing .list .listBox:nth-child(8), .publishing .list .listBox:nth-child(9), .publishing .list .listBox:nth-child(10), .publishing .list .listBox:nth-child(11), .publishing .list .listBox:nth-child(12) {margin-left: 0; margin-top: 0;}
+    /* ncs */
+    .ncs .bottom > li .table li:nth-child(4) {display: none;}
+    .ncs .bottom > li .table li:nth-child(1) {width: 32%;}
+    .ncs .bottom > li .table li:nth-child(2) {width: 32%;}
+    .ncs .bottom > li .table li:nth-child(3) {width: 20%;}
+    .ncs .bottom > li .table li:nth-child(5) {width: 16%;}
+    /* product */
+    .section_slider .swiper-slide.swiper-slide-active {border: 1px solid rgba(255,255,255,0.7); border-radius: 20px; padding: 5vw 3vw; box-sizing: border-box;}
+    .section_slider .swiper-slide .textBox {width: 180px; position: relative; top: initial; right: initial;  margin: 5vw auto 0;}
+    .section_slider .swiper-slide.a .textBox {right: initial;}
+    .publishing .text .pc, .publishing .text br, .section_slider .topBox .text .pc {display: none;}
+    .section_slider .swiper-slide.swiper-slide-active .textBox {opacity:1}
+    .section_slider .swiper-slide.swiper-slide-active .img {opacity: 0.7;}
+    .section_slider .swiper-slide .topText span:nth-child(2) {margin-right: 0;}
+    .section_slider .swiper-slide .topText span:last-child {display: none;}
+}
+
+
+/* ~690 */
+@media screen and (max-width:690px) {
+    /* font-size */
+        /* 공통 */
+        .tit {font-size: 8vw;}
+        .text {font-size: 2.2vw;}
+        /* 작은텍스트 */
+        .mark, .publishing .list .textBox .tag, .publishing .list .textBox .company span {font-size: 1.8vw;}
+        /* 중간텍스트 */
+        .ncs .bottom > li .table li:nth-child(2), .ncs .top li .text, .ncs .bottom > li .table li, .ncs .bottom .viewMore .arrow::after, .section_slider .swiper-slide .topText span:first-child, .section_slider .swiper-slide .topText span:last-child, .section_slider .swiper-slide .textBox p {font-size: 2.2vw;}
+        .publishing .list .textBox .company, .ncs .top li .subTit, .section_slider .swiper-slide .topText, .visual .text  {font-size: 2.7vw;}
+        /* 큰텍스트 */
+        .visual .tit {font-size: 10vw;}
+        .visual .count li {font-size: 3.2vw;}
+        .visual .count li span {font-size: 8vw;}
+    /* 공통 */
+    .mark {right: -70px;}
+    /* visual */
+    .visual .tit {padding: 25vw 0 3vw;}
+    /* publishing */
+    .publishing .list .listBox {opacity: 0.9;}
+    .publishing .list .textBox .tag {opacity: 0.7;}
+    .publishing .list .textBox .tag br {display: block;}
+    .publishing .list .textBox .company {padding-left: 0;}
+    .publishing .list  .textBox .company .date {display: block; margin-left: 0;}
+    /* product */
+    .section_slider .swiper-slide .topText span:first-child {display: block; margin: 0 30% 2vw;}
+    .section_slider .swiper-slide .textBox {width: 200px;}
+}
+
+
+/* ~580 */
+@media screen and (max-width:580px) {
+    /* font-size */
+        /* 공통 */
+        .tit {font-size: 8vw;}
+        .text, .ncs .bottom > li .table li:nth-child(2) {font-size: 2.5vw;}
+        /* 작은텍스트 */
+        .publishing .list .textBox .tag, .publishing .list .textBox .company span {font-size: 2.2vw;}
+        .ncs .bottom > li .table li:nth-child(2), .ncs .top li .text, .ncs .bottom > li .table li, .ncs .bottom .viewMore .arrow::after, .section_slider .swiper-slide .topText span:first-child, .section_slider .swiper-slide .topText span:last-child, .section_slider .swiper-slide .textBox p {font-size: 2.5vw;}
+        /* 중간텍스트 */
+        .publishing .list .textBox .company, .ncs .top li .subTit, .section_slider .swiper-slide .topText, .visual .text  {font-size: 3.1vw;}
+        /* 큰텍스트 */
+        .visual .tit {font-size: 10vw;}
+        .visual .count li {font-size: 3.3vw;}
+        .visual .count li span {font-size: 8vw;}
+    /* 공통 */
+    .mark {display: none;}
+    /* ncs */
+    .ncs .bottom > li .table li:nth-child(1) {width: 34%;}
+    .ncs .bottom > li .table li:nth-child(2) {width: 33%;}
+    .ncs .bottom > li .table li:nth-child(3) {width: 14%;}
+    .ncs .bottom .viewMore {width: 40px; height: 40px;}
+    .ncs .bottom .viewMore .arrow img {width: 15px;}
+    /* product */
+    .product {margin-bottom: 50vw;}
+    .product .text br.mo {display: block;}
+    .section_slider .swiper-slide .topText span:first-child {margin: 0 25% 2vw;}
+}
+
+
+/* ~490 */
+@media screen and (max-width:490px) {
+    /* font-size */
+        /* 공통 */
+        .tit {font-size: 8vw;}
+        .text, .ncs .bottom > li .table li:nth-child(2) {font-size: 2.7vw;}
+        /* 작은텍스트 */
+        .publishing .list .textBox .tag, .publishing .list .textBox .company span {font-size: 2.4vw;}
+        .ncs .bottom > li .table li:nth-child(2), .ncs .top li .text, .ncs .bottom > li .table li, .ncs .bottom .viewMore .arrow::after, .section_slider .swiper-slide .topText span:first-child, .section_slider .swiper-slide .topText span:last-child, .section_slider .swiper-slide .textBox p {font-size: 2.7vw;}
+        /* 중간텍스트 */
+        .publishing .list .textBox .company, .ncs .top li .subTit, .section_slider .swiper-slide .topText, .visual .text, .publishing .text.motion, .section_slider .topBox .text.motion  {font-size: 3.3vw;}
+        /* 큰텍스트 */
+        .visual .tit {font-size: 10vw;}
+        .visual .count li {font-size: 3.5vw;}
+        .visual .count li span {font-size: 8vw;}
+    /* 공통 */
+    .visual, .publishing, .ncs, .product {margin-bottom: 35vw;}
+    /* visual */
+    .visual .tit {padding: 30vw 0 3vw;}
+    /* publishing */
+    .publishing .list .listBox {margin-bottom: 8vw;}
+    .publishing .list .textBox .tag li {padding: 1.5px 2vw;}ox
+    /* ncs */
+    .ncs .bottom > li .table {height: auto;}
+    .ncs .bottom > li .table {height: 20vw;}
+    .ncs .bottom > li .table li:nth-child(1) {width: 37%;}
+    .ncs .bottom > li .table li:nth-child(2) {width: 35%;}
+    .ncs .bottom > li .table li:nth-child(3) {display: none;}
+    /* product */
+    .section_slider .topBox {margin-bottom: 20vw;}
+    .section_slider .swiper-container {width: 60vw;}
+    .section_slider .swiper-slide .topText span:first-child {margin: 0 20% 2vw;}
+}
+
+
+/* ~390 */
+@media screen and (max-width:390px) {
+    /* font-size */
+        /* 공통 */
+        .tit {font-size: 8vw;}
+        .text, .ncs .bottom > li .table li:nth-child(2) {font-size: 3vw;}
+        /* 작은텍스트 */
+        .publishing .list .textBox .tag, .publishing .list .textBox .company span {font-size: 2.7vw;}
+        .ncs .bottom > li .table li:nth-child(2), .ncs .top li .text, .ncs .bottom > li .table li, .ncs .bottom .viewMore .arrow::after, .section_slider .swiper-slide .topText span:first-child, .section_slider .swiper-slide .topText span:last-child, .section_slider .swiper-slide .textBox p {font-size: 3vw;}
+        /* 중간텍스트 */
+        .publishing .list .textBox .company, .ncs .top li .subTit, .section_slider .swiper-slide .topText, .visual .text, .publishing .text.motion, .section_slider .topBox .text.motion  {font-size: 3.8vw;}
+        /* 큰텍스트 */
+        .visual .tit {font-size: 10vw;}
+        .visual .count li {font-size: 4vw;}
+        .visual .count li span {font-size: 8vw;}
+    /* visual */
+    .visual .tit {padding: 35vw 0 3vw;}
+    /* publishing */
+    .publishing .list .listBox {margin-bottom: 10vw;}
+    /* ncs */
+    .ncs .top {flex-wrap: wrap; margin: 0 auto 5vw;}
+    .ncs .top li {width: 100%; margin: 0 auto 7vw; padding: 4vw;}
+    .ncs .top li:first-child {margin: 0 auto 7vw;}
+    .ncs .top li .subTit {margin-bottom: 5vw;}
+    .ncs .bottom > li .table {width: 100%; margin: 0 auto; height: 17vw;}
+    .ncs .bottom > li .table li:nth-child(1) {display: none;}
+    .ncs .bottom > li .table li:nth-child(2) {width: 70%; text-align: center;}
+    .ncs .bottom > li .table li:nth-child(5) {width: 30%;}
+    .ncs .bottom .viewMore {width: 30px; height: 30px;}
+    /* product */
+    .section_slider .swiper-slide .topText span {margin-right: 0;}
+    .section_slider .swiper-slide .topText span:first-child {margin: 0 10% 5vw;}
+    .section_slider .swiper-slide .textBox {width: 100%; margin: 8vw auto 0;}
+}
+
+
+/* ~340 */
+@media screen and (max-width:340px) {
+    .publishing .list .textBox .tag li:last-child {margin-top: 3px;}
+}

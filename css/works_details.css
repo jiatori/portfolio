@@ -1,0 +1,540 @@
+@charset "utf-8";
+/* web font */
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css");
+
+
+/* reset */
+* {margin: 0;padding: 0;}
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, tbody, tfoot, thead, tr, th, td{margin:0;padding:0;}
+h1, h2, h3, h4, h5, h6 {font-weight: 200; font-size: inherit;}
+a {color: inherit; text-decoration: inherit;}
+img {vertical-align: middle;}
+a img {border: none;}
+li {list-style: none;}
+address, em, i {font-style: normal;}
+a:focus {outline: none}
+button:focus {outline: none}
+
+
+/* layout */
+.wrap {width: 100%; overflow: hidden;}
+.fullPage .text.by .mo {display: none;}
+
+
+/* font-size */
+    /* 공통 */
+    body {font-family: 'Pretendard';}
+    .text, li, .visual .style .color .text {font-family: 'Pretendard'; line-height: 1.4; font-size: 16px; font-weight: 300; color: rgba(255,255,255,0.8);}
+    .mark {font-size: 14px; font-weight: 400;}
+    .btn {font-size: 14px; font-weight: 400; font-family: 'Pretendard';}
+    /* visual */
+    .visual .inner .tit {font-size: 135px;}
+    .visual .inner li span {font-size: 18px; font-weight: 400;}
+    .visual .inner .bottom .right li button {font-size: 16px; font-family: 'pretendard';}
+    .visual .inner .bottom.oneMode .left {width: 60%;}
+    .visual .inner .bottom.oneMode .right {width: 40%;}
+    .visual .style .tit {font-size: 72px; text-align: left; font-family: 'Pretendard'; font-style: normal;}
+    .visual .style .color .box {font-size: 14px; font-weight: 400;}
+    .visual .style .font .view {font-size: 32px;}
+    /* 부영 */
+    .visual .style .font .name {display: inline-block; font-size: 14px; font-size: 100; margin-bottom: 20px;}
+    .visual .style .font .text {font-weight: 100; font-size: 16px; margin-bottom: 20px;}
+    .gif.booyoung .subTit {font-size: 52px; font-weight: 600;}
+    /* footer hover */
+    footer .inner .tit:hover, footer .inner .tit:focus {font-size: 62px;}
+
+
+/* FOUC 현상 제거 */
+.no-js {opacity: 0;}
+
+
+/* right mark */
+.mark {width: 200px; position: fixed; z-index: 99; right: -50px; top: 50%; transform: translateY(-50%) rotate(-90deg); opacity: 0; transition: all 0.3s; color: #666666; text-align: center;}
+.mark span {display: inline-block; width: 9px; height: 9px; background: #FEDF79; border-radius: 50%; margin-right: 10px;}
+/* mark on */
+.mark.on {opacity: 1;}
+
+
+/* 공통) 텍스트 스크롤 애니메이션 대상 */
+.textAni span {display: block; padding-bottom: 20px;}
+/* 공통) 텍스트 스크롤 애니메이션 적용 */
+.textAni.motion span {overflow: hidden;}
+.textAni.motion span b {display: block; animation-name: textAni; animation-duration: 0.6s;}
+@keyframes textAni {
+    0% {opacity: 0;}
+    30% {opacity: 0; transform: translate3d(0,40px,0) skewY(8deg); transform-origin: top left;}
+}
+/* 공통) 요소 위로 올라오는 애니메이션 */
+@keyframes up {
+    0% {opacity: 0; transform: translateY(100px);}
+}
+section .up.motion {animation-name: up; animation-duration: 0.6s;}
+
+
+/* 이전 페이지, 다음 페이지 이동버튼 */
+.btn {position: fixed; z-index: 99; top: 30%; cursor: pointer; color: #fff; background: none; border: none; transition: all 0.3s;}
+.btn.left {left: 0; padding-left: 98px;}
+/* left 라인_가상선택자 */
+.btn.left::before {content: ""; display: inline-block; position: absolute; top: 50%; left: 0; transform: translateY(-50%); width: 80px; height: 1px; background: #fff; margin-top: 0.5px; opacity: 0.7; transition: all 0.3s ease;}
+.btn.left::after {content: ""; display: inline-block; position: absolute; top: 50%; right: 58px; transform: translateY(-50%) rotate(180deg); width: 0; height: 1px; background: #fff; margin-top: 0.5px; opacity: 0; transition: width 0.4s ease; transition-delay: 0.3s;}
+/* right 라인_가상선택자 */
+.btn.right {right: 0; padding-right: 98px;}
+.btn.right::before {content: ""; display: inline-block; position: absolute; top: 50%; right: 0; transform: translateY(-50%); width: 80px; height: 1px; background: #fff; margin-top: 0.5px; opacity: 0.7; transition: all 0.3s ease;}
+.btn.right::after {content: ""; display: inline-block; position: absolute; top: 50%; left:58px; transform: translateY(-50%); width: 0; height: 1px; background: #fff; margin-top: 0.5px; opacity:0; transition: width 0.4s ease; transition-delay: 0.3s;}
+    /* hover */
+    .btn:hover, .btn:focus {transform: skew(-10deg); color: #FEDF79;}
+    .btn.left:hover::before, .btn.right:hover::before, .btn.left:focus::before, .btn.right:focus::before {width: 0;}
+    .btn.left:hover::after, .btn.right:hover::after, .btn.left:focus::after, .btn.right:focus::after {width: 80px; opacity: 0.7;}
+
+
+/* section 공통사항 */
+section .inner {width: 1300px; margin: 0 auto;}
+
+
+/* section.visual */
+.visual {width: 100%;}
+.visual .bg {width: 100%; height: 780px; filter: brightness(0.8);}
+    /* animation */
+    @keyframes img {
+        0% {transform: scale(1.2); opacity: 0;}
+    }
+    .visual .bg.motion {animation-name: img; animation-duration: 1s;}
+.visual .inner {background: rgba(34,34,34,0.7); padding: 120px 10%; box-sizing: border-box; transform: translateY(-450px); border-radius: 30px; border: 1px solid rgba(255,255,255,0.5);}
+.visual .inner .tit {margin-bottom: 80px; opacity: 0.7;}
+.visual .inner li span {display: inline-block; width: 80px;}
+.visual .inner .top {margin-bottom: 70px;}
+.visual .inner .bottom {display: flex; justify-content: space-between; padding-bottom: 100px; margin-bottom: 100px; border-bottom: 1px solid #fff;}
+.visual .inner .bottom li span {display: block; margin-bottom: 15px;}
+.visual .inner .bottom .right li:first-child {margin-bottom: 40px; box-sizing: border-box;}
+.visual .inner .bottom .right li button {margin-right: 15px; transition: all 0.3s; background: none; border: none;}
+.visual .inner .bottom .right li button:last-child {margin-right: 0;}
+.visual .inner .bottom .right li button a {display: block; width: 100%; height: 100%; padding: 12px 25px; box-sizing: border-box; border: 1px solid rgba(255,255,255,1); border-radius: 10px; color: #fff; cursor: pointer;}
+    /* hover, focus */
+    .visual .inner .bottom .right li button:hover a, .visual .inner .bottom .right li button:focus a {color: #FEDF79; border: 1px solid #FEDF79;}
+
+/* style guide */
+.visual .style {width: 100%;}
+.visual .style ul {display: flex; justify-content: space-between;}
+.visual .style .styleTop {margin-bottom: 50px;}
+.visual .style .left {width: 55%;}
+.visual .style .right {width: 40%;}
+.visual .style ul li span {display: block; width: 100%; margin-bottom: 10px;}
+.visual .style .color .box {display: inline-block; width: 120px; height: 60px; border-radius: 10px; text-align: center; line-height: 60px; margin-right: 10px;}
+.visual .style .color .box.s {width: 80px;}
+.visual .style .font .underline {text-decoration: underline;}
+.visual .style .font .view {margin-left: 20px; margin-bottom: -5px; opacity: 0.2; color: #fff;}
+.visual .style .font .thin {font-weight: 100;}
+.visual .style .font .medium {font-weight: 500;}
+.visual .style .font .bold {font-weight: 800;}
+
+
+/* section.gif */
+.gif {width: 100%; padding-bottom: 200px; margin-top: -150px;}
+.gif.oneModeWrap {padding-bottom: 100px;}
+.gif .inner {position: relative;}
+.gif li {width: 100%; margin-bottom: 80px;}
+.gif .img {background: #222; border: 5px solid #222; border-radius: 20px; display: inline-block; overflow: hidden;}
+.gif .img img {width: 100%; height: 100%;}
+/* 이미지 사이즈, 위치 조정 */
+.gif .pc .img {width: 865px; height: 500px; margin-left: 15%; margin-bottom: 15px; box-sizing: border-box;}
+.gif .pc .img.oneMode {margin: 0 auto 15px; display: block;}
+.gif .pc .text {margin-left: 16%;}
+.gif .pc .text.oneMode {margin-left: 0; width: 100%; text-align: center;}
+.gif .tablet .img {width: 443px; height: 586px; transform: translateY(100px);}
+.gif .tablet .text {display: inline-block; transform: translateY(-400px) translateX(20px);}
+.gif .mobile {position: absolute; width: auto; top: 650px; right: 0;}
+.gif .mobile .img {width: 210px; height: 440px;}
+.gif .mobile .text {display: block; width: 300px; position: absolute; bottom: 40px; right: 240px; text-align: right;}
+
+/* section.gif booyoung */
+.gif.booyoung {width: 100%; padding-bottom: 150px;}
+.gif.booyoung .inner {position: relative;}
+.gif.booyoung li {width: 100%; margin-bottom: 80px; display: flex; justify-content: center;}
+.gif.booyoung .img {width: 865px; height: 500px; background: #fff; border: 5px solid #222; border-radius: 20px; display: inline-block; margin: 0 20px;}
+.gif.booyoung .img img {width: 100%;}
+.gif.booyoung .textBox {display: inline-block; box-sizing: border-box; }
+.gif.booyoung .subTit {color: rgba(255,255,255,0.7); margin-bottom: 20px;}
+/* 위치 조정 */
+.gif.booyoung .index .textBox, .gif.booyoung .offers .textBox {width: 30%; padding-top: 50px; text-align: right;}
+.gif.booyoung .about .textBox, .gif.booyoung .rooms .textBox {width: 30%; padding-top: 50px; text-align: left;}
+
+/* section.fullPage */
+.fullPage {width: 100%; padding-top: 200px; padding-bottom: 300px;}
+.fullPage .tit {text-align: left; font-family: 'pretendard'; margin-bottom: 20px; color: #222;}
+.fullPage .text {color: #222; text-align: left; margin-bottom: 50px; font-weight: 500;}
+.fullPage .img {width: 90%; margin: 0 auto;  border: 7px solid #222; border-radius: 20px; overflow: hidden; box-sizing: border-box; background: #222;}
+.fullPage .img img {width: 100%;}
+/* 부영 dot 버튼만들기 */
+.fullPage .slick-dots {position: absolute; top: -60px; right: 70px;}
+.fullPage .slick-dots li {display: inline-block; margin-right: 10px;}
+.fullPage .slick-dots li button {display: block; width: 50px; color: transparent; position: relative; width: 90px; height: 40px; border: 1px solid rgba(0,0,0,0.8); border-radius: 10px; cursor: pointer; background-color: transparent;}
+.fullPage .slick-dots li button::before {content: 'INDEX →'; width: 100%; line-height: 40px; position: absolute; left: 0; bottom: 0;color: #222; font-size: 14px; font-weight: 500; font-family: 'Pretendard'; transition: all 0.3s;}
+.fullPage .slick-dots li:nth-child(2) button::before {content: 'ABOUT →';}
+.fullPage .slick-dots li:nth-child(3) button::before {content: 'OFFERS →';}
+.fullPage .slick-dots li:nth-child(4) button::before {content: 'ROOMS →';}
+    /* active */
+    .fullPage li.slick-active button {background: rgba(0,0,0,0.8); border: none;}
+    .fullPage li.slick-active button::before {color: #fff;}
+
+
+/* footer */
+footer {width: 100%; height: 400px; position: relative;}
+footer .bg {width: 100%; height: 100%; opacity: 0.2;}
+footer .bg img {width: 100%; height: 100%; object-fit: cover;}
+footer .arrowTop {display: block; width: 60px; height: 60px; position: absolute; right: 80px; bottom: 180px; z-index: 1; opacity: 0.7;}
+footer .arrowTop img {width: 100%; height: 100%; position: absolute; top: 0; left: 0; transition: all 0.3s;}
+footer .arrowTop img:last-child {opacity: 0;}
+    /* hover */
+    footer .arrowTop:hover img:first-child, footer .arrowTop:focus img:first-child {opacity: 0;}
+    footer .arrowTop:hover img:last-child, footer .arrowTop:focus img:last-child {opacity: 1;}
+footer .inner {width: 1400px; position: absolute; left: 50%; transform: translateX(-50%); bottom: 60px; text-align: center; display: flex; justify-content: space-between;}
+footer .inner li {width: 280px; text-align: left; border-right: 1px solid rgba(255,255,255,0.1); box-sizing: border-box; position: relative;}
+footer .inner .logo img {width: 130px; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);}
+footer .inner .text {margin-bottom: 7px;}
+footer .inner .contact span {display: inline-block; width: 80px;}
+footer .inner .version {padding-top: 30px; border-right: none;}
+    /* hover */
+    footer .inner .tit:hover, footer .inner .tit:focus {color: #FEDF79;}
+
+
+
+
+
+
+/* -----------------------------responsive Web----------------------------- */
+
+/* ~1380px */
+@media screen and (max-width:1380px) {
+    /* font-size */
+        /* 공통 */
+        .text, li, .visual .inner .bottom .right li button, .visual .style .color .text, .visual .style .font .text {font-size: 15px;}
+        .mark, .btn, .visual .style .color .box, .visual .style .font .name, .fullPage .slick-dots li button::before {font-size: 14px;}
+        /* 타이틀 */
+        .visual .inner .tit {font-size: 110px;}
+        .visual .style .tit, .tit, .fullPage .tit {font-size: 62px;}
+        /* 서브타이틀 : 부영 */
+        .gif.booyoung .subTit {font-size: 42px;}
+        /* 큰 텍스트 */
+        .visual .inner li span, .visual .style .font .underline {font-size: 18px;}
+        .visual .style .font .view {font-size: 28px;}
+    /* inner width */
+    section .inner {width: 80vw;}
+    /* 이동버튼 */
+    .btn.left::before {width: 50px;}
+    .btn.left {padding-left: 55px;}
+    .btn.left::after {right: 42px;}
+    .btn.right::before {width: 50px;}
+    .btn.right {padding-right: 55px;}
+    .btn.right::after {left: 42px;}
+    /* visual */
+    .visual .inner {padding: 10vw 8vw;}
+    .visual .inner .bottom .left, .visual .inner .bottom.oneMode .left {width: 42%;}
+    .visual .inner .bottom .left li br {display: none;}
+    .visual .inner .bottom .right, .visual .inner .bottom.oneMode .right {width: 48%;}
+    .visual .inner .bottom .right li button {margin-right: 7px;}
+    .visual .inner .bottom .right li button a {padding: 1vw 2vw;}
+    .visual .style .color .box {width: 100px; height: 50px; line-height: 50px; margin-right: 7px;}
+    .visual .style .color .box.s {width: 75px;}
+    .visual .style .color .text.by br {display: none;}
+    .visual .style .font .view {margin-left: 1vw;}
+    /* gif */
+    .gif {padding-bottom: 250px;}
+    .gif .pc .img {width: 606px; height: 350px; display: block; margin: 0 auto 15px;}
+    .gif .pc .text {margin-left: 18vw;}
+    .gif .tablet .img {width: 310px; height: 410px; transform: translateY(60px); margin-left: 8%;}
+    .gif .tablet .text {transform: translateY(-290px) translateX(20px);}
+    .gif .mobile {right: 5%; top: 690px;}
+    .gif .mobile .img {width: 147px; height: 308px; margin-left: 47%; margin-bottom: 7px;}
+    .gif .mobile .text {position: relative; bottom: initial; right: initial; padding-right: 5%; box-sizing: border-box;}
+    /* 부영 gif */
+    .gif.booyoung .img {width: 606px; height: 350px;}
+    /* 부영 fullpage */
+    .fullPage .text.by {margin-bottom: 100px;}
+    /* footer-font */
+    footer .inner .text {font-size: 15px;}
+    footer .inner .version .text {opacity: 0.4; font-size: 13px; font-weight: 100; text-align: center;}
+    /* footer-layout */
+    footer .inner {width: 800px;}
+    footer .inner {flex-wrap: wrap; bottom: 30px;}
+    footer .inner li {width: 30%;}
+    footer .inner li:nth-child(2) {margin: 0 5%;}
+    footer .inner li:nth-child(3) {border: none;}
+    footer .inner .version {width: 100%; display: block; padding-top: 3vw;}
+    footer .arrowTop {right: 5%; top: 20%; opacity: 0.5;}
+}
+
+
+/* ~1220px */
+@media screen and (max-width:1220px) {
+    .gif.booyoung .img {width: 485px; height: 280px;}
+    .gif.booyoung .textBox {min-width: 300px;}
+    .gif.booyoung .index .textBox, .gif.booyoung .offers .textBox, .gif.booyoung .about .textBox, .gif.booyoung .rooms .textBox {padding-top: 0;}
+}
+
+
+/* ~1024px */
+@media screen and (max-width:1024px) {
+    /* font-size */
+    .fullPage .slick-dots li button::before {font-size: 1.5vw;}
+    /* visual */
+    .visual .inner .bottom .right {width: 48%;}
+    .visual .inner .bottom .right li button a {padding: 1.5vw;}
+    .visual .style .color .box {width: 75px;}
+    .visual .style .color .box.s {width: 75px;}
+    /* gif */
+    .gif {padding-bottom: 320px;}
+    .gif .pc .text {margin-left: 11vw;}
+    .gif .tablet .img{margin-left: 5%;}
+    .gif .mobile {top: 780px;}
+    /* 부영 gif */
+    .gif.booyoung .img {height: 27vw;}
+    /* 부영 fullpage */
+    .fullPage .slick-dots {right: 40px; top: -50px;}
+    .fullPage .slick-dots li button {width: 80px; height: 35px;}
+    .fullPage .slick-dots li button::before {line-height: 35px;}
+}
+
+
+/* ~890 */
+@media screen and (max-width:890px) {
+    /* font-size */
+        /* 공통 */
+        .text, li, .visual .inner .bottom .right li button, .visual .style .color .text, .visual .style .font .text {font-size: 1.8vw;}
+        .mark, .btn, .visual .style .color .box, .visual .style .font .name, .fullPage .slick-dots li button::before {font-size: 1.5vw;}
+        /* 타이틀 */
+        .visual .inner .tit {font-size: 10vw;}
+        .visual .style .tit, .tit, .fullPage .tit {font-size: 8vw;}
+        /* 서브타이틀 : 부영 */
+        .gif.booyoung .subTit {font-size: 6vw;}
+        /* 큰 텍스트 */
+        .visual .inner li span, .visual .style .font .underline {font-size: 2vw;}
+        .visual .style .font .view {font-size: 2.5vw;}
+    /* visual */
+    .visual .bg {height: 50vh;}
+    .visual .inner {transform: translateY(-20vh);}
+    .visual .inner .bottom .right, .visual .inner .bottom.oneMode .right {width: 50%;}
+    .visual .style .color .box {width: 70px; height: 40px; line-height: 40px; margin-right: 7px;}
+    .visual .style .color .box.s {width: 70px;}
+    /* gif */
+    .gif {margin-top: 0; padding-bottom: 350px;}
+    .gif .pc .img {width: 450px; height: 280px;}
+    .gif .pc .text {margin-left: 0; text-align: center;}
+    .gif .tablet .img {width: 248px; height: 328px;}
+    .gif .tablet .text {transform: translateY(-205px) translateX(10px);}
+    .gif .mobile {top: 740px; right: 8%;}
+    .gif .mobile .img {width: 118px; height: 246px; margin-left: 60%;}
+    .gif .mobile .text {padding-right: 0;}
+    /* 부영 gif */
+    .gif.booyoung {padding-bottom: 0;}
+    .gif.booyoung li {flex-wrap: wrap; margin-bottom: 15vw;}
+    .gif.booyoung .index .textBox, .gif.booyoung .offers .textBox, .gif.booyoung .about .textBox, .gif.booyoung .rooms .textBox {width: 100%; margin-bottom: 3vw;}
+    .gif.booyoung .index .textBox, .gif.booyoung .offers .textBox, .gif.booyoung .about .textBox, .gif.booyoung .rooms .textBox {text-align: center;}
+    .gif.booyoung .index .textBox .text, .gif.booyoung .offers .textBox .text, .gif.booyoung .about .textBox .text, .gif.booyoung .rooms .textBox .text {background: rgba(0,0,0,0.1); margin: 0 10%; padding: 1vw; box-sizing: border-box; border-radius: 10px;}
+    .gif.booyoung .img {width: 450px; height: 280px; margin: 0 auto;}
+    .gif.booyoung li.about, .gif.booyoung li.rooms {flex-direction: column-reverse;}
+    /* fullpage */
+    .fullPage {margin-top: 15vw;}
+    /* 부영 fullpage */
+    .fullPage .slick-dots {right: 25px;}
+    .fullPage .slick-dots li {margin-right: 1vw;}
+    .fullPage .slick-dots li button {height: 30px;}
+    .fullPage .slick-dots li button::before {line-height: 30px;}
+    /* footer-font */
+    footer .inner .version .text, footer .inner .text {font-size: 1.5vw;}
+    /* footer-layout */
+    footer {height: 25vh;}
+    footer .inner {width: 80vw;}
+    footer .inner {bottom: 5%;}
+    footer .inner .logo img {width: 12vw;}
+    footer .inner li:first-child {display: none;}
+    footer .inner li:nth-child(2) {width: 30%; margin: 0 3% 0 17%;}
+    footer .inner li:nth-child(3) {width: 45%;}
+    footer .inner .version {padding-top: 2.5vw;}
+}
+
+
+/* ~690 */
+@media screen and (max-width:690px) {
+    /* font-size */
+        /* 공통 */
+        .text, li, .visual .inner .bottom .right li button, .visual .style .color .text, .visual .style .font .text {font-size: 2.2vw;}
+        .mark, .btn, .visual .style .color .box, .visual .style .font .name, .fullPage .slick-dots li button::before {font-size: 1.8vw;}
+        /* 타이틀 */
+        .visual .inner .tit {font-size: 10vw;}
+        .visual .style .tit, .tit, .fullPage .tit {font-size: 8vw;}
+        /* 서브타이틀 : 부영 */
+        .gif.booyoung .subTit {font-size: 6vw;}
+        /* 큰 텍스트 */
+        .visual .inner li span, .visual .style .font .underline {font-size: 3.2vw;}
+        .visual .style .font .view {font-size: 2.7vw;}
+    /* 공통 */
+    .mark {right: -70px;}
+    /* visual */
+    .visual .bg {height: 40vh;}
+    .visual .inner {padding: 10vw 8vw;}
+    .visual .inner .tit, .visual .inner .top, .visual .inner .bottom .right li:first-child, .visual .style .styleTop, .visual .style .styleBottom .left {margin-bottom: 10vw;}
+    .visual .inner .bottom .left li br {display: block;}
+    .visual .inner .bottom {flex-wrap: wrap; padding-bottom: 12vw; margin-bottom: 12vw;}
+    .visual .inner .bottom .left, .visual .inner .bottom.oneMode .left {width: 100%; margin-bottom: 10vw;}
+    .visual .inner .bottom .right, .visual .inner .bottom.oneMode .right {width: 100%;}
+    .visual .style .left {width: 45%;}
+    .visual .style .right {width: 55%;}
+    .visual .style .styleBottom {flex-wrap: wrap;}
+    .visual .style .styleBottom .left {width: 100%;}
+    .visual .style .styleBottom .right {width: 100%;}
+    /* 부영 visual */
+    .visual .style .color .text {width: 95%;}
+    /* gif */
+    .gif, .gif.oneModeWrap {padding-bottom: 15vw;}
+    .gif li {margin-bottom: 12vw;}
+    .gif .pc .img {width: 55vw; height: 33vw; margin: 0 auto 3vw;}
+    .gif .tablet .img {width: 25vw; height: 40vw; display: block; margin: 0 auto 3vw; transform: initial;}
+    .gif .tablet .text {transform: initial; width: 100%; text-align: center;}
+    .gif .mobile {width: 100%; position: relative; top: initial; right: initial;}
+    .gif .mobile .img {width: 18vw; height: 35vw; display: block; margin: 0 auto 3vw;}
+    .gif .mobile .text {width: 100%; padding-right: 0; text-align: center;}
+    /* 부영 gif */
+    .gif.booyoung .img {width: 55vw; height: 33vw;}
+    /* fullpage */
+    .fullPage {padding-top: 20vw; padding-bottom: 30vw;}
+    /* 부영 fullpage */
+    .fullPage .slick-dots li button {width: 75px;}
+    /* footer-font */
+    footer .inner .version .text, footer .inner .text {font-size: 1.8vw;}
+    /* footer-layout */
+    footer {height: 35vh;}
+    footer .inner {bottom: 5%; opacity: 0.5;} 
+    footer .arrowTop {width: 7vw; height: 7vw; bottom: initial; top: 10vw;}
+}
+
+
+/* ~580 */
+@media screen and (max-width:580px) {
+    /* font-size */
+        /* 공통 */
+        .text, li, .visual .inner .bottom .right li button, .visual .style .color .text, .visual .style .font .text {font-size: 2.5vw;}
+        .mark, .btn, .visual .style .color .box, .visual .style .font .name, .fullPage .slick-dots li button::before {font-size: 2.2vw;}
+        /* 타이틀 */
+        .visual .inner .tit {font-size: 10vw;}
+        .visual .style .tit, .tit, .fullPage .tit {font-size: 8vw;}
+        /* 서브타이틀 : 부영 */
+        .gif.booyoung .subTit {font-size: 6vw;}
+        /* 큰 텍스트 */
+        .visual .inner li span, .visual .style .font .underline {font-size: 3.3vw;}
+        .visual .style .font .view {font-size: 3.1vw;}
+    /* 공통 */
+    .mark {display: none;}
+    /* visual */
+    .visual .inner {border-radius: 15px;}
+    .visual .inner li span {width: 60px;}
+    .visual .inner .bottom .left li {width: 95%;}
+    .visual .inner .bottom .left li br {display: none;}
+    .visual .inner .bottom .right li button a {padding: 2.5vw 4vw; border-radius: 7px;}
+    /* gif */
+    .gif {margin-top: -10vw;}
+    .gif .img {border-radius: 10px; border: 3px solid #222;}
+    .gif .pc .text.oneMode br {display: none;}
+    /* 부영 gif */
+    .gif.booyoung .subTit {margin-bottom: 3vw;}
+    .gif.booyoung .img {border-radius: 10px; border: 3px solid #222;}
+    /* fullpage */
+    .fullPage .img {border-radius: 15px; border: 5px solid #222;}
+    /* 부영 fullpage */
+    .fullPage .text.by .mo {display: block;}
+    /* footer-font */
+    footer .inner .version .text {font-size: 2.2vw;}
+    footer .inner .text {font-size: 2.4vw;}
+    /* footer-layout */
+    footer .inner {bottom: 5%; flex-wrap: wrap; width: 60vw;}
+    footer .inner li:nth-child(2) {width: 100%; padding-bottom: 2vw; margin: 0 0 2vw; text-align: center; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.5);}
+    footer .inner li:nth-child(2) .text:nth-child(2) {margin-bottom: 0;}
+    footer .inner li:nth-child(2) .text:last-child {display: none;}
+    footer .inner li:nth-child(3) {width: 100%; text-align: center;}
+    footer .arrowTop {bottom: 10%; top: initial;}
+}
+
+
+/* ~490 */
+@media screen and (max-width:490px) {
+    /* font-size */
+        /* 공통 */
+        .text, li, .visual .inner .bottom .right li button, .visual .style .color .text, .visual .style .font .text {font-size: 2.7vw;}
+        .btn, .visual .style .color .box, .visual .style .font .name, .fullPage .slick-dots li button::before {font-size: 2.4vw;}
+        /* 타이틀 */
+        .visual .inner .tit {font-size: 10vw;}
+        .visual .style .tit, .tit, .fullPage .tit {font-size: 8vw;}
+        /* 서브타이틀 : 부영 */
+        .gif.booyoung .subTit {font-size: 6vw;}
+        /* 큰 텍스트 */
+        .visual .inner li span, .visual .style .font .underline {font-size: 3.5vw;}
+        .visual .style .font .view {font-size: 3.3vw;}
+    /* 이동버튼 */
+    .btn {top: 26%;}
+    .btn.left {background: rgba(0,0,0,0.3); padding: 2vw 2vw 2vw 4vw; border-radius: 0 10px 10px 0;}
+    .btn.right {background: rgba(0,0,0,0.3); padding: 2vw 4vw 2vw 2vw; border-radius: 10px 0 0 10px;}
+    .btn.left::before, .btn.left::after, .btn.right::before, .btn.right::after {display: none;}
+    .btn:hover, .btn:focus {transform: initial;}
+    /* gif */
+    .gif {margin-top: -15vw;}
+    .gif .pc .text {width: 80%; margin: 0 auto;}
+    .gif .pc .text br {display: none;}
+    /* 부영 fullpage */
+    .fullPage .slick-dots {flex-wrap: wrap; width: 165px; top: -77px; right: 10px;}
+    .fullPage .slick-dots li {width: 45%; margin-bottom: 1vw;}
+    /* footer-font */
+    footer .inner .version .text {font-size: 2.2vw;}
+    footer .inner .text {font-size: 2.9vw;}
+    /* footer-layout */
+    footer .arrowTop {width: 9vw; height: 9vw;}
+}
+
+/* ~390 */
+@media screen and (max-width:390px) {
+    /* font-size */
+        /* 공통 */
+        .text, li, .visual .inner .bottom .right li button, .visual .style .color .text, .visual .style .font .text {font-size: 3vw;}
+        .btn, .visual .style .color .box, .visual .style .font .name, .fullPage .slick-dots li button::before {font-size: 2.7vw;}
+        /* 타이틀 */
+        .visual .inner .tit {font-size: 10vw;}
+        .visual .style .tit, .tit, .fullPage .tit {font-size: 8vw;}
+        /* 서브타이틀 : 부영 */
+        .gif.booyoung .subTit {font-size: 6vw;}
+        /* 큰 텍스트 */
+        .visual .inner li span, .visual .style .font .underline {font-size: 4vw;}
+        .visual .style .font .view {font-size: 3.8vw;}
+    /* visual */
+    .visual .bg {height: 50vh;}
+    .visual .style .styleTop {flex-wrap: wrap;}
+    .visual .style .styleTop .left {width: 100%; margin-bottom: 10vw;}
+    .visual .style .styleTop .right {width: 100%;}
+    .visual .inner li span {width: 45px;}
+    .visual .inner .bottom .right li button {margin-right: 1.5vw;}
+    .visual .inner .bottom .right li button a {padding: 2vw 2.5vw;}
+    .visual .style .color .box {width: 50px; margin-right: 1.5vw; margin-bottom: 1.5vw;}
+    .visual .style .color .box.s {width: 50px;}
+    /* gif */
+    .gif {margin-top: -20vw;}
+    /* 부영 gif */
+    .gif.booyoung li.about, .gif.booyoung li.rooms {flex-wrap: wrap-reverse; flex-direction: initial;}
+    .gif.booyoung .index .textBox .text, .gif.booyoung .offers .textBox .text, .gif.booyoung .about .textBox .text, .gif.booyoung .rooms .textBox .text {margin: 0;}
+    /* 부영 fullpage */
+    .fullPage .slick-dots {right: 0;}
+    .fullPage .slick-dots li {margin-bottom: 1.5vw;}
+    .fullPage .slick-dots li button {width: 70px; border-radius: 7px;}
+    /* footer-font */
+    footer .inner .version .text {font-size: 2.2vw;}
+    footer .inner .text {font-size: 3.5vw;}
+    /* footer-layout */
+    footer {height: 40vh;}
+    footer .inner {bottom: 10%;}
+    footer .inner .contact span {width: 25%;}
+    footer .inner .version {padding-top: 5vw;}
+    footer .arrowTop {bottom: 30px;}
+}
+
+
+/* ~306 */
+@media screen and (max-width:306px) {
+    /* visual */
+    .visual .inner li span {width: 35px;}
+}

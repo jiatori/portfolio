@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ko" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StellaSpace_Works_BooyoungHotel</title>
+    
+    <!-- link -->
+    <link rel="stylesheet" href="css/slick.css">
+
+    <!-- script -->
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/script_main.js"></script>
+    <script src="js/scrolla.jquery.min.js"></script> 
+    <!-- 상단 스크롤 프로그래스바(진행바) -->
+    <script type="text/javascript" src="https://rawcdn.githack.com/mburakerman/prognroll/0feda211643153bce2c69de32ea1b39cdc64ffbe/src/prognroll.js"></script>
+
+    <!-- works 상세페이지 공통 style link -->
+    <link rel="stylesheet" href="css/works_details.css">
+    <link rel="stylesheet" href="css/header.css">
+    <!-- works 상세페이지 개별 style -->
+    <style>
+        .wrap {background: #D37348; color: #fff;}
+        .visual .bg {background: url(img/sub_by_visual.png) no-repeat center/cover;}
+        .tit {font-family: 'Times New Roman'; font-size: 72px; font-style: italic; line-height: 0.8; color: #fff; margin-bottom: 50px; text-align: center; font-weight: 600;}
+        .fullPage {background: #FBF9F6;}
+        .visual .style .color .box.a {background: #222; }
+        .visual .style .color .box.b {background: #D37348;}
+        .visual .style .color .box.c {background: #fff; color: #222;}
+        .visual .style .color .box.d {background: #FBF9F6; color: #222;}
+        .visual .style .color .box.e {background: #555;}
+        .visual .style .color .text {margin-bottom: 20px;}
+        .visual .style .font .roman {font-family: 'Times New Roman'; font-style: italic;}
+        .visual .style .font .roman.bold {margin-bottom: 30px;}
+        .fullPage .tit {color: #222; font-family: 'pretendard'; font-style: normal;}
+        footer {background: #222;}
+    </style>
+
+</head>
+
+<body>
+    <div class="wrap">
+        <!-- header -->
+        <header>
+            <h1 class="logo">
+                <a href="index.html">
+                    <img src="img/logo_s.png" alt="로고">
+                </a>
+            </h1>
+            <a href="#" class="menuOpen">
+                <img src="img/menu_open2.png" alt="메뉴오픈 아이콘">
+            </a>
+            <nav class="gnb">
+                <a href="#" class="close">
+                    <img src="img/menu_close.png" alt="메뉴닫기 아이콘">
+                </a>
+                <video src="img/gnb_bg.mp4" muted autoplay loop playsinline></video>
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+                    <li><a href="works.html">WORK</a></li>
+                    <li><a href="portfolio.html">PORTFOLIO</a></li>
+                    <li><a href="https://jiatori.tistory.com/" target='_blank'>BLOG</a></li>
+                </ul>
+            </nav>
+        </header>
+
+
+        <!-- right mark -->
+        <p class="mark"><span></span>Works : Booyoung Hotel</p>
+
+
+        <!-- 다른 리스트로 넘어가는 버튼 -->
+        <button class="left btn animate" data-animate="motion"><a href="works_dopda.html">PREV</a></button>
+        <button class="right btn animate" data-animate="motion"><a href="works_kakao.html">NEXT</a></button>
+
+
+        <!-- section -->
+        <section class="visual" id="main">
+            <p class="bg animate" data-animate="motion"></p>
+            <div class="inner">
+                <h2 class="tit textAni animate" data-animate="motion"><span><b>Booyoung Hotel</b></span></h2>
+                <ul class="top">
+                    <li><span>Date</span>2022.09</li>
+                    <li><span>Work</span>Site Renewal</li>
+                    <li><span>Point</span>Slide Animation, Orange, Image</li>
+                </ul>
+                <div class="bottom oneMode">
+                    <ul class="left">
+                        <li>
+                            <span>Overview</span>
+                            제주 컨벤션 호텔&리조트 부영의 웹사이트를 리뉴얼 하였습니다. <br>
+                            특징적인 주황빛 건물 색상을 강조하였으며, <br>
+                            감성적인 휴양지의 느낌을 표현하였습니다. <br>
+                            <br>
+                            PC Mode로 제작하였으며, <br>
+                            Scrolla.js와 Slick.js를 적용하였습니다.
+                        </li>
+                    </ul>
+                    <ul class="right">
+                        <li>
+                            <span>Mode</span>
+                            <button><a href="#" onclick="window.open('https://jiatori.github.io/works/by/index.html', '_blank','width=1920 height=1080')">Renewal →</a></button>
+                            <button><a href="#" onclick="window.open('https://www.booyoungjejuhotel.com', '_blank','width=1920 height=1080')">Original →</a></button>
+                        </li>
+                        <li>
+                            <span>Program</span>
+                            Visual Studio Code <br>
+                            Adobe XD, Photoshop, Illustrator
+                        </li>
+                    </ul>
+                </div>
+                <div class="style up animate" data-animate="motion">
+                    <h2 class="tit">STYLE GUIDE</h2>
+                    <ul class="styleTop">
+                        <li class="concept left">
+                            <span>Concept</span>
+                            열정적인, 감성적인
+                        </li>
+                        <li class="keyPoint right">
+                            <span>KeyPoint</span>
+                            슬라이드 애니메이션 <br>
+                            이미지 및 여백 활용
+                        </li> 
+                    </ul>
+                    <ul class="styleBottom">
+                        <li class="color left">
+                            <span>Color</span>
+                            <span class="text by">
+                                태양에 익은 듯 한 주황빛의 건물 외관을 강조하기 위해 <br>
+                                주황색 포인트컬러를 사용했으며, 포인트컬러를 돋보이게 해주는 <br>
+                                낮은 채도의 차분한 컬러를 함께 사용
+                            </span>
+                            <span>Main</span>
+                            <span class="box a">#222</span>
+                            <span class="box b">#D37348</span>
+                            <span class="box c">#FFF</span>
+                            <span>Sub</span>
+                            <span class="box s d">#FBF9F6</span>
+                            <span class="box s e">#555</span>
+                        </li> 
+                        <li class="font right">
+                            <span>Font</span>
+                            <span class="name"><span class="underline">Time New Roman Italic</span>(영문 Title/SubTitle)</span>
+                            <span class="text">열정적/이국적인 느낌의 폰트</span>
+                            <span class="thin view roman">Booyoung</span>
+                            <span class="bold view roman">Booyoung</span>
+                            
+                            <span class="name"><span class="underline">Pretendard</span>(국문/영문 SubTitle, Text)</span>
+                            <span class="text">깔끔하고 정돈된 느낌의 폰트</span>
+                            <span class="thin view">부영호텔</span>
+                            <span class="medium view">부영호텔</span>
+                            <span class="bold view">부영호텔</span>
+                            <span class="thin view">Booyoung</span>
+                            <span class="medium view">Booyoung</span>
+                            <span class="bold view">Booyoung</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="gif booyoung">
+            <ul class="inner">
+                <li class="index up animate" data-animate="motion">
+                    <div class="textBox">
+                        <p class="subTit">INDEX page</p>
+                        <p class="text">
+                            부영호텔의 메인 페이지입니다. <br>
+                            <br>
+                            섹션마다 slide를 사용하여, 서브 페이지의 <br>
+                            최신 내용을 한 번에 확인할 수 있도록 하였으며, <br>
+                            <br>
+                            주황색 포인트 컬러를 각 섹션의 제목과, <br>
+                            텍스트의 hover 효과 색상으로 사용했습니다.
+                        </p>
+                    </div>
+                    <p class="img"><img src="img/gif_by_index.gif" alt="인덱스gif"></p>
+                </li>
+                <li class="about up animate" data-animate="motion">
+                    <p class="img"><img src="img/gif_by_about.gif" alt="어바웃gif"></p>
+                    <div class="textBox">
+                        <p class="subTit">ABOUT page</p>
+                        <p class="text">
+                            부영호텔 소개 페이지입니다. <br>
+                            <br>
+                            배경이미지를 width:100% 로 배치하고 <br>
+                            텍스트를 최소화하여 개방감있게 표현하였으며, <br>
+                            <br>
+                            여러 페이지에 분리되어있던 소개 관련 내용을 <br>
+                            한 페이지로 합쳐 편리함을 높였습니다. <br>
+                            <br>
+                            background-attachment를 fixed로 하여 <br>
+                            한 장씩 넘기는 듯 한 효과를 주었습니다. 
+                        </p>
+                    </div>
+                </li>
+                <li class="offers up animate" data-animate="motion">
+                    <div class="textBox">
+                        <p class="subTit">OFFERS page</p>
+                        <p class="text">
+                            프로모션/이벤트 페이지입니다. <br>
+                            <br>
+                            각 이벤트를 클릭하지 않더라도 세부 내용을 <br>
+                            확인할 수 있도록 하였으며, 여백을 활용하고 <br>
+                            콘텐츠를 중앙 정렬하여 가독성을 높였습니다.
+                        </p>
+                    </div>
+                    <p class="img"><img src="img/gif_by_offers.gif" alt="오퍼gif"></p>
+                </li>
+                <li class="rooms up animate" data-animate="motion">
+                    <p class="img"><img src="img/gif_by_rooms.gif" alt="객실gif"></p>
+                    <div class="textBox">
+                        <p class="subTit">ROOMS page</p>
+                        <p class="text">
+                            객실 소개 페이지입니다. <br>
+                            <br>
+                            같은 종류의 객실끼리 묶어 쉽게 이동할 수 있는 <br>
+                            버튼을 두었으며, 직관적인 비교를 위해 <br> 
+                            아이콘을 활용하였습니다.<br>
+                            <br>
+                            중요한 안내사항은 항상 보일 수 있도록 <br>
+                            position: sticky를 사용하여 우측에 고정하였으며 <br>
+                            공유하기 버튼을 클릭하면 주소가 복사됩니다.
+                        </p>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+
+        <section class="fullPage">
+            <div class="inner">
+                <h2 class="tit up animate" data-animate="motion">FULL PAGE</h2>
+                <p class="text up by animate" data-animate="motion">최종 결과물 Full Page입니다. <br class="mo">버튼을 클릭해서 모든 페이지를 살펴보세요.</p>
+                <ul class="slide">
+                    <li><p class="img"><img src="img/full_by1.jpg" alt="index풀페이지"></p></li>
+                    <li><p class="img"><img src="img/full_by4.jpg" alt="about풀페이지"></p></li>
+                    <li><p class="img"><img src="img/full_by2.jpg" alt="offers풀페이지"></p></li>
+                    <li><p class="img"><img src="img/full_by3.jpg" alt="rooms풀페이지"></p></li>
+                </ul>
+            </div>
+        </section>
+
+
+        <!-- footer -->
+        <footer>
+            <div class="bg"><img src="img/sub_footer_booyoung.png" alt="푸터 이미지"></div>
+            <a href="#main" class="arrowTop">
+                <img src="img/arrowtop.png" alt="위로가기버튼">
+                <img src="img/arrowtop2.png" alt="위로가기버튼hover버전">
+            </a>
+            <ul class="inner">
+                <li class="logo"><a href="index.html"><img src="img/footer_logo.png" alt="로고"></a></li>
+                <li class="profile">
+                    <p class="text">송지연 Stella Song</p>
+                    <p class="text">Web Publisher</p>
+                    <p class="text">Seoul, Republic of Korea</p>
+                </li>
+                <li class="contact">
+                    <p class="text"><span>Phone</span>+82 10-6622-5428</p>
+                    <p class="text"><span>E-Mail</span>shjy27@gmail.com</p>
+                    <p class="text"><span>Blog</span>jiatori.tistory.com</p>
+                </li>
+                <li class="version"><p class="text">PORTPOLIO DEC.2022</p></li>
+            </ul>
+        </footer>
+    </div>
+
+
+<!-- FOUC 현상 제거 -->
+<script>
+    $(function(){
+        $('html').removeClass('no-js');
+    });
+</script>
+
+</body>
+</html>

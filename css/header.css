@@ -1,0 +1,83 @@
+@charset "utf-8";
+/* web font */
+@import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css");
+
+
+/* reset */
+* {margin: 0;padding: 0;}
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, tbody, tfoot, thead, tr, th, td{margin:0;padding:0;}
+h1, h2, h3, h4, h5, h6 {font-weight: 200; font-size: inherit;}
+a {color: inherit; text-decoration: inherit;}
+img {vertical-align: middle;}
+a img {border: none;}
+li {list-style: none;}
+address, em, i {font-style: normal;}
+a:focus {outline: none}
+button:focus {outline: none}
+
+
+/* header */
+header {width: 100%; position: fixed; z-index: 100;}
+header .logo {width: 200px; position: absolute; left: 0; top: 10px;}
+header .logo a {display: block; width: 100%; height: 100%;}
+header .logo a img {width: 100%;}
+
+
+/* header gnb menu */
+.menuOpen {display: inline-block; position: absolute; top: 40px; right: 70px; width: 70px; animation-name: menu; animation-duration: 6s; animation-iteration-count: infinite; animation-timing-function: linear;}
+.menuOpen img {width: 100%;}
+@keyframes menu {
+    0% {transform: rotate(0);}
+    50% {transform: skewX(-20deg);}
+    50% {opacity: 0.7;}
+    70% {filter: brightness(1.2);}
+    100% {transform: skew(0);}
+}
+.gnb {width: 100%; height: 100vh; position: absolute; top: 0; right: -100%; color: #fff; z-index: 200; background: #000; opacity: 0; transition: right 0.6s, opacity 0.8s;}
+.gnb.on {opacity: 1; right: 0;}
+.gnb .close {position: absolute; top: 48px; right: 78px; z-index: 200; width: 40px; height: 40px;}
+.gnb .close img {width: 100%;}
+.gnb video {width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: -1; opacity: 0.2;}
+.gnb ul {position: absolute; top: 50%; left: 15%; transform: translateY(-50%);}
+.gnb ul li {margin-bottom: 10px; cursor: pointer; transition: all 0.4s;}
+.gnb ul li a {display: inline-block; font-size: 72px; font-family: 'Paytone one';}
+/* hover, focus */
+.gnb ul li:hover {transform: skew(-10deg); color: #FEDF79;}
+
+
+/* ~ 1380px */
+@media screen and (max-width:1380px) {
+    .menuOpen {right: 40px;}
+    .gnb .close {right: 50px;}
+    .gnb ul li a {font-size: 62px;}
+    header .logo {left: -10px;}
+}
+
+/* ~ 840px */
+@media screen and (max-width:840px) {
+    .menuOpen {right: 30px;}
+    .gnb .close {right: 40px;}
+    .gnb ul li a {font-size: 52px;}
+    header .logo {left: -20px;}
+}
+
+/* ~ 600px */
+@media screen and (max-width:600px) {
+    header .logo {width: 150px;}
+    .menuOpen {width: 60px; top: 30px;}
+    .gnb .close {top: 35px;}
+    .gnb ul li a {font-size: 9vw;}
+}
+
+/* ~ 420px */
+@media screen and (max-width:420px) {
+    .gnb ul {left: 10%;}
+    .gnb ul li a {font-size: 10vw;}
+}
+
+/* ~ 390px */
+@media screen and (max-width:390px) {
+    .menuOpen {right: 15px;}
+    .gnb .close {right: 25px;}
+}
